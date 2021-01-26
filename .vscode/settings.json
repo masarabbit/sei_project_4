@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#6fe0fc",
+    "titleBar.activeBackground": "#6fe0fc",
+    "titleBar.inactiveBackground": "#6fe0fc",
+    "statusBar.foreground": "#000",
+    "titleBar.inactiveForeground": "#000",
+    "titleBar.activeForeground": "#000",
+  },
+  "window.title": "dotomo"
+}
