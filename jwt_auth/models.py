@@ -4,3 +4,8 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     email = models.CharField(max_length=50, unique=True)
     profile_image = models.CharField(max_length=300)
+    # followed_by = models.ManyToManyField(
+    #     "jwt_auth.User",
+    #     related_name="following",
+    #     blank=True
+    # )

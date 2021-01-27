@@ -1,0 +1,100 @@
+[
+{
+  "model": "categories.category",
+  "pk": 1,
+  "fields": {
+    "name": "abstract"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 2,
+  "fields": {
+    "name": "animal"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 3,
+  "fields": {
+    "name": "architecture"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 4,
+  "fields": {
+    "name": "fan art"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 5,
+  "fields": {
+    "name": "film and TV show"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 6,
+  "fields": {
+    "name": "food"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 7,
+  "fields": {
+    "name": "game"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 8,
+  "fields": {
+    "name": "music"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 9,
+  "fields": {
+    "name": "plant"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 10,
+  "fields": {
+    "name": "portrait"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 11,
+  "fields": {
+    "name": "sport"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 12,
+  "fields": {
+    "name": "transport"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 13,
+  "fields": {
+    "name": "travel"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 14,
+  "fields": {
+    "name": "other"
+  }
+}
+]
