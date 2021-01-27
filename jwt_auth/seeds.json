@@ -17,5 +17,43 @@
     "groups": [],
     "user_permissions": []
   }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "masa",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "masa@email.com",
+    "profile_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "test@email.com",
+    "profile_image": "",
+    "groups": [],
+    "user_permissions": []
+  }
 }
 ]

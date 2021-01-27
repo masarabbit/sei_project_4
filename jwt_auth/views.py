@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticated
 from datetime import datetime, timedelta
 from django.contrib.auth import get_user_model
@@ -60,3 +60,29 @@ class ProfileView(APIView):
         user = User.objects.get(pk=request.user.id)
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)        
+
+
+class UserFollowView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, pk):
+        try:
+            user_to_follow = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound()
+        user_to_follow.followed_by.add(request.user.id) #!possibly change this so that it can be toggled.
+        user_to_follow.save()
+        serialized_followed_user = PopulatedUserSerializer(user_to_follow)
+        return Response(serialized_followed_user.data, status=status.HTTP_201_CREATED)  
+    
+    #unfollow 
+    def delete(self, request, pk):
+        try:
+            user_to_unfollow = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound()
+        user_to_unfollow.followed_by.remove(request.user.id) #!possibly change this so that it can be toggled.
+        user_to_unfollow.save()
+        serialized_followed_user = PopulatedUserSerializer(user_to_unfollow)
+        return Response(serialized_followed_user.data, status=status.HTTP_201_CREATED)                    

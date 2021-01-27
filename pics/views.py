@@ -78,4 +78,12 @@ class PicFavoriteView(PicDetailView):
         pic_to_favorite.favorited_by.add(request.user.id) #!possibly change this so that it can be toggled.
         pic_to_favorite.save()
         serialized_favorited_pic = PopulatedPicSerializer(pic_to_favorite)
-        return Response(serialized_favorited_pic.data, status=status.HTTP_201_CREATED)    
+        return Response(serialized_favorited_pic.data, status=status.HTTP_201_CREATED)
+
+
+    def delete(self, request, pk):
+        pic_to_unfavorite = self.get_pic(pk=pk)
+        pic_to_unfavorite.favorited_by.remove(request.user.id) #!possibly change this so that it can be toggled.
+        pic_to_unfavorite.save()
+        serialized_favorited_pic = PopulatedPicSerializer(pic_to_unfavorite)
+        return Response(serialized_favorited_pic.data, status=status.HTTP_201_CREATED)        
