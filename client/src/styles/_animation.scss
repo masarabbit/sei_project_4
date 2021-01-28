@@ -1,0 +1,76 @@
+
+
+.dot.display{
+  // animation: float_up 1s forwards;
+  top: 0;
+}
+
+@keyframes float_up {
+  0% {top: -200vh;}
+  100% {top: 0;}
+}
+
+
+@keyframes palette_load {
+  0%{
+    opacity: 0;
+    transform: scale(0.5) translateX(-200vh);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translateX(0vh);
+  }
+}
+
+
+@keyframes click{
+  0%{transform: scale(1);}
+  50%{transform: scale(1.2);}
+  100%{transform: scale(1);}
+}
+
+
+@keyframes form_load {
+  0% {
+    border: 1px solid black;
+    background-color: black;
+    left: -200vh;
+    // transform: scale(0.5,1); /*do it with scale transform instead*/ 
+    height: 0;
+    width: 0;
+  }
+  40% {
+    left: 30vh; 
+    height: 0;
+    width: 0;
+  }
+  60% {
+    left: 0vh; 
+    height: 0;
+    width: 200px;
+  }
+  61% {
+    border: 1px solid black;
+    background-color: black;
+    height: 0;
+  }
+  80% {
+    border: 1px solid #b2eaf9;
+    background-color: white;
+    height: 0;
+  }
+  // 90% {
+  //   height: 250px;
+  // }
+  // 95% {
+  //   height: 170px;
+  //   width: 240px;
+  // }
+  100% {
+    border: 1px solid #b2eaf9;
+    background-color: white;
+    left: 0vh; 
+    // transform: scale(1); 
+    height: 200px;
+  }
+}
