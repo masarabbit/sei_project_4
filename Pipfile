@@ -9,6 +9,7 @@ pylint = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
 pyjwt = "*"
+djangorestframework-camel-case = "*"
 
 [dev-packages]
 

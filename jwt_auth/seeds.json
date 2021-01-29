@@ -13,7 +13,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "admin@email.com",
-    "profile_image": "",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
     "groups": [],
     "user_permissions": []
   }
@@ -32,7 +32,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "masa@email.com",
-    "profile_image": "",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
     "groups": [],
     "user_permissions": []
   }
@@ -51,7 +51,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "test@email.com",
-    "profile_image": "",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
     "groups": [],
     "user_permissions": []
   }

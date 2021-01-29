@@ -62,7 +62,7 @@ function DotsExp(){
         title: picInfo.title, 
         image: drawingUrl, 
         dots: JSON.stringify(dots), 
-        color_palette: JSON.stringify(sortedByFrequencyDuplicatesAndBlankRemoved(dots)),
+        colorPalette: JSON.stringify(sortedByFrequencyDuplicatesAndBlankRemoved(dots)),
         categories: picInfo.categories,
         artist: 2  //! need to get from token 
       })
@@ -70,6 +70,7 @@ function DotsExp(){
     } catch (err){
       console.log(err)
     }
+    
   }
 
   useEffect(() => {

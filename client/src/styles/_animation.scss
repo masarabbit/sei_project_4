@@ -32,12 +32,13 @@
 
 @keyframes form_load {
   0% {
-    border: 1px solid black;
+    border: 2px solid black;
     background-color: black;
     left: -200vh;
     // transform: scale(0.5,1); /*do it with scale transform instead*/ 
     height: 0;
     width: 0;
+    padding: 10px;
   }
   40% {
     left: 30vh; 
@@ -47,30 +48,152 @@
   60% {
     left: 0vh; 
     height: 0;
-    width: 200px;
+    width: 300px;
   }
   61% {
-    border: 1px solid black;
+    border: 2px solid black;
     background-color: black;
     height: 0;
   }
   80% {
-    border: 1px solid #b2eaf9;
+    border: 2px solid #b2eaf9;
     background-color: white;
     height: 0;
+    padding: 10px 20px;
   }
-  // 90% {
-  //   height: 250px;
-  // }
-  // 95% {
-  //   height: 170px;
-  //   width: 240px;
-  // }
   100% {
-    border: 1px solid #b2eaf9;
+    border: 2px solid #b2eaf9;
     background-color: white;
     left: 0vh; 
-    // transform: scale(1); 
+    padding: 30px 20px 20px 20px;
     height: 200px;
+    width: 300px;
   }
+}
+
+
+@keyframes sign_up_form_load {
+  0% {
+    border: 2px solid black;
+    background-color: black;
+    left: -200vh;
+    // transform: scale(0.5,1); /*do it with scale transform instead*/ 
+    height: 0;
+    width: 0;
+    padding: 10px;
+  }
+  40% {
+    left: 30vh; 
+    height: 0;
+    width: 0;
+  }
+  60% {
+    left: 0vh; 
+    height: 0;
+    width: 300px;
+  }
+  61% {
+    border: 2px solid black;
+    background-color: black;
+    height: 0;
+  }
+  80% {
+    border: 2px solid #b2eaf9;
+    background-color: white;
+    height: 0;
+    padding: 10px 20px;
+  }
+  100% {
+    border: 2px solid #b2eaf9;
+    background-color: white;
+    left: 0vh; 
+    padding: 30px 20px 20px 20px;
+    height: 500px;
+    width: 300px;
+  }
+}
+
+@keyframes form_accepted {
+  0% {
+    border: 2px solid #b2eaf9;
+    background-color: white;
+    left: 0vh; 
+    padding: 30px 20px 20px 20px;
+    height: 200px;
+    width: 300px;
+  }
+  40% {
+    border: 2px solid #b2eaf9;
+    background-color: white;
+    height: 0;
+    padding: 10px 20px;
+  }
+  60% {
+    border: 2px solid black;
+    background-color: black;
+    height: 0;
+    width: 300px;
+  }
+  // 70% {
+  //   height: 0;
+  //   left: 0vh; 
+  //   width: 0;
+  // }
+  80% {
+    height: 0;
+    left: 0vh; 
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    border: 2px solid black;
+    background-color: black;
+    left: 50vh; 
+    height: 0;
+    width: 0;
+    padding: 10px;
+    opacity: 0;
+  }
+}
+
+.shake {
+  animation: shake infinite 0.2s;
+  border: 1px solid red;
+}
+
+@keyframes shake {
+  0% { margin-left: -10px;}
+  50% { margin-left: 10px;}
+  100% { margin-left: -10px;}
+}
+
+
+@keyframes bop {
+  0% { bottom: 0px;}
+  50% { bottom: 5px;}
+  100% { bottom: 0px;}
+}
+
+
+/* button related */
+
+@keyframes shiver_zero {
+  0%{transform: translate(0);}
+  50%{transform: translate(0, -2px);}
+  100%{transform: translate(0);}
+}
+
+@keyframes shiver_one {
+  0%{transform: translate(0);}
+  50%{transform: translate(-5px, -5px);}
+/*   40%{transform: translate(0, -5px);}
+  90%{transform: translate(0);} */
+  100%{transform: translate(0);}
+}
+
+@keyframes shiver_two {
+  0%{transform: translate(0);}
+  50%{transform: translate(5px, 5px);}
+/*   60%{transform: translate(0, 5px);} */
+  100%{transform: translate(0);}
 }

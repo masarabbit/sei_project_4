@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'process.env.SECRET'
+SECRET_KEY = '_qs#_$(b&a8@nr2zsfs3uic%3xx-)+*vj3%oqn-h^648zdnj3r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -128,11 +128,24 @@ STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'jwt_auth.User'
 
-REST_FRAMEWORK = {  
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ],
+# REST_FRAMEWORK = {  
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+#     ],
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'jwt_auth.authentication.JWTAuthentication'
+#     ],
+# }
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+        'djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'jwt_auth.authentication.JWTAuthentication'
     ],

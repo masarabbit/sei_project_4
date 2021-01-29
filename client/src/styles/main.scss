@@ -1,5 +1,5 @@
-@import 'animation';
 @import 'variables';
+@import 'animation';
 @import 'form';
 
 
@@ -16,6 +16,16 @@ p, h1, h2, h3, h4 {
   box-sizing: border-box;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  border: $light_pink solid;
+  border-width: 0 0 1px 0;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -25,6 +35,8 @@ body {
   // animation: bg_scrolling 4s infinite linear; 
 }
 
+
+
 nav {
   border: 1px solid blue;
   height: $nav_height;
@@ -33,14 +45,167 @@ nav {
   padding: 0 20px;
 }
 
+.link_menu {
+  border: red 1px solid;
+  width: 200px;
+  margin: 0 0 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  img {
+    height: 40px;
+    width: auto;
+    border: 1px solid $light_blue;
+    background-color: white;
+  }
+}
+
+.index_wrapper {
+  border: 1px solid red;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.index {
+  border: 1px solid $light_blue;
+  padding: 10px;
+  width: calc(25% - 30px);
+  margin: 15px;
+  // height: 200px;
+  
+  .index_palette {
+    margin: 10px 0 0 0;
+    width: 100%;
+    display: flex;
+
+    div {
+      // height: 30px;
+      padding: calc(1 / 16 * 100%);
+      width: calc(100% / 8);
+    }
+  }
+
+
+  img {
+    width: 100%;
+    height: auto;
+    // background-color: white;
+  }
+}
+
 .wrapper {
   height: calc(100vh - 50px);
   width: 100%;
-  border: 1px solid hotpink;
+  // border: 1px solid hotpink;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.wrapper.non_center {
+  padding: 60px;
+  justify-content: flex-start;
+  border: red solid 1px;
+}
+
+.pic_info {
+  // border: 1px solid pink;
+  width: 320px;
+  padding: 10px;
+
+  .title {
+    font-size: 17px;
+    // font-weight: 900;
+  }
+
+  .description {
+    font-size: 13px;
+    padding: 0px 0 0 0;
+  }
+
+  .categories {
+    font-size: 13px;
+    color: $dark_blue;
+    padding: 5px 0 0 0;
+  }
+}
+
+.interaction_menu {
+  // border: pink solid 1px;
+  padding: 0px 5px;
+  width: 320px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.artist_icon {
+  border: 1px solid $light_blue;
+  margin: 0 auto 0 0;
+  height: 40px;
+  cursor: pointer;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.artist_icon:hover {
+  border: 1px solid $light_pink;
+  position: relative;
+  animation: bop infinite 0.5s;
+}
+
+.stats {
+  // border: blue solid 1px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px 0 2px;
+}
+
+.menu_button {
+  // border: red solid 1px;
+  width: 30px;
+  margin: 0 5px; 
+  display: flex;
+
+  img {
+    position: relative;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  img:hover {
+    filter: hue-rotate(180deg);
+    animation: bop infinite 0.5s;
+  }
+}
+
+.comment_menu_wrapper {
+  position: fixed;
+  top: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  transition: 1s;
+  display:none;
+}
+
+.comment_menu_wrapper.display {
+  z-index: 10;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(53, 188, 250, 0.562);
 }
 
 .map {

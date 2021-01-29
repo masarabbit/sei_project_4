@@ -1,49 +1,303 @@
 
 
-input {
-  padding: 5px 10px;
+
+input, textarea {
+  padding: 5px 8px;
   border-color: black;
-  border-width: 0 0 1px 0;
+  border-width: 0 0 2px 0;
+  font-family: $main_font;
+  width: 100%;
+}
+
+
+
+
+input:hover {
+  border-color: $light_pink;
+}
+
+// ::placeholder {
+//   color: $light_blue;
+// }
+
+input:focus, textarea:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px $light_pink;
+  border: 0;
+}
+
+.button_wrapper {
+  // border: 1px solid red;
+  width: 100%;
+  display: flex;
+  margin: auto 0 0 0;
 }
 
 button {
-  padding: 7px 10px;
-  border: 0;
-  margin: 10px;
+  margin: 0 0 0 auto;
   color: white;
-  background-color: black;
+  background: black;
+  border-width: 0px;
+  padding: 6px 10px;
+  position: relative;
+  left: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: $main_font;
+}
+
+button.sign_in, button.sign_up, button.submit {
+  margin: 0 auto;
+}
+
+button::after,button::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  color: white;
+  border-width: 0px;
+  padding: 6px 10px;
+  mix-blend-mode: color-burn;
+}
+
+button.submit:after,button.submit:before {
+  content: "submit";
+}
+
+button.sign_in:after,button.sign_in:before {
+  content: "sign in";
+}
+
+button.sign_up:after,button.sign_up:before {
+  content: "sign up";
+}
+
+button::before{
+  background: $light_blue;
+}
+
+button::after{
+  background: $light_pink;
+}
+
+button:hover {
+  animation: shiver_zero 0.5s infinite;
+}
+
+button:hover::before {
+  animation: shiver_one 0.5s infinite;
+}
+
+button:hover::after{
+  animation: shiver_two 0.5s infinite;
+}
+
+form.comment {
+  animation: form_load forwards ease 1.4s;  /* to be edited */
+  position: relative;
+  
+  overflow: hidden;
+  // margin: 0;
+
+  .cross {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 10px;
+    // border: 1px solid red;
+    height: 25px;
+    width: 25px;
+
+    img {
+      height: 100%;
+      width: auto;
+      cursor: pointer;
+    }
+
+    img:hover {
+      animation: spin infinite 1.2s;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0);}
+  50% { transform: rotate(0);}
+  // 50% { transform: rotate(360deg);}
+  100% { transform: rotate(360deg);}
+}
+
+
+form.sign_up {
+  animation: sign_up_form_load forwards ease 1.4s;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+form.sign_in {
+  animation: form_load forwards ease 1.4s;
+  overflow: hidden;
+}
+
+form.accepted {
+  animation: form_accepted forwards ease 1s;
+  overflow: hidden;
 }
 
 form {
   position: relative;
-  border: 1px solid #b2eaf9;
-  padding: 10px;
+  border: 2px solid #b2eaf9;
+  padding: 30px 20px 20px 20px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  animation: form_load forwards ease 1.4s;
-  overflow: hidden;
-  // height: 200px;
+  height: 200px;
+  width: 300px;
   transform-origin: 100% 0%;
+  margin: -150px 0 0 0;
 
   .input_box {
+    display: flex;
     margin: 10px;
+
+    img.range {
+      margin: 0 8px 0 0;
+    }
+    
+    img {
+      height: 30px;
+      width: auto; 
+      margin: 0 10px 0 0;
+    }
+
+    img.hover {
+      position: relative;
+      animation: bop infinite 0.5s;
+    }
   }
 
-  input {
-    border-width: 0 0 1px 0;
-    border-color: black;
-  }
+  // input {
+  //   border-width: 0 0 1px 0;
+  //   border-color: black;
+  // }
+}
+
+.upload_button_wrapper {
+  margin: 0 auto;
+  display: flex;
+  height: 150px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $light_blue;
+}
+
+.input_wrapper {
+  height:40px;
+  // margin: 8px 5px;
+  // overflow: hidden;
+  // border: red 1px solid;
+}
+
+.upload_button {
+  background-color: black;
+  color: white;
+  font-size: 13.5px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.upload_button.hover{
+  animation: shiver_zero 0.5s infinite;
+}
+
+.upload_button::after,.upload_button::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  color: white;
+  border-width: 0px;
+  padding: 10px;
+  mix-blend-mode: color-burn;
+  content:"upload profile image";
+}
+
+
+.upload_button::before{
+  background: $light_blue;
+}
+
+.upload_button::after{
+  background: $light_pink;
+}
+
+.upload_button.hover::before {
+  animation: shiver_one 0.5s infinite;
+}
+
+.upload_button.hover::after{
+  animation: shiver_two 0.5s infinite;
 }
 
 
 
 
-/*input range*/
+
+input[type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input[type="file"]:focus {
+  // outline: 0;
+  box-shadow: 0 0 0 transparent;
+}
+
+
+.profile_preview {
+  border: $light_blue solid 2px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+
+}
+
+
+
+/* new input range */
+
+.range_display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  width: 35px;
+}
 
 input[type=range] {
-  width: 300px;
-  margin: 4.35px 0;
+  width: 100%;
+  // margin: 8px 0;
+  padding: 0;
   background-color: transparent;
   -webkit-appearance: none;
 }
@@ -51,81 +305,171 @@ input[type=range]:focus {
   outline: none;
 }
 input[type=range]::-webkit-slider-runnable-track {
-  background: #ffffff;
-  border: 0.3px solid #d6d5d5;
-  border-radius: 25px;
+  background: #b2eaf9;
+  border: 0.2px solid rgba(1, 1, 1, 0);
   width: 100%;
-  height: 11.3px;
+  height: 4px;
   cursor: pointer;
 }
 input[type=range]::-webkit-slider-thumb {
-  margin-top: -4.65px;
+  margin: -8.2px 0 0 0;
   width: 20px;
   height: 20px;
-  background: #ffffff;
-  border: 1.2px solid #d0d4d4;
-  border-radius: 50px;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0);
   cursor: pointer;
   -webkit-appearance: none;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #ffffff;
+  // background: #caf0fb;
+  background: transparent;
 }
 input[type=range]::-moz-range-track {
-  background: #ffffff;
-  border: 0.3px solid #d6d5d5;
-  border-radius: 25px;
+  background: #b2eaf9;
+  border: 0.2px solid rgba(1, 1, 1, 0);
   width: 100%;
-  height: 11.3px;
+  height: 4px;
   cursor: pointer;
 }
 input[type=range]::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: #ffffff;
-  border: 1.2px solid #d0d4d4;
-  border-radius: 50px;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0);
   cursor: pointer;
 }
 input[type=range]::-ms-track {
   background: transparent;
   border-color: transparent;
-  border-width: 4.35px 0;
+  border-width: 9px 0;
   color: transparent;
   width: 100%;
-  height: 11.3px;
+  height: 4px;
   cursor: pointer;
 }
 input[type=range]::-ms-fill-lower {
-  background: #f2f2f2;
-  border: 0.3px solid #d6d5d5;
-  border-radius: 50px;
+  background: #9ae4f7;
+  border: 0.2px solid rgba(1, 1, 1, 0);
 }
 input[type=range]::-ms-fill-upper {
-  background: #ffffff;
-  border: 0.3px solid #d6d5d5;
-  border-radius: 50px;
+  background: #b2eaf9;
+  border: 0.2px solid rgba(1, 1, 1, 0);
 }
 input[type=range]::-ms-thumb {
   width: 20px;
   height: 20px;
-  background: #ffffff;
-  border: 1.2px solid #d0d4d4;
-  border-radius: 50px;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0);
   cursor: pointer;
   margin-top: 0px;
-  /*Needed to keep the Edge thumb centered*/
+  /*Needed to keep the Edge thumb centred*/
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #ffffff;
+  background: #b2eaf9;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #ffffff;
+  background: #caf0fb;
 }
-
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
 @supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
   input[type=range] {
     margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
-/*input range*/
+
+
+
+
+// /*input range*/
+
+// input[type=range] {
+//   width: 300px;
+//   margin: 4.35px 0;
+//   background-color: transparent;
+//   -webkit-appearance: none;
+// }
+// input[type=range]:focus {
+//   outline: none;
+// }
+// input[type=range]::-webkit-slider-runnable-track {
+//   background: #ffffff;
+//   border: 0.3px solid #d6d5d5;
+//   border-radius: 25px;
+//   width: 100%;
+//   height: 11.3px;
+//   cursor: pointer;
+// }
+// input[type=range]::-webkit-slider-thumb {
+//   margin-top: -4.65px;
+//   width: 20px;
+//   height: 20px;
+//   background: #ffffff;
+//   border: 1.2px solid #d0d4d4;
+//   border-radius: 50px;
+//   cursor: pointer;
+//   -webkit-appearance: none;
+// }
+// input[type=range]:focus::-webkit-slider-runnable-track {
+//   background: #ffffff;
+// }
+// input[type=range]::-moz-range-track {
+//   background: #ffffff;
+//   border: 0.3px solid #d6d5d5;
+//   border-radius: 25px;
+//   width: 100%;
+//   height: 11.3px;
+//   cursor: pointer;
+// }
+// input[type=range]::-moz-range-thumb {
+//   width: 20px;
+//   height: 20px;
+//   background: #ffffff;
+//   border: 1.2px solid #d0d4d4;
+//   border-radius: 50px;
+//   cursor: pointer;
+// }
+// input[type=range]::-ms-track {
+//   background: transparent;
+//   border-color: transparent;
+//   border-width: 4.35px 0;
+//   color: transparent;
+//   width: 100%;
+//   height: 11.3px;
+//   cursor: pointer;
+// }
+// input[type=range]::-ms-fill-lower {
+//   background: #f2f2f2;
+//   border: 0.3px solid #d6d5d5;
+//   border-radius: 50px;
+// }
+// input[type=range]::-ms-fill-upper {
+//   background: #ffffff;
+//   border: 0.3px solid #d6d5d5;
+//   border-radius: 50px;
+// }
+// input[type=range]::-ms-thumb {
+//   width: 20px;
+//   height: 20px;
+//   background: #ffffff;
+//   border: 1.2px solid #d0d4d4;
+//   border-radius: 50px;
+//   cursor: pointer;
+//   margin-top: 0px;
+//   /*Needed to keep the Edge thumb centered*/
+// }
+// input[type=range]:focus::-ms-fill-lower {
+//   background: #ffffff;
+// }
+// input[type=range]:focus::-ms-fill-upper {
+//   background: #ffffff;
+// }
+
+// @supports (-ms-ime-align:auto) {
+//   input[type=range] {
+//     margin: 0;
+//   }
+// }
+// /*input range*/

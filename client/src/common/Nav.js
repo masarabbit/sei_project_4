@@ -1,10 +1,70 @@
 import React from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
+
+import { getUserInfo } from '../lib/api'
+import { logout, isAuthenticated } from '../lib/auth'
 
 function Nav(){
+  const loggedIn = isAuthenticated()
+  const { pathname } = useLocation()
+  const history = useHistory()
+  const [userData, setUserData] = React.useState(null)
+
+  React.useEffect(() => {
+    if (!loggedIn) return
+    const getData = async () => {
+      try {
+        const { data } = await getUserInfo()
+        setUserData(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getData()
+  }, [pathname])
+
+  const handleLogout = () => {
+    logout()
+    history.push('/login')
+    setUserData(null)
+    // setuserMenuDisplay(false)
+    // window.location.reload()
+  }
+
+  if (userData) console.log(userData)
 
   return (
     <nav>
-      <p>nav</p>
+      <Link to="/">
+        <p>16</p>
+      </Link>
+      <div className="link_menu">
+        {
+          userData ?
+            <>
+              <img src={userData.profileImage} 
+                alt="profile image" 
+                // onClick={}
+              />
+              <button onClick={handleLogout}>
+                logout
+              </button>
+            </>
+            :
+            <>
+              <Link to="/signup">
+                sign up
+              </Link>
+              <Link to="/login">
+                login
+              </Link>
+            </>
+        }
+    
+        <Link to="/pics/new">
+          draw
+        </Link>
+      </div>
     </nav>
   )
 }
