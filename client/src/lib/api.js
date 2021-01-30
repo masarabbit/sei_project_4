@@ -25,9 +25,31 @@ export function createPic(formdata){
 }
 
 export function getUserInfo() {
-  return axios.get('/api/auth/profile/', headers())
+  return axios.get(`${baseUrl}/auth/profile/`, headers())
 } 
 
 export function createComment(formdata) {
-  return axios.post('/api/comments/', formdata, headers() )
+  return axios.post(`${baseUrl}/comments/`, formdata, headers() )
+}
+
+export function favorite(picId) {
+  return axios.post(`${baseUrl}/pics/${picId}/favorite/`, null, headers() )
+}
+
+export function unFavorite(picId) {
+  return axios.delete(`${baseUrl}/pics/${picId}/favorite/`, headers() )
+}
+
+export function followArtist(id) {
+  return axios.post(`${baseUrl}/auth/${id}/follow/`, null, headers() )
+}
+
+export function unfollowArtist(id) {
+  return axios.delete(`${baseUrl}/auth/${id}/follow/`, headers() )
+}
+
+
+
+export function getArtistPics(id) {
+  return axios.get(`${baseUrl}/auth/${id}/artist_profile/`)
 }

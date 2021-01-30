@@ -7,6 +7,7 @@ import ShowPic from './components/ShowPic'
 import CreatePic from './components/CreatePic'
 import Login from './auth/Login'
 import SignUp from './auth/SignUp'
+import ShowArtistPics from './components/ShowArtistPics'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/pics/new" component={CreatePic} />
         <Route path="/pics/:id" component={ShowPic} />
+        <Route path="/artistpage/:id" component={ShowArtistPics} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
       </Switch>

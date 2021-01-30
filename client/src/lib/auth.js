@@ -31,14 +31,23 @@ function getPayload() {
   return JSON.parse(atob(parts[1])) 
 }
 
+export function getUserId() {
+  const token = getToken()
+  if (!token) return false
+  const parts = token.split('.') 
+  if (parts.length < 3) return false 
+  // console.log('payload',JSON.parse(atob(parts[1])).sub)
+  return JSON.parse(atob(parts[1])).sub 
+}
+
 
 export function isAuthenticated() {
   const payload = getPayload()
   if (!payload) return false 
   const now = Math.round(Date.now() / 1000) 
-  console.log(payload.exp)
-  console.log(now)
-  console.log(now < payload.exp)
+  // console.log(payload.exp)
+  // console.log(now)
+  // console.log(now < payload.exp)
   return now < payload.exp
 
 }

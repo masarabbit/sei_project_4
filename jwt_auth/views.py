@@ -85,4 +85,15 @@ class UserFollowView(APIView):
         user_to_unfollow.followed_by.remove(request.user.id) #!possibly change this so that it can be toggled.
         user_to_unfollow.save()
         serialized_followed_user = PopulatedUserSerializer(user_to_unfollow)
-        return Response(serialized_followed_user.data, status=status.HTTP_201_CREATED)                    
+        return Response(serialized_followed_user.data, status=status.HTTP_201_CREATED)       
+
+class ArtistProfileView(APIView):
+
+    #get single
+    def get(self, _request, pk):
+        try:
+            user_to_show = User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise NotFound()
+        serialized_user = PopulatedUserSerializer(user_to_show)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)                     

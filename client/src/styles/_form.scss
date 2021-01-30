@@ -46,6 +46,10 @@ button {
   font: $main_font;
 }
 
+button.nav {
+  margin: 0 5px;
+}
+
 button.sign_in, button.sign_up, button.submit {
   margin: 0 auto;
 }
@@ -59,6 +63,30 @@ button::after,button::before{
   border-width: 0px;
   padding: 6px 10px;
   mix-blend-mode: color-burn;
+}
+
+button.sign_up:after,button.sign_up:before {
+  content: "sign up";
+}
+
+button.follow:after,button.follow:before {
+  content: "follow";
+}
+
+button.unfollow:after,button.unfollow:before {
+  content: "unfollow";
+}
+
+button.login:after,button.login:before {
+  content: "login";
+}
+
+button.draw:after,button.draw:before {
+  content: "draw";
+}
+
+button.logout:after,button.logout:before {
+  content: "logout";
 }
 
 button.submit:after,button.submit:before {
@@ -94,7 +122,7 @@ button:hover::after{
 }
 
 form.comment {
-  animation: form_load forwards ease 1.4s;  /* to be edited */
+  animation: form_load forwards ease 1s;  /* to be edited */
   position: relative;
   
   overflow: hidden;
@@ -132,14 +160,14 @@ form.comment {
 
 
 form.sign_up {
-  animation: sign_up_form_load forwards ease 1.4s;
+  animation: sign_up_form_load forwards ease 1s;
   overflow: hidden;
   margin: 0;
 }
 
 
 form.sign_in {
-  animation: form_load forwards ease 1.4s;
+  animation: form_load forwards ease 1s;
   overflow: hidden;
 }
 

@@ -1,0 +1,37 @@
+
+
+.artist_info_wrapper {
+  border: pink 1px solid;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  
+  .profile_image {
+    height: 80px;
+    width: 80px;
+    border: 1px solid $light_blue;
+
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .artist_name {
+    border: 1px solid red;
+    padding: 0 5px;
+    width: calc(100% - 90px);
+    // width: 100px;
+    // height: 100px;
+  }
+}
+
+.artworks {
+  border: pink 1px solid;
+  height: 100px;
+  width: 100%;
+
+}

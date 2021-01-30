@@ -3,27 +3,30 @@ import axios from 'axios'
 import { useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { getUserId } from '../lib/auth'
 import { createPic } from '../lib/api'
 import { sortedByFrequencyDuplicatesAndBlankRemoved } from '../lib/utils'
+
 
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 function DotsExp(){
   const history = useHistory()
-  const [ drawingUrl, setDrawingUrl ] = React.useState(null)
-  const [ drawSetting, setDrawSetting ] = React.useState({
+  const [drawingUrl, setDrawingUrl] = React.useState(null)
+  const [drawSetting, setDrawSetting] = React.useState({
     color: '#c5884d'
   }) 
-  const [ picInfo, setPicInfo ] = React.useState({
+  const [picInfo, setPicInfo] = React.useState({
     title: '',
     categories: [1, 2]
   }) 
-  const [ dots, setDots ] = React.useState(Array(256).fill(''))
-  
-  const [ draw, setDraw] = React.useState(false)
+  const [dots, setDots] = React.useState(Array(256).fill(''))
+  const [draw, setDraw] = React.useState(false)
   const drawOn = ()=> setDraw(true) 
   const drawOff = ()=> setDraw(false) 
+
+  // const [ gridCounter, setGridCounter ] = React.useState(0)
 
   const canvas = useRef()
   let ctx = null
@@ -64,7 +67,7 @@ function DotsExp(){
         dots: JSON.stringify(dots), 
         colorPalette: JSON.stringify(sortedByFrequencyDuplicatesAndBlankRemoved(dots)),
         categories: picInfo.categories,
-        artist: 2  //! need to get from token 
+        artist: getUserId()
       })
       history.push('/')
     } catch (err){
@@ -147,6 +150,8 @@ function DotsExp(){
     setDrawSetting({ ...drawSetting, color: e.target.id.split('_')[1] })
   }
 
+
+
   const mapGrid = () =>{    
     const grids = []
     for (let i = 0; i < (16 * 16); i++){
@@ -165,11 +170,13 @@ function DotsExp(){
     })
   }
 
+  //* palette and grid to be loaded separately
+
   return (
     <div className="wrapper">
       <div className="inner_wrapper">
 
-        <div className="grid_wrapper"
+        <div className="grid_wrapper grid_load"
           onMouseDown={drawOn}
           onMouseUp={drawOff}
         > 
@@ -180,7 +187,7 @@ function DotsExp(){
           />
         </div>  
     
-        <div className="color_palette">
+        <div className="color_palette grid_load">
           {mapPalette()}
         </div>  
 
@@ -205,3 +212,32 @@ function DotsExp(){
 }
 
 export default DotsExp
+
+
+
+
+
+// const mapGrid = () =>{    
+//   const grids = []
+//   for (let i = 0; i < (16 * 16); i++){
+//     grids.push(i)
+//   }
+
+//   if (gridCounter <= grids.length){
+//     setTimeout(()=>{
+//       setGridCounter(gridCounter + 1)
+//     },20)
+//   }
+//   return grids.filter(grid=>{
+//     if (grids.indexOf(grid) <= gridCounter) return grid
+//   }).map(grid=>{
+//     return (
+//       <div key={grid} 
+//         onClick={drawDotClick}
+//         onMouseMove={drawDot}
+//         id={grid}
+//         className="grid grid_float_up">
+//       </div>
+//     )
+//   })
+// }

@@ -7,7 +7,27 @@ import { getAllPics } from '../lib/api'
 function Home(){
   const [pics, setPics] = React.useState(null)
   const [error, setError] = React.useState(false)
+
+  const [ picCounter, setPicCounter ] = React.useState(0)
   let idN = 0
+
+  // const [ indexLimit, setIndexLimit ] = React.useState(12)
+  // const [ scrolling, setScrolling ] = React.useState(false)
+
+  // window.addEventListener('scroll', function() {
+  //   if (scrolling) return
+  //   setScrolling(true)
+  //   setTimeout(()=>{
+  //     setScrolling(false)
+  //   },1000)
+
+  //   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  //     console.log('you\'re at the bottom of the page')
+  //     // Show loading spinner and make fetch request to api
+  //     setIndexLimit(indexLimit + 1)
+  //     console.log('i', indexLimit)
+  //   }
+  // })
 
   React.useEffect(() => {
     const getData = async () => {
@@ -22,7 +42,10 @@ function Home(){
     getData()
   },[])
 
-  if (pics) console.log(pics)
+  // if (pics) console.log(pics)
+
+  
+
 
   //! very similar to the one in createPic, so can be refactored and taken outside.
   //! in which case the id needs to be put in as argument.
@@ -40,22 +63,34 @@ function Home(){
   }
 
   const mapPics = pics => {
-    return pics.map(pic=>{
+    if (picCounter <= pics.length){
+      setTimeout(()=>{
+        setPicCounter(picCounter + 1)
+      },80)
+    }
+    return pics.filter(pic=>{
+      if (pics.indexOf(pic) <= picCounter) return pic
+    }).map(pic=>{
       return (
         <div 
           key={pic.id}
-          className="index"
+          className="index index_float_up"
         >  
           <Link to={`/pics/${pic.id}/`}>
-            <img src={pic.image} alt={pic.title} />
+            <img 
+              className="fade_in"
+              src={pic.image} 
+              alt={pic.title} 
+            />
           </Link>
-          <div className="index_palette">
+          <div className="index_palette fade_in">
             {mapColorPalette(pic)}
           </div>  
         </div>  
       )
     })
   }
+
 
 
 
@@ -78,3 +113,29 @@ function Home(){
 }
 
 export default Home
+
+
+
+
+
+  
+
+
+//? old one
+// const mapPics = pics => {
+//   return pics.map(pic=>{
+//     return (
+//       <div 
+//         key={pic.id}
+//         className="index"
+//       >  
+//         <Link to={`/pics/${pic.id}/`}>
+//           <img src={pic.image} alt={pic.title} />
+//         </Link>
+//         <div className="index_palette">
+//           {mapColorPalette(pic)}
+//         </div>  
+//       </div>  
+//     )
+//   })
+// }

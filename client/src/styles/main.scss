@@ -1,6 +1,8 @@
 @import 'variables';
 @import 'animation';
 @import 'form';
+@import 'artist_profile';
+
 
 
 p, h1, h2, h3, h4 {
@@ -21,16 +23,16 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  border: $light_pink solid;
-  border-width: 0 0 1px 0;
-}
+// a:hover {
+//   border: $light_pink solid;
+//   border-width: 0 0 1px 0;
+// }
 
 body {
   padding: 0;
   margin: 0;
   font-family: $main_font;
-  background-color: $light_color;
+  background-color: rgb(255, 255, 234);
   background: url($bg) repeat 0 0;
   // animation: bg_scrolling 4s infinite linear; 
 }
@@ -38,7 +40,7 @@ body {
 
 
 nav {
-  border: 1px solid blue;
+  // border: 1px solid blue;
   height: $nav_height;
   display: flex;
   align-items: center;
@@ -46,7 +48,7 @@ nav {
 }
 
 .link_menu {
-  border: red 1px solid;
+  // border: red 1px solid;
   width: 200px;
   margin: 0 0 0 auto;
   display: flex;
@@ -62,7 +64,7 @@ nav {
 }
 
 .index_wrapper {
-  border: 1px solid red;
+  // border: 1px solid red;
   padding: 10px;
   height: 100%;
   width: 100%;
@@ -72,7 +74,7 @@ nav {
 }
 
 .index {
-  border: 1px solid $light_blue;
+  border: 2px solid $light_blue;
   padding: 10px;
   width: calc(25% - 30px);
   margin: 15px;
@@ -100,6 +102,8 @@ nav {
 
 .wrapper {
   height: calc(100vh - 50px);
+
+  // height: 5000px;
   width: 100%;
   // border: 1px solid hotpink;
   display: flex;
@@ -111,7 +115,12 @@ nav {
 .wrapper.non_center {
   padding: 60px;
   justify-content: flex-start;
-  border: red solid 1px;
+  height: auto;
+  // border: red solid 1px;
+}
+
+.wrapper.artist_profile {
+  justify-content: flex-start;
 }
 
 .pic_info {
@@ -163,12 +172,34 @@ nav {
   animation: bop infinite 0.5s;
 }
 
+.artist_name {
+  width: 100%;
+  margin: 0 0 0 2px;
+  padding: 0 3px;
+  font-size: 18px;
+  // border: 1px solid $light_pink;
+
+  span {
+    color: $gray;
+    margin: 0 4px 0 0;
+  }
+}
+
 .stats {
   // border: blue solid 1px;
   display: flex;
   align-items: center;
   padding: 0 8px 0 2px;
 }
+.followers_following {
+  border: red 1px solid;
+  font-size: 14px;
+  span {
+    color: $gray;
+    margin: 0 20px 0 0;
+  }
+}
+
 
 .menu_button {
   // border: red solid 1px;
@@ -186,6 +217,40 @@ nav {
   img:hover {
     filter: hue-rotate(180deg);
     animation: bop infinite 0.5s;
+  }
+}
+
+.menu_button.clicked {
+  img {
+    filter: hue-rotate(160deg) brightness(90%) contrast(120%);
+  }
+}
+
+.menu_button.inactive {
+  img {
+    filter: grayscale(100%);
+  }
+  img:hover {
+    cursor: default;
+    animation: none;
+  }
+}
+
+.user_comments {
+  position: relative;
+  border: 2px solid $light_blue;
+  height: 100px;
+  width: 320px;
+  margin: 5px 0;
+  // padding: 10px;
+  
+  img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid $light_blue;
   }
 }
 
@@ -281,9 +346,9 @@ nav {
 }
 
 .used_colors {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  right: 50px;
+  right: 0;
   height: 40px;
   width: calc(8 * 40px);
   // border: solid $light_blue;

@@ -31,7 +31,7 @@ function Nav(){
     // window.location.reload()
   }
 
-  if (userData) console.log(userData)
+  // if (userData) console.log(userData)
 
   return (
     <nav>
@@ -46,23 +46,29 @@ function Nav(){
                 alt="profile image" 
                 // onClick={}
               />
-              <button onClick={handleLogout}>
+              <button className="nav logout" onClick={handleLogout}>
                 logout
               </button>
             </>
             :
             <>
               <Link to="/signup">
-                sign up
+                <button className="nav sign_up">
+                  sign up
+                </button>
               </Link>
               <Link to="/login">
-                login
+                <button className="nav login">
+                  login
+                </button>
               </Link>
             </>
         }
     
         <Link to="/pics/new">
-          draw
+          <button className="nav draw">
+            draw
+          </button>  
         </Link>
       </div>
     </nav>

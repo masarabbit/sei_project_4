@@ -1,11 +1,8 @@
 import React from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { getSinglePic } from '../lib/api'
-// import { getSinglePic, favorite } from '../lib/api'
+import { getSinglePic, favorite, unFavorite } from '../lib/api'
 import { getUserId } from '../lib/auth'
 import CommentForm from './CommentForm'
-
-import FavButton from './FavButton'
 
 import star from '../assets/star.svg'
 import comment from '../assets/comment.svg'
@@ -20,6 +17,7 @@ function ShowPic(){
   const [error,setError] = React.useState(false)
   const [displayComment,setDisplayComment] = React.useState(false)
   const userId = getUserId()
+  const [isFavoritedBy, setIsFavoritedBy] = React.useState(false)
 
 
   const vertPos = []
@@ -35,6 +33,13 @@ function ShowPic(){
       try {
         const { data } = await getSinglePic(id)
         setPic(data)
+        
+        const usersFavoritingThisPic = data.favoritedBy.map(arr=>{
+          return arr.username
+        })
+        const notFavorited = usersFavoritingThisPic.indexOf(userId) === -1
+        console.log('favoritedBy', notFavorited)
+        setIsFavoritedBy(notFavorited)
 
       } catch (err) {
         console.log('error')
@@ -42,7 +47,7 @@ function ShowPic(){
       }
     }
     getData()
-  },[id])
+  },[id, isFavoritedBy])
 
 
   const mapDots = (data)=>{
@@ -84,6 +89,30 @@ function ShowPic(){
   const displayCommentForm = () => setDisplayComment(true)
   
 
+
+  const handleFavorite = async () => {
+    try {
+      await favorite(pic.id)
+      setIsFavoritedBy(true)
+    } catch (err) {
+      console.log('fav error', err.response)
+    }
+  }
+
+  const handleUnFavorite = async ()=>{
+    try {
+      await unFavorite(pic.id)
+      setIsFavoritedBy(false)    
+    } catch (err) {
+      console.log('fav error', err.response)
+    }
+  }
+  
+
+
+  if (pic) console.log('pic info',pic.comments)
+  
+
   const mapComments = arr =>{
     return arr.map(ele=>{
       return (
@@ -94,11 +123,11 @@ function ShowPic(){
           <img src={ele.owner.profileImage} alt={ele.owner.username} />
           {ele.text}
           {ele.rating}
+        
         </div>  
       )
     })
   }
-
 
   return (
 
@@ -124,6 +153,7 @@ function ShowPic(){
                   {pic.title}
                 </div>
                 <div className="description">
+                test test test test test test test
                   {pic.descpription}
                 </div>
                 <div className="categories">
@@ -143,35 +173,52 @@ function ShowPic(){
                   <img src={pic.artist.profileImage} alt={pic.artist.username} />
                 </div>
                 <div className="artist_name">
-                  <span>by</span>{pic.artist.username}
+                  {pic.artist.username}
                 </div>
-                {
-                  !userId ?
-                    <div className="menu_button inactive">
-                      <img src={comment} alt="speech bubble" />
-                    </div> 
-                    :
-                    <div className="menu_button"
-                      onClick = {displayCommentForm}
-                    >
-                      <img src={comment} alt="speech bubble" />
-                    </div> 
-                }                
+
+                <div className="menu_button"
+                  onClick = {displayCommentForm}
+                >
+                  <img src={comment} alt="speech bubble" />
+                </div> 
                 <div className="stats">
                   {pic.comments.length}
                 </div>  
 
-                <FavButton 
-                  liked = {
-                    pic.favoritedBy.filter(ele=>{
-                      return ele.id === userId
-                    }).length > 0 ? true : false
-                  }
-                  userId = {userId}
-                  star={star}
-                  pic={pic}
-                />
+                {
+                  !userId ?
+                    <div className="menu_button inactive">
+                      <img src={star} alt="star" />
+                    </div>
+                    :
+                    null  
+                }
 
+                {
+                  isFavoritedBy ?
+                    <div 
+                      className="menu_button clicked"
+                      onClick={handleUnFavorite}
+                    >
+                      <img src={star} alt="star" />
+                    </div>  
+                    :
+                    <div 
+                      className="menu_button"
+                      onClick={handleFavorite}
+                    >
+                      <img src={star} alt="star" />
+                    </div>  
+                }
+                <div 
+                  className="menu_button"
+                  onClick={handleFavorite}
+                >
+                  <img src={star} alt="star" />
+                </div>  
+                <div className="stats">
+                  {pic.favoritedBy.length}
+                </div>  
               </div>
               
               {mapComments(pic.comments)}
