@@ -14,17 +14,19 @@ input, textarea {
 
 input:hover {
   border-color: $light_pink;
+  border-color: transparent;
 }
 
 // ::placeholder {
 //   color: $light_blue;
 // }
 
-input:focus, textarea:focus {
+input.pinkfocus:focus, textarea:focus {
   outline: none !important;
   box-shadow: 0 0 0 2px $light_pink;
   border: 0;
 }
+
 
 .button_wrapper {
   // border: 1px solid red;
@@ -50,7 +52,7 @@ button.nav {
   margin: 0 5px;
 }
 
-button.sign_in, button.sign_up, button.submit {
+button.sign_in, button.sign_up {
   margin: 0 auto;
 }
 
@@ -64,6 +66,29 @@ button::after,button::before{
   padding: 6px 10px;
   mix-blend-mode: color-burn;
 }
+
+button.delete {
+  background-color: pink;
+ 
+}
+
+button.delete:after,button.delete:before {
+  content: "delete";
+}
+
+button.yes {
+  margin: 0 10px;
+}
+
+button.yes:after,button.yes:before {
+  content: "yes";
+}
+
+button.no:after,button.no:before {
+  content: "no";
+}
+
+
 
 button.sign_up:after,button.sign_up:before {
   content: "sign up";
@@ -89,7 +114,8 @@ button.logout:after,button.logout:before {
   content: "logout";
 }
 
-button.submit:after,button.submit:before {
+button.submit:after,button.submit:before,
+button.submit_art:after,button.submit_art:before {
   content: "submit";
 }
 
@@ -122,32 +148,32 @@ button:hover::after{
 }
 
 form.comment {
-  animation: form_load forwards ease 1s;  /* to be edited */
+  animation: comment_form_load forwards ease 1s;  /* to be edited */
   position: relative;
   
   overflow: hidden;
   // margin: 0;
+}
 
-  .cross {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 10px;
-    right: 10px;
-    // border: 1px solid red;
-    height: 25px;
-    width: 25px;
+.cross {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  right: 10px;
+  // border: 1px solid red;
+  height: 25px;
+  width: 25px;
 
-    img {
-      height: 100%;
-      width: auto;
-      cursor: pointer;
-    }
+  img {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+  }
 
-    img:hover {
-      animation: spin infinite 1.2s;
-    }
+  img:hover {
+    animation: spin infinite 1.2s;
   }
 }
 
@@ -162,7 +188,23 @@ form.comment {
 form.sign_up {
   animation: sign_up_form_load forwards ease 1s;
   overflow: hidden;
-  margin: 0;
+  // margin: 0;
+}
+
+form.static {
+  // border: 2px solid #b2eaf9;
+  background-color: white;
+  left: 0vh; 
+  padding: 30px 20px 20px 20px;
+  height: auto;
+  width: 300px;
+}
+
+
+.shake {
+  animation: shake infinite 0.2s;
+  border-color: $light_pink;
+  height: auto;
 }
 
 
@@ -187,31 +229,87 @@ form {
   width: 300px;
   transform-origin: 100% 0%;
   margin: -150px 0 0 0;
+}
 
-  .input_box {
+.error {
+  // border: red 1px solid;
+  padding: 0px 10px 10px 10px;
+  height: 40px;
+  margin: -20px 0 0 0;
+  p {
+    color: $light_pink;
+    font-size: 11.5px;
+  }
+  
+}
+
+
+.rating_wrapper {
+  border: transparent solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 55px;
+  width: 100%;
+
+  .rating_inner_wrapper {
     display: flex;
-    margin: 10px;
-
-    img.range {
-      margin: 0 8px 0 0;
-    }
-    
-    img {
-      height: 30px;
-      width: auto; 
-      margin: 0 10px 0 0;
-    }
-
-    img.hover {
-      position: relative;
-      animation: bop infinite 0.5s;
-    }
   }
 
-  // input {
-  //   border-width: 0 0 1px 0;
-  //   border-color: black;
-  // }
+  label {
+    margin: 0 0 0 8px;
+    // border: red 1px solid;
+    font-size: 14px;
+    // display: none;
+  }
+}
+
+
+.input_box {
+  display: flex;
+  margin: 10px;
+
+  img.range {
+    margin: 0 8px 0 0;
+  }
+  
+  img {
+    height: 30px;
+    width: auto; 
+    margin: 0 10px 0 0;
+  }
+
+  img.hover {
+    position: relative;
+    animation: bop infinite 0.5s;
+  }
+
+  p {
+    color: $light_pink;
+    font-size: 11px;
+  }
+}
+
+.error.sign_up, .error.comment{
+  padding: 0 50px;
+  height: auto;
+  margin: -10px 0 0 0;  
+}
+
+.error.sign_up.margin_adjusted {
+  margin: -40px 0 20px 0;  
+}
+
+.column {
+  flex-direction: column;
+  align-items: center;
+}
+
+
+form.art_submission_menu {
+  margin: 20px 0 0 0;
+  width: 320px;
+  height: auto;
 }
 
 .upload_button_wrapper {
@@ -221,7 +319,7 @@ form {
   width: 150px;
   justify-content: center;
   align-items: center;
-  border: 2px solid $light_blue;
+  border: 1px solid $light_blue;
 }
 
 .input_wrapper {
@@ -298,7 +396,7 @@ input[type="file"]:focus {
 
 
 .profile_preview {
-  border: $light_blue solid 2px;
+  border: $light_blue solid 1px;
   width: 150px;
   height: 150px;
   margin: 0 auto;
@@ -349,8 +447,8 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
-  // background: #caf0fb;
-  background: transparent;
+  background: $light_pink;
+  // background: transparent;
 }
 input[type=range]::-moz-range-track {
   background: #b2eaf9;

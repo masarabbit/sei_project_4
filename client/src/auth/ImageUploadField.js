@@ -5,11 +5,7 @@ import axios from 'axios'
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
-// console.log('upload',uploadUrl)
-// console.log(uploadPreset)
-
-
-function ImageUploadField( { value, name, onChange } ) {
+function ImageUploadField( { value, name, onChange, defaultProfImage } ) {
   const [ hover, setHover] = React.useState(false)
 
 
@@ -30,7 +26,7 @@ function ImageUploadField( { value, name, onChange } ) {
   return (
     <>
       {
-        value ?
+        value && value !== defaultProfImage ?
           <div className="profile_preview">
             <img src={value} alt="profileImage" style={{ width: '100%', height: 'auto' }}/>
           </div>

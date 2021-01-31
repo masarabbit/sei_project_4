@@ -8,3 +8,9 @@ export const sortedByFrequencyDuplicatesAndBlankRemoved = array =>{
   }).sort((a, b) => b.split('_')[1] - a.split('_')[1])  
   return [ ...new Set(orderedByFrequency.map(ele=>ele.split('_')[0]))]
 }
+
+export const rgbToHex = (r, g, b) => {
+  if (r > 255 || g > 255 || b > 255)
+    throw 'Invalid color component'
+  return ((r << 16) | (g << 8) | b).toString(16)
+}

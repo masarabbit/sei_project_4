@@ -25,7 +25,7 @@ class CommentDetailView(APIView):
     permission_classes = (IsAuthenticated, )
     
     #delete comment
-    def delete(self, _request, pk):
+    def delete(self, request, pk):
         try:
             comment_to_delete = Comment.objects.get(pk=pk)
 

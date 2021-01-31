@@ -1,25 +1,28 @@
 import React from 'react'
-import { useParams, useHistory } from 'react-router-dom'
-import { getSinglePic } from '../lib/api'
-// import { getSinglePic, favorite } from '../lib/api'
+import { useHistory, useParams } from 'react-router-dom'
+import { getSinglePic, deletePic } from '../lib/api'
+
 import { getUserId } from '../lib/auth'
+import { deleteComment } from '../lib/api'
 import CommentForm from './CommentForm'
 
-import FavButton from './FavButton'
-
-import star from '../assets/star.svg'
-import comment from '../assets/comment.svg'
+import InteractionMenu from './InteractionMenu'
 
 
 function ShowPic(){
-  const { id } = useParams()
   const history = useHistory()
+  const { id } = useParams()
+  // const history = useHistory()
   // const { pathname } = useLocation()
   const [pic,setPic] = React.useState(null)
   const [gather,setGather] = React.useState(false)
   const [error,setError] = React.useState(false)
   const [displayComment,setDisplayComment] = React.useState(false)
   const userId = getUserId()
+
+  const [displayDelete, setDisplayDelete] = React.useState(false)
+  const [commentDeleted, setCommentDeleted] = React.useState(false)
+  const [likedNow, setLikedNow]  = React.useState(false)
 
 
   const vertPos = []
@@ -42,7 +45,7 @@ function ShowPic(){
       }
     }
     getData()
-  },[id])
+  },[id, displayComment, commentDeleted, likedNow])
 
 
   const mapDots = (data)=>{
@@ -82,109 +85,167 @@ function ShowPic(){
   }
 
   const displayCommentForm = () => setDisplayComment(true)
+
   
+  const handleDeleteComment = async (id, e) =>{
+    try {
+      await deleteComment(id)
+      e.target.parentNode.parentNode.classList.add('slide_out')
+      setTimeout(()=>{
+        setCommentDeleted(id)
+      },500)
+    } catch (err) {
+      console.log(err.response)
+    }
+
+  }
 
   const mapComments = arr =>{
-    return arr.map(ele=>{
+    return arr.map((comment, i)=>{
       return (
         <div 
-          className="user_comments"
-          key={ele.id}
+          className={`user_comments ${i === 0 ? 'first' : ''}`}
+          key={comment.id}
         > 
-          <img src={ele.owner.profileImage} alt={ele.owner.username} />
-          {ele.text}
-          {ele.rating}
+          <div>
+            <img 
+              className="small_artist_icon"
+              src={comment.owner.profileImage} alt={comment.owner.username} 
+              onClick={()=>history.push(`/artistpage/${comment.owner.id}`)}
+            />
+            {comment.owner.username}
+            {comment.id}
+            <span>
+              {comment.rating}pts
+            </span>
+          </div>       
+          <div>
+            {comment.text}
+          </div>
+          { userId === comment.owner.id &&
+            <div>         
+              <button onClick={(e)=>handleDeleteComment(comment.id, e)} className="delete">
+                delete
+              </button>
+            </div>
+          }
         </div>  
       )
     })
   }
 
 
+
+  const deleteArt = async e =>{
+    if (userId) return
+    try {
+      await deletePic(pic.id)
+      e.target.parentNode.parentNode.parentNode.classList.add('delete')
+      setTimeout(()=>{
+        history.push('/')
+      },1000) 
+    } catch (err) {
+      console.log('fav error', err.response)
+    }
+  }
+  
+
+  const averagePoint = arr => {
+    let points = 0
+    arr.comments.forEach(comments=>{
+      points += comments.rating
+    })
+    if (!points) return 0
+    points /= arr.comments.length
+    return points.toFixed(1)
+  }
+    
+
   return (
 
     <>
       <CommentForm 
-        history ={history}
+        // history ={history}
         displayComment={displayComment}
         setDisplayComment={setDisplayComment}
         pic={pic} 
-        id={id}
+        // id={id}
         userId={userId}
       />
 
       <div className="wrapper non_center">
-        {
-          pic ? 
-            <>
-              <div className={ `dot_wrapper ${gather && 'assemble'}`}>
-                {mapDots(pic)}
+        {pic ? 
+          <>
+            <div className={ `dot_wrapper ${gather && 'assemble'}`}>
+              {mapDots(pic)}
+            </div>
+            <div className="pic_info">
+              <div className="title">
+                {pic.title}
+                <span>
+                  {averagePoint(pic)}pts
+                </span>
               </div>
-              <div className="pic_info">
-                <div className="title">
-                  {pic.title}
-                </div>
-                <div className="description">
-                  {pic.descpription}
-                </div>
-                <div className="categories">
-                  {
-                    pic.categories.map(category=>{
-                      return (
-                        <span key={category.name}>
-                          {`${category.name}${pic.categories[pic.categories.length - 1].name !== category.name ? ', ' : ''}`}
-                        </span>  
-                      )
-                    })
-                  }
-                </div>  
+              <div className="description">
+                {pic.description}
+              </div>
+              <div className="categories">
+                {pic.categories.map(category=>{
+                  return (
+                    <span key={category.name}>
+                      {`${category.name}${pic.categories[pic.categories.length - 1].name !== category.name ? ', ' : ''}`}
+                    </span>  
+                  )
+                })}
               </div>  
-              <div className="interaction_menu">
-                <div className="artist_icon" onClick={()=> history.push(`/artistpage/${pic.artist.id}` )}>
-                  <img src={pic.artist.profileImage} alt={pic.artist.username} />
-                </div>
-                <div className="artist_name">
-                  <span>by</span>{pic.artist.username}
-                </div>
-                {
-                  !userId ?
-                    <div className="menu_button inactive">
-                      <img src={comment} alt="speech bubble" />
-                    </div> 
-                    :
-                    <div className="menu_button"
-                      onClick = {displayCommentForm}
-                    >
-                      <img src={comment} alt="speech bubble" />
-                    </div> 
-                }                
-                <div className="stats">
-                  {pic.comments.length}
+              {pic.artist.id === userId &&
+
+                <div className="delete_button">
+                  <button 
+                    className="delete"
+                    onClick={()=>setDisplayDelete(true)}>
+                        delete
+                  </button>  
                 </div>  
+              }
+              { 
+                !displayDelete ?
+                  null
+                  :
+                  <div className="delete_menu">
+                      are you sure you want to delete?
+                    <button 
+                      className="yes"
+                      onClick={deleteArt}>
+                      yes
+                    </button>
+                    <button 
+                      className="no"
+                      onClick={()=>setDisplayDelete(false)}>
+                      no
+                    </button>
+                  </div>
+              }
+            </div>  
 
-                <FavButton 
-                  liked = {
-                    pic.favoritedBy.filter(ele=>{
-                      return ele.id === userId
-                    }).length > 0 ? true : false
-                  }
-                  userId = {userId}
-                  star={star}
-                  pic={pic}
-                />
+            <InteractionMenu 
+              pic = {pic} 
+              userId = {userId} 
+              displayCommentForm = {displayCommentForm}
+              setLikedNow={setLikedNow}
+            />
+            
+            {mapComments(pic.comments)}
 
-              </div>
-              
-              {mapComments(pic.comments)}
-
-              <div className="used_colors">
-                {mapColorPalette(pic)}
-              </div> 
-            </> 
+            <div className="used_colors">
+              {mapColorPalette(pic)}
+            </div> 
+          </> 
+          :
+          error ?
+            <p> can&#39;t find it ...</p>
             :
-            error ?
-              <p> can&#39;t find it ...</p>
-              :
-              <p> loading </p>
+            <p> loading </p>
         }
 
       </div>

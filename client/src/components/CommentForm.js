@@ -3,13 +3,14 @@ import React from 'react'
 import profileIcon from '../assets/profile_icon.svg'
 import cross from '../assets/cross.svg'
 
+import useForm from '../hooks/useForm'
 import { createComment } from '../lib/api'
 
 
-function CommentForm ( { history, displayComment, setDisplayComment, pic, id, userId }){
+function CommentForm ( { displayComment, setDisplayComment, pic, userId }){
 
   const [hover, setHover] = React.useState(null)
-  const [formdata, setFormdata] = React.useState({
+  const { formdata, setFormdata, errors, handleChange, setErrors } = useForm({
     text: '',
     rating: 50,
     pic: ''
@@ -24,23 +25,18 @@ function CommentForm ( { history, displayComment, setDisplayComment, pic, id, us
     try {
       await createComment(formdata)
       commentFormCloseEffect(e.target)
-
-      setTimeout(()=>{
-        history.push(`/pics/${id}/c`) //? pathname used to trigger rerender.
-      },1000)
-    
+      // setTimeout(()=>{
+      //   history.push(`/pics/${id}/c`) //? pathname used to trigger rerender.
+      // },1000)
     } catch (err) {
-      console.log('error', err.response)
-      
-      //! hide comment button if already commented?
-      // if (err.response.data.message === 'You have already commented') {
-      //   setAlreadyCommented(true)
-      // }
+      setErrors(err.response.data)
 
-      // if (err.response.data.errors) {
-      //   console.log('Rating way too high')
-      //   setRatingTooHigh(true)
-      // }
+      e.target.classList.remove('comment')
+      e.target.classList.add('shake')
+      setTimeout(()=>{
+        e.target.classList.add('static')
+        e.target.classList.remove('shake') 
+      },500)
     }
   }
 
@@ -52,27 +48,12 @@ function CommentForm ( { history, displayComment, setDisplayComment, pic, id, us
   const removeHover = () => setHover(null)
 
 
-  const handleChange = e => {
-    setFormdata({ ...formdata, [e.target.name]: e.target.value })
-  }
-
-
-  
-
-
   React.useEffect(() => {
     if (!pic) return
     addUserAndArtistIdToFormData()
   }, [pic])
 
   const closeCommentForm = e =>{
-    // console.log(e.target.parentNode.parentNode)
-    // e.target.parentNode.parentNode.classList.remove('comment')
-    // e.target.parentNode.parentNode.classList.add('accepted')
-    // setTimeout(()=>{
-    //   setDisplayComment(false)
-    //   e.target.parentNode.parentNode.classList.remove('accepted')
-    // },1000)
     commentFormCloseEffect(e.target.parentNode.parentNode)
   }
 
@@ -102,27 +83,45 @@ function CommentForm ( { history, displayComment, setDisplayComment, pic, id, us
             name="text"
             onChange={handleChange}
             value={formdata.text}
+            placeholder='comment'
           />
         </div>  
+        { errors.text && 
+          <div className="error comment"><p>{errors.text}</p></div>
+        }
 
-        <div className="input_box" onMouseEnter={handleHover} onMouseLeave={removeHover}>
+        
+        <div className="input_box twenty_px_bottom_margin" 
+          onMouseEnter={handleHover} onMouseLeave={removeHover}>
           <img src={profileIcon} 
             className={`range ${hover === 'rating' ? 'hover' : ''}`}
             alt="smiley face" />
-          <input
-            type="range"
-            name="rating"
-            onChange={handleChange}
-            value={formdata.rating}
-          />
-          <div className="range_display">
-            {formdata.rating}
-          </div>  
+          
+          <div className="rating_wrapper">
+            <label>
+              score
+            </label> 
+            
+            <div className="rating_inner_wrapper">
+              <input
+                type="range"
+                name="rating"
+                onChange={handleChange}
+                value={formdata.rating}
+                // className="pinkfocus"
+              /> 
+              <div className="range_display">
+                {formdata.rating}
+              </div>  
+            </div>
+          </div>
         </div>  
-
-        <button className="submit">
-        submit
-        </button>  
+        
+        <div className="button_wrapper">
+          <button className="submit">
+          submit
+          </button>  
+        </div>
       </form>  
     </div>
   )

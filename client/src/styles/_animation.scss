@@ -36,12 +36,12 @@
     width: 300px;
   }
   61% {
-    border: 2px solid black;
+    border: black;
     background-color: black;
     height: 0;
   }
   80% {
-    border: 2px solid #b2eaf9;
+    border: #b2eaf9;
     background-color: white;
     height: 0;
     padding: 10px 20px;
@@ -84,6 +84,12 @@
   100% {opacity: 1;}
 }
 
+@keyframes fade_in_gradual {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
 
 
 .dot.display{
@@ -92,8 +98,19 @@
 }
 
 @keyframes float_up {
-  0% {top: -200vh;}
+  0% {top: 200vh;}
   100% {top: 0;}
+}
+
+
+@keyframes slide_in {
+  0% {left: -200vh;}
+  100% {left: 0;}
+}
+
+@keyframes slide_out {
+  0% {left: 0;}
+  100% {left: -200vh;}
 }
 
 
@@ -113,6 +130,46 @@
   0%{transform: scale(1);}
   50%{transform: scale(1.2);}
   100%{transform: scale(1);}
+}
+
+@keyframes comment_form_load {
+  0% {
+    border: 2px solid black;
+    background-color: black;
+    left: -200vh;
+    height: 0;
+    width: 0;
+    padding: 10px;
+  }
+  40% {
+    left: 30vh; 
+    height: 0;
+    width: 0;
+  }
+  60% {
+    left: 0vh; 
+    height: 0;
+    width: 300px;
+  }
+  61% {
+    border: black;
+    background-color: black;
+    height: 0;
+  }
+  80% {
+    border: #b2eaf9;
+    background-color: white;
+    height: 0;
+    padding: 10px 20px;
+  }
+  100% {
+    border: 2px solid #b2eaf9;
+    background-color: white;
+    left: 0vh; 
+    padding: 30px 20px 20px 20px;
+    height: 240px;
+    width: 300px;
+  }
 }
 
 
@@ -137,12 +194,12 @@
     width: 300px;
   }
   61% {
-    border: 2px solid black;
+    border: black;
     background-color: black;
     height: 0;
   }
   80% {
-    border: 2px solid #b2eaf9;
+    border: #b2eaf9;
     background-color: white;
     height: 0;
     padding: 10px 20px;
@@ -179,12 +236,12 @@
     width: 300px;
   }
   61% {
-    border: 2px solid black;
+    border: black;
     background-color: black;
     height: 0;
   }
   80% {
-    border: 2px solid #b2eaf9;
+    border: #b2eaf9;
     background-color: white;
     height: 0;
     padding: 10px 20px;
@@ -194,7 +251,7 @@
     background-color: white;
     left: 0vh; 
     padding: 30px 20px 20px 20px;
-    height: 500px;
+    height: 480px;
     width: 300px;
   }
 }
@@ -209,22 +266,17 @@
     width: 300px;
   }
   40% {
-    border: 2px solid #b2eaf9;
+    border: solid #b2eaf9;
     background-color: white;
     height: 0;
     padding: 10px 20px;
   }
   60% {
-    border: 2px solid black;
+    border: solid black;
     background-color: black;
     height: 0;
     width: 300px;
   }
-  // 70% {
-  //   height: 0;
-  //   left: 0vh; 
-  //   width: 0;
-  // }
   80% {
     height: 0;
     left: 0vh; 
@@ -232,7 +284,7 @@
     opacity: 1;
   }
   100% {
-    border: 2px solid black;
+    border: solid black;
     background-color: black;
     left: 50vh; 
     height: 0;
@@ -242,10 +294,6 @@
   }
 }
 
-.shake {
-  animation: shake infinite 0.2s;
-  border: 1px solid red;
-}
 
 @keyframes shake {
   0% { margin-left: -10px;}
@@ -282,4 +330,40 @@
   50%{transform: translate(5px, 5px);}
 /*   60%{transform: translate(0, 5px);} */
   100%{transform: translate(0);}
+}
+
+
+
+
+@keyframes delete_art {
+  0% {
+    padding: 60px;
+    overflow: auto;
+    // margin-top: 0;
+    margin: calc(45vh - 10px) auto auto auto;
+  }
+  20% {
+    overflow: hidden;  
+    width: 0;
+    background-color: transparent;
+  }
+  40% {
+    margin: calc(45vh - 10px) auto auto auto;
+    height: 0;
+    padding: 10px;
+    background-color: black;
+  }
+  50% {
+    margin: calc(60vh) auto auto auto;
+  }
+  100% {
+    margin: -200vh 0 0 0;
+    padding: 10px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    // opacity: 0;
+  }
+
+
 }

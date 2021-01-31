@@ -20,8 +20,6 @@ function ShowArtistPics (){
       try {
         const { data } = await getArtistPics(id)
         setArtistData(data)
-        
-
       } catch (err) {
         console.log('error')
         setError(true)

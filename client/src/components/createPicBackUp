@@ -177,7 +177,7 @@ function CreatePic(){
     return palette
   }
 
-  //! don't need uuid? to be considered
+  
   const mapPalette = arr =>{   
     const palette = filterPalette(arr)
     return palette.map(hex=>{
@@ -233,40 +233,39 @@ function CreatePic(){
   
   if (palette) console.log(palette)
 
+  // let idN = 0
   
-  let idN = 0
+
   const mapColorPalette = pic =>{
     return JSON.parse(pic.colorPalette).map(hex=>{
-      idN++
+      const idN = uuidv4()
       return (
         <div 
           key={idN}
-          id = {idN}
           style={{ backgroundColor: hex }}
         >
         </div>  
       )
     })
   }
-  
 
   const mapOptions = arr =>{
     return arr.favoritedPic.map(ele=>{
       // console.log(ele.colorPalette)
       return (
-  
-        <div 
-          key={`p${ele.id}`}
-          onClick={()=>{
-            setDisplayPalette(false)
-            setPalette(JSON.parse(ele.colorPalette))
-          }}
-          className="palette_option"
-        >
-          {mapColorPalette(ele)}
+        <>
+          <div 
+            key={`p${ele.id}`}
+            onClick={()=>{
+              setDisplayPalette(false)
+              setPalette(JSON.parse(ele.colorPalette))
+            }}
+            className="palette_option"
+          >
+            {mapColorPalette(ele)}
+          </div>  
           <img src={ele.image} alt={ele.title}/>
-        </div>  
-
+        </>
       )
     }
     )
@@ -276,7 +275,7 @@ function CreatePic(){
   //* palette and grid to be loaded separately
 
   return (
-    <div className="wrapper no_height slide_in">
+    <div className="wrapper no_height">
       <div className="inner_wrapper">
         <div className="grid_wrapper"
           onMouseDown={drawOn}

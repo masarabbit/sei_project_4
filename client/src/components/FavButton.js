@@ -3,16 +3,16 @@ import { favorite, unFavorite } from '../lib/api'
 
 
 
-function FavButton ({ pic, liked, star, userId }){
+function FavButton ({ pic, liked, star, userId, setLikedNow }){
   const [like, setLike] = React.useState(liked)
-  const [likedNow, setLikedNow]  = React.useState(0)
+
   
 
   const handleFavorite = async () => {
     try {
       await favorite(pic.id)
       setLike(!like)
-      setLikedNow(likedNow + 1)
+      setLikedNow(true)
       
     } catch (err) {
       console.log('fav error', err.response)
@@ -23,7 +23,7 @@ function FavButton ({ pic, liked, star, userId }){
     try {
       await unFavorite(pic.id)
       setLike(!like)  
-      setLikedNow(likedNow - 1)
+      setLikedNow(false)
     } catch (err) {
       console.log('fav error', err.response)
     }
@@ -58,8 +58,8 @@ function FavButton ({ pic, liked, star, userId }){
       }
 
       <div className="stats">  
-        {pic.favoritedBy.length + likedNow}
-        {/* {favoritedBy.length} */}
+        {/* {pic.favoritedBy.length + likedNow} */}
+        {pic.favoritedBy.length}
       </div>  
     </>  
   )

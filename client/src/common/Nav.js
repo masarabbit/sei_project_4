@@ -42,9 +42,11 @@ function Nav(){
         {
           userData ?
             <>
-              <img src={userData.profileImage} 
+              <img 
+                className="small_artist_icon"
+                src={userData.profileImage} 
                 alt="profile image" 
-                // onClick={}
+                onClick={()=>history.push(`/artistpage/${userData.id}`)}
               />
               <button className="nav logout" onClick={handleLogout}>
                 logout

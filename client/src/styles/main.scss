@@ -23,6 +23,31 @@ a {
   text-decoration: none;
 }
 
+.twenty_px_bottom_margin {
+  margin-bottom: 20px;
+}
+
+.thirty_px_bottom_margin {
+  margin-bottom: 30px;
+}
+
+.forty_px_bottom_margin {
+  margin-bottom: 40px;
+}
+
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.display_none {
+  display:none;
+}
+
 // a:hover {
 //   border: $light_pink solid;
 //   border-width: 0 0 1px 0;
@@ -35,6 +60,82 @@ body {
   background-color: rgb(255, 255, 234);
   background: url($bg) repeat 0 0;
   // animation: bg_scrolling 4s infinite linear; 
+}
+
+.tool_box {
+  height: 50px;
+  width: 320px;
+  border: 1px solid pink;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    margin: 0 10px;
+    height: 34px;
+    width: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  /* color input */
+.color {
+  height: 40px; 
+  width: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  
+}
+}
+
+.palette_choice_menu {
+  background-color: $clear_blue;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  transition: 0.5s;
+  overflow-y: scroll;
+  z-index: 20;
+
+  display: flex;
+  // flex-direction: column;
+  // align-items: flex-start;
+}
+
+.upload_test {
+  width: 200px;
+  height: 100px;
+
+  border: yellow 1px solid;
+
+  input {
+    height: 20px;
+    width: 100px;
+  }
+}
+
+.palette_option {
+  width: 320px;
+  height: 40px;
+  // border: 1px solid white;
+  display: flex;
+  margin: 10px;
+  background: url($blue_checkered_bg) repeat 0 0;
+  
+  div {
+    padding: calc(1 / 16 * 100%);
+    width: calc(100% / 8);
+  }
+
+}
+
+.palette_choice_menu.open {
+  height: 50vh;
+  padding: 10px;
 }
 
 
@@ -112,11 +213,39 @@ nav {
   flex-direction: column;
 }
 
+.wrapper.no_height {
+  height: auto;
+  padding: 60px;
+}
+
 .wrapper.non_center {
   padding: 60px;
   justify-content: flex-start;
   height: auto;
   // border: red solid 1px;
+}
+
+.wrapper.non_center.delete {
+  animation: delete_art forwards ease 1s;
+}
+
+.delete_button {
+  // border: 1px solid red;
+  text-align: right;
+
+  // span {
+  //   font-size: 12px;
+  // }
+  // span:hover {
+  //   cursor: pointer;
+  //   color: $light_pink;
+  // }
+}
+
+.delete_menu {
+  font-size: 14px;
+  color: $light_pink;
+
 }
 
 .wrapper.artist_profile {
@@ -130,7 +259,13 @@ nav {
 
   .title {
     font-size: 17px;
-    // font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    span {
+      font-size: 14px;
+      color: $gray;
+    }
   }
 
   .description {
@@ -166,11 +301,13 @@ nav {
   }
 }
 
-.artist_icon:hover {
+.artist_icon:hover, .small_artist_icon:hover {
   border: 1px solid $light_pink;
   position: relative;
   animation: bop infinite 0.5s;
+  cursor: pointer;
 }
+
 
 .artist_name {
   width: 100%;
@@ -236,23 +373,60 @@ nav {
   }
 }
 
+.user_comments.slide_out {
+  animation: slide_out 0.8s forwards;
+}
+
+.slide_in {
+  position: relative;
+  animation: slide_in forwards 0.6s, fade_in forwards 0.4s;
+}
+
+
+
 .user_comments {
   position: relative;
   border: 2px solid $light_blue;
-  height: 100px;
   width: 320px;
   margin: 5px 0;
-  // padding: 10px;
+  padding: 5px;
+  animation: slide_in 0.8s forwards;
+  transition: 1s;
+  
+  div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 0;
+    span {
+      font-size: 14px;
+      color: $gray;
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  div:nth-child(2) {
+    padding: 5px;
+  }
+  
+  div:nth-child(3) {
+    text-align: right;
+    padding: 5px;
+  }
+
   
   img {
-    position: absolute;
-    top: 5px;
-    left: 5px;
     height: 40px;
     width: 40px;
+    margin: 0 5px 0 0;
     border: 1px solid $light_blue;
   }
 }
+
+.user_comments.first {
+  margin: 20px 0 5px 0;
+}
+
 
 .comment_menu_wrapper {
   position: fixed;
@@ -270,7 +444,7 @@ nav {
   display:flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(53, 188, 250, 0.562);
+  background-color: $clear_blue;
 }
 
 .map {
@@ -396,8 +570,9 @@ nav {
 .color_palette {
   height: 100%;
   width: 40px;
-  border: solid $light_blue;
-  border-width: 0 0 1px 0;
+  // border: solid $light_blue;
+  // border-width: 0 0 1px 0;
+  background: url($blue_checkered_bg) repeat 0 0;
   margin: 0 0 0 15px;
   display: flex;
   flex-direction: column;
@@ -406,8 +581,8 @@ nav {
 .palette_block {
   height: 40px;
   width: 40px;
-  border: solid $light_blue;
-  border-width: 1px 1px 0 1px;
+  // border: solid $light_blue;
+  // border-width: 1px 1px 0 1px;
 }
 
 .grid.clicked {
@@ -418,9 +593,10 @@ nav {
 
 canvas {
   border: #1dfae8 1px solid;
-  height: 300px;
-  width: 300px;
+  height: 320px;
+  width: 320px;
   background-color: white;
+  // opacity: 0.5;
 }
 
 
@@ -435,13 +611,47 @@ canvas.dots {
 }
 
 
-/* color input */
-.color {
-  height: 40px; 
-  width: 40px;
-  padding: 0;
-  background-color: transparent;
-  border: 0;
+
+
+
+.wrapper {
+  .color_block_container {
+    height: 20px;
+    width: 20px;
+  }
   
+  .color_block {
+    height: 100%;
+    width: 100%;
+    animation: none;
+    opacity: 0;
+    transition: 0.5s;
+  }
 }
+
+.wrapper.animate {
+  .color_block {
+    position: relative;
+    animation: slide forwards ease 1s;
+    // animation: blowup forwards ease 1s;
+    // transform-origin: center;
+    // opacity: 1;
+  }
+}
+
+@keyframes slide{
+  0% {width: 100px; margin-left:-100vh; opacity: 0}
+  40% {margin-left:-20px; width: 100%; opacity: 1}
+  70% {width: 100%; margin-left:0}
+  100% {width: 2000px; margin-left: 100vh;}
+}
+
+@keyframes blowup{
+  0% {width: 20px; height: 20px; margin-bottom:-100vh; opacity: 0}
+  40% {width: 20px; height: 20px; margin-bottom: 0; opacity: 1}
+  70% {width: 20px; height: 20px; margin-bottom: 0;}
+  100% {width: 300px; height: 300px; margin-bottom: 150vh; opacity: 1}
+}
+
+
 
