@@ -22,6 +22,23 @@ function CreatePic(){
   const [palette, setPalette] = React.useState(null)
   const [uploadedImageBlobUrl, setUploadedImageBlobUrl] = React.useState(null)
 
+  const [drawingUrl, setDrawingUrl] = React.useState(null)
+  const [drawSetting, setDrawSetting] = React.useState({
+    color: '#c5884d'
+  }) 
+  const [picInfo, setPicInfo] = React.useState({
+    title: '',
+    categories: [],
+    description: ''
+  }) 
+  const [dots, setDots] = React.useState(Array(256).fill(''))
+  const [draw, setDraw] = React.useState(false)
+  const drawOn = ()=> setDraw(true) 
+  const drawOff = ()=> setDraw(false) 
+
+  const canvas = useRef()
+  let ctx = null
+  const drawingGrid = useRef()
 
   const mapFromImage = e => {
     if (!e.target.files[0]) return
@@ -51,15 +68,12 @@ function CreatePic(){
           dotsFromImage.push(hex)
         })
 
-        // arr.forEach(ele=>{
-        //   const x = ele % 16 * 20
-        //   const y = Math.floor(ele / 16) * 20
-        //   ctx.fillStyle = dots[ele]
-        //   ctx.fillRect(x, y, 20, 20)
-        // })
-        console.log(dotsFromImage)
+        // console.log(dotsFromImage)
         setDots(dotsFromImage)
-        mapFromDots(dotsFromImage)
+        // mapFromDots(dotsFromImage)
+
+
+        drawIntoGrid(dotsFromImage)
       }
       image.src = uploadedImageBlobUrl
     }
@@ -68,22 +82,13 @@ function CreatePic(){
   
 
 
-  const [drawingUrl, setDrawingUrl] = React.useState(null)
-  const [drawSetting, setDrawSetting] = React.useState({
-    color: '#c5884d'
-  }) 
-  const [picInfo, setPicInfo] = React.useState({
-    title: '',
-    categories: [],
-    description: ''
-  }) 
-  const [dots, setDots] = React.useState(Array(256).fill(''))
-  const [draw, setDraw] = React.useState(false)
-  const drawOn = ()=> setDraw(true) 
-  const drawOff = ()=> setDraw(false) 
 
-  const canvas = useRef()
-  let ctx = null
+  const drawIntoGrid = arr =>{
+    arr.forEach((dot, i)=>{
+      drawingGrid.current.children[i].style.backgroundColor = dot
+    })
+  }
+
 
   const setUpCanvas = () =>{
     const canvasEle = canvas.current
@@ -132,6 +137,9 @@ function CreatePic(){
     if (!drawingUrl) return
     handleSubmit()
   }, [drawingUrl])
+  
+
+
 
   const mapFromDots = dots => {
     for (let i = 0; i < (16 * 16); i++){
@@ -231,7 +239,6 @@ function CreatePic(){
     getData()
   },[])
   
-  if (palette) console.log(palette)
 
   
   let idN = 0
@@ -249,24 +256,34 @@ function CreatePic(){
     })
   }
   
+  const fork = forkedDots =>{
+    drawIntoGrid(JSON.parse(forkedDots))
+    setDots(JSON.parse(forkedDots))
+  }
 
   const mapOptions = arr =>{
-    return arr.favoritedPic.map(ele=>{
+    return arr.favoritedPic.map(pic=>{
       // console.log(ele.colorPalette)
       return (
-  
+      
         <div 
-          key={`p${ele.id}`}
-          onClick={()=>{
-            setDisplayPalette(false)
-            setPalette(JSON.parse(ele.colorPalette))
-          }}
-          className="palette_option"
+          key={`p${pic.id}`}
+          className="palette_wrapper"
         >
-          {mapColorPalette(ele)}
-          <img src={ele.image} alt={ele.title}/>
-        </div>  
-
+          <img 
+            onClick ={()=>fork(pic.dots)}
+            src={pic.image} alt={pic.title}
+          />  
+          <div 
+            onClick={()=>{
+              setDisplayPalette(false)
+              setPalette(JSON.parse(pic.colorPalette))
+            }}
+            className="palette_option"
+          >
+            {mapColorPalette(pic)}
+          </div>  
+        </div>
       )
     }
     )
@@ -281,12 +298,15 @@ function CreatePic(){
         <div className="grid_wrapper"
           onMouseDown={drawOn}
           onMouseUp={drawOff}
+          ref={drawingGrid}
         > 
           {mapGrid()}
           <canvas 
             ref={canvas}
             className="dots" 
           />
+          <div className="color_background">
+          </div>
         </div>  
     
         <div className="color_palette">
@@ -365,48 +385,3 @@ export default CreatePic
 
 
 
-
-
-// const mapGrid = () =>{    
-//   const grids = []
-//   for (let i = 0; i < (16 * 16); i++){
-//     grids.push(i)
-//   }
-
-//   if (gridCounter <= grids.length){
-//     setTimeout(()=>{
-//       setGridCounter(gridCounter + 1)
-//     },20)
-//   }
-//   return grids.filter(grid=>{
-//     if (grids.indexOf(grid) <= gridCounter) return grid
-//   }).map(grid=>{
-//     return (
-//       <div key={grid} 
-//         onClick={drawDotClick}
-//         onMouseMove={drawDot}
-//         id={grid}
-//         className="grid grid_float_up">
-//       </div>
-//     )
-//   })
-// }
-
-
-
-// React.useEffect(() => {
-//   if (!uploadedImageBlobUrl) return
-
-//   setUpCanvas()
-//   if (uploadedImageBlobUrl) {
-//     const image = new Image()
-//     image.onload = function() {
-
-
-      
-//       ctx.drawImage(image, 0, 0)
-//     }
-//     image.src = uploadedImageBlobUrl
-//   }
-
-// }, [uploadedImageBlobUrl])

@@ -36,7 +36,7 @@ function FollowButton ({ followed, artistData }){
       {artistData.followedBy.length + followedNow} <span>followers</span>
 
       {
-        !userId ?
+        !userId || userId === artistData.id ?
           null
           :
           !follow ?

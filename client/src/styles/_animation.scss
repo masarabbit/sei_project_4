@@ -308,6 +308,24 @@
   100% { bottom: 0px;}
 }
 
+@keyframes side_to_side {
+  0% { right: 0px;}
+  50% { right: 5px;}
+  100% { right: 0px;}
+}
+
+@keyframes slide_right {
+  0% { right: 0px;}
+  100% { right: 5px;}
+}
+
+@keyframes slide_up {
+  0% { bottom: 0px;}
+  100% { bottom: 5px;}
+}
+
+
+
 
 /* button related */
 

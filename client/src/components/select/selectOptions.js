@@ -9,10 +9,11 @@ export const selectOptions = [
   { value: '8', label: 'music' },
   { value: '9', label: 'plant' },
   { value: '10', label: 'portrait' },
-  { value: '11', label: 'sport' },
-  { value: '12', label: 'transport' },
-  { value: '13', label: 'travel' },
-  { value: '14', label: 'other' }
+  { value: '11', label: 'scenery' },
+  { value: '12', label: 'sport' },
+  { value: '13', label: 'transport' },
+  { value: '14', label: 'travel' },
+  { value: '15', label: 'other' }
 ]
 
 

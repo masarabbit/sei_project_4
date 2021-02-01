@@ -65,7 +65,7 @@ body {
 .tool_box {
   height: 50px;
   width: 320px;
-  border: 1px solid pink;
+  // border: 1px solid pink;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -118,18 +118,49 @@ body {
   }
 }
 
+.palette_wrapper {
+  width: 370px;
+  // border: red 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+
+  img {
+    height: 40px;
+    width: auto;
+    // margin: 0 10px 0 0;
+    cursor: pointer;
+  }
+
+  img:hover {
+    position: relative;
+    animation: bop infinite 0.5s;
+  }
+}
+
 .palette_option {
   width: 320px;
   height: 40px;
   // border: 1px solid white;
+  // position: relative;
   display: flex;
-  margin: 10px;
+  margin: 10px 0;
   background: url($blue_checkered_bg) repeat 0 0;
   
   div {
     padding: calc(1 / 16 * 100%);
     width: calc(100% / 8);
+    cursor: pointer;
   }
+
+  div:hover {
+    position: relative;
+    // animation: slide_up forwards 0.5s;
+    animation: bop infinite 0.5s;
+  }
+
+
 
 }
 
@@ -176,9 +207,9 @@ nav {
 
 .index {
   border: 2px solid $light_blue;
-  padding: 10px;
-  width: calc(25% - 30px);
-  margin: 15px;
+  padding: 15px;
+  width: calc(25% - 44px);
+  margin: 22px;
   // height: 200px;
   
   .index_palette {
@@ -548,14 +579,18 @@ nav {
   // flex: 1;
   border: solid $light_blue 1px;
   border-width: 1px 1px 0 0;
-  border-color: $light_blue $light_blue transparent transparent; 
-  
+  // border-color: $light_blue $light_blue transparent transparent; 
+  border-color: white white transparent transparent; 
+
   .grid{
     width: 20px;
     height: 20px;
+    // border: 1px solid $light_blue;
     border: 1px solid $light_blue;
     border-width: 0 0 1px 1px;
-    border-color: transparent transparent $light_blue $light_blue;
+    // border-color: transparent transparent $light_blue $light_blue;
+    border-color: transparent transparent white white;
+    
     // opacity: 0.2;
   }
 }
@@ -576,6 +611,16 @@ nav {
   margin: 0 0 0 15px;
   display: flex;
   flex-direction: column;
+
+  // div {
+  //   transition: 0.5s;
+  // }
+
+  div:hover {
+    position: relative;
+    // animation: slide_right forwards 0.5s;
+    animation: side_to_side infinite 0.5s;
+  }
 }
 
 .palette_block {
@@ -595,8 +640,8 @@ canvas {
   border: #1dfae8 1px solid;
   height: 320px;
   width: 320px;
-  background-color: white;
-  // opacity: 0.5;
+  background-color: transparent;
+  opacity: 0;
 }
 
 
@@ -605,9 +650,17 @@ canvas.dots {
   //*was set to 321px
   height: 320px;
   width: 320px;
-  background-color: white;
+  // background-color: white;
   margin: -321px 0 0 -1px;
   z-index: -1;
+}
+
+.color_background {
+  background: url($blue_checkered_bg) repeat 0 0;
+  margin: -321px 0 0 0;
+  height: 320px;
+  width: 320px;
+  z-index: -20;
 }
 
 

@@ -114,7 +114,6 @@ function ShowPic(){
               onClick={()=>history.push(`/artistpage/${comment.owner.id}`)}
             />
             {comment.owner.username}
-            {comment.id}
             <span>
               {comment.rating}pts
             </span>
@@ -137,7 +136,6 @@ function ShowPic(){
 
 
   const deleteArt = async e =>{
-    if (userId) return
     try {
       await deletePic(pic.id)
       e.target.parentNode.parentNode.parentNode.classList.add('delete')

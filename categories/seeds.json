@@ -73,26 +73,33 @@
   "model": "categories.category",
   "pk": 11,
   "fields": {
-    "name": "sport"
+    "name": "scenery"
   }
 },
 {
   "model": "categories.category",
   "pk": 12,
   "fields": {
-    "name": "transport"
+    "name": "sport"
   }
 },
 {
   "model": "categories.category",
   "pk": 13,
   "fields": {
-    "name": "travel"
+    "name": "transport"
   }
 },
 {
   "model": "categories.category",
   "pk": 14,
+  "fields": {
+    "name": "travel"
+  }
+},
+{
+  "model": "categories.category",
+  "pk": 15,
   "fields": {
     "name": "other"
   }
