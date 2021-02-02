@@ -12,8 +12,7 @@ import ArtSubmitForm from './ArtSubmitForm'
 import cross from '../assets/cross.svg'
 import useForm from '../hooks/useForm' 
 
-import profileIcon from '../assets/profile_icon.svg'
-
+import DrawingGrid from './DrawingGrid'
 
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
@@ -115,10 +114,7 @@ function CreatePic(){
 
   const handleUpload = async e => { 
     e.preventDefault()
-    e.target.classList.add('display_none')
-    setTimeout(()=>{
-      e.target.classList.remove('display_none') //! setSomething to disable?
-    },1400)
+    
     const drawnDots = dots.filter(dot=> dot)
     const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
     const titleError = formdata.title === '' ? 'please enter title' : ''
@@ -264,7 +260,7 @@ function CreatePic(){
 
   
   let idN = 0
-  const mapFavoritedPalette = pic =>{
+  const mapColorPalette = pic =>{
     return JSON.parse(pic.colorPalette).map(hex=>{
       idN++
       return (
@@ -298,7 +294,7 @@ function CreatePic(){
           }}
           className="palette_option"
           >
-            {mapFavoritedPalette(pic)}
+            {mapColorPalette(pic)}
           </div>  
         </div>
       )
@@ -362,18 +358,8 @@ function CreatePic(){
               }}>
                 +
               </button>  
-
-              <div className="image_upload_wrapper">
-                <label className="" htmlFor="upload" > 
-                  <img src={profileIcon} alt="upload_button" />
-                </label>
-                <input
-                  id="upload"
-                  type="file"
-                  onChange={mapFromImage}
-                />
-              </div>  
             </div>
+            <DrawingGrid />
             <div 
               onMouseLeave={()=>setDisplayPalette(false)}
               className={`palette_choice_menu ${displayPalette && 'open'}`}
@@ -389,6 +375,21 @@ function CreatePic(){
               <div>
                 {mapOptions(user)}  
               </div>  
+              <div className="upload_test">
+                <div className="upload_button_wrapper">
+                  <div className="input_wrapper">
+                    <label className="upload_button" htmlFor="upload" > 
+                      upload
+                    </label>
+                    <input
+                      id="upload"
+                      type="file"
+                      onChange={mapFromImage}
+                      // name="{name}"
+                    />
+                  </div>  
+                </div>
+              </div>
             </>   
               }
             </div>  

@@ -21,7 +21,6 @@ function CommentForm ( { displayComment, setDisplayComment, pic, userId }){
 
     if (!formdata.owner) return  //! stop making it possible to comment without logging in
 
-    console.log('trigger submit')
     try {
       await createComment(formdata)
       commentFormCloseEffect(e.target)

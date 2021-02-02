@@ -1,7 +1,6 @@
 import React from 'react'
 import { loginUser, setToken } from '../lib/auth'
 import { useHistory } from 'react-router-dom'
-
 import useForm from '../hooks/useForm'
 import profileIcon from '../assets/profile_icon.svg'
 import RandomBlocks from '../components/RandomBlocks'
@@ -40,6 +39,7 @@ function Login (){
       setTimeout(()=>{
         setToken(data.token)
         history.push('/')
+        // history.push(`/artistpage/${getUserId()}`)
       },1000)
     } catch (err) {
       setError(true)

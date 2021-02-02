@@ -113,6 +113,19 @@
   100% {left: -200vh;}
 }
 
+// @keyframes slide_out {
+//   0% {right: 0;}
+//   100% {right: -200vh;}
+// }
+
+.inflate {
+  animation: inflate forwards 0.4s;
+}
+
+@keyframes inflate {
+  0% { transform: scale(1);}
+  100% { transform: scale(1.4);}
+}
 
 @keyframes palette_load {
   0%{

@@ -3,17 +3,15 @@ import React from 'react'
 import { followArtist, unfollowArtist } from '../lib/api'
 import { getUserId } from '../lib/auth'
 
-function FollowButton ({ followed, artistData }){
+function FollowButton ({ followed, artistData, setFollowedNow }){
   const [follow, setFollow] = React.useState(followed)
-  const [followedNow, setFollowedNow]  = React.useState(0)
-  
   const userId = getUserId()
 
   const handleFollow = async () => {
     try {
       await followArtist(artistData.id)
       setFollow(!follow)
-      setFollowedNow(followedNow + 1)
+      setFollowedNow(true)
     } catch (err) {
       console.log('fav error', err.response)
     }
@@ -23,7 +21,7 @@ function FollowButton ({ followed, artistData }){
     try {
       await unfollowArtist(artistData.id)
       setFollow(!follow)
-      setFollowedNow(followedNow - 1)
+      setFollowedNow(false)
     } catch (err) {
       console.log('fav error', err.response)
     }
@@ -33,7 +31,7 @@ function FollowButton ({ followed, artistData }){
   return (
     <div className="followers_following">
       {artistData.following.length} <span>following</span> 
-      {artistData.followedBy.length + followedNow} <span>followers</span>
+      {artistData.followedBy.length} <span>followers</span>
 
       {
         !userId || userId === artistData.id ?

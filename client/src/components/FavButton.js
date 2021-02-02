@@ -8,11 +8,15 @@ function FavButton ({ pic, liked, star, userId, setLikedNow }){
 
   
 
-  const handleFavorite = async () => {
+  const handleFavorite = async e => {
     try {
       await favorite(pic.id)
       setLike(!like)
       setLikedNow(true)
+      e.target.parentNode.classList.add('inflate')
+      setTimeout(()=>{
+        e.target.parentNode.classList.remove('inflate')
+      },400)
       
     } catch (err) {
       console.log('fav error', err.response)

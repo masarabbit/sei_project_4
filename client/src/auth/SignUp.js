@@ -12,7 +12,7 @@ function SignUp(){
   const history = useHistory()
   const [hover, setHover] = React.useState(null)
   const [animate, setAnimate] = React.useState(false)
-  const {  formdata, errors, handleChange, setErrors } = useForm({
+  const { formdata, errors, handleChange, setErrors } = useForm({
     username: '',
     email: '',
     password: '',
@@ -141,7 +141,7 @@ function SignUp(){
           />
         </div>
         { errors.passwordConfirmation && 
-          <div className="error sign_up margin_adjusted"><p>{errors.passwordConfirmation}</p></div>
+          <div className="error sign_up margin_adjusted_forty"><p>{errors.passwordConfirmation}</p></div>
         }
         
 

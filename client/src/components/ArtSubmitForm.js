@@ -9,7 +9,7 @@ import { customStyles } from './select/customStyles.js'
 
 
 
-function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
+function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
   const [hover, setHover] = React.useState(null)
 
   const handleHover = e => setHover(e.target.name)
@@ -17,14 +17,17 @@ function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
   const handleHoverSelect = () => setHover('categories')
 
   
-  const handleFormChange = e => {
-    setPicInfo({ ...picInfo, [e.target.name]: e.target.value })
-  }
+  // const handleFormChange = e => {
+  //   setPicInfo({ ...picInfo, [e.target.name]: e.target.value })
+  // }
 
   const handleMultiChange = (selected, name) => {
     const value = selected ? selected.map(item=> item.value) : []
     // console.log(value)
-    handleFormChange({
+    // handleFormChange({
+    //   target: { name, value }
+    // })
+    handleChange({
       target: { name, value }
     })
   }
@@ -33,7 +36,12 @@ function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
 
   return (
 
-    <form className="art_submission_menu">
+    <form className="art_submission_menu"
+      // ref={submissionForm}
+    > 
+      { errors.dots && 
+          <div className="error center"><p>{errors.dots}</p></div>
+      }
         
       <div className="input_box">
         <img src={profileIcon} 
@@ -41,14 +49,17 @@ function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
           alt="smiley face" />
         <input type="title" 
           name="title"
-          onChange={handleFormChange}
+          onChange={handleChange}
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
-          value={picInfo.title}
+          value={formdata.title}
           placeholder="title"
           className="pinkfocus"
         />
       </div>
+      { errors.title && 
+          <div className="error sign_up"><p>{errors.title}</p></div>
+      }
 
       <div className="input_box"
         onMouseEnter={handleHoverSelect}
@@ -67,6 +78,9 @@ function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
           onChange = {(selected) => handleMultiChange(selected, 'categories')} 
         />
       </div>  
+      { errors.categories && 
+          <div className="error sign_up"><p>{errors.categories}</p></div>
+      }
 
       <div className="input_box">
         <img src={profileIcon} 
@@ -74,14 +88,19 @@ function ArtSubmitForm({ picInfo, setPicInfo, handleUpload }){
           alt="smiley face" />
         <textarea type="description" 
           name="description"
-          onChange={handleFormChange}
+          onChange={handleChange}
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
-          value={picInfo.description}
+          value={formdata.description}
           placeholder="description"
           className="twenty_px_bottom_margin"
         />
       </div>  
+      { errors.description && 
+          <div className="error sign_up margin_adjusted_twenty"><p>{errors.description}</p></div>
+      }
+     
+
 
 
       <div className="button_wrapper">

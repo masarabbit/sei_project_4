@@ -76,9 +76,11 @@ function ShowPic(){
   // if (formdata) console.log('form',formdata)
 
   const mapColorPalette = pic =>{
+    let idN = 0
     return JSON.parse(pic.colorPalette).map(hex=>{
+      idN++
       return (
-        <div key={hex} style={{ backgroundColor: hex }}>
+        <div key={`${idN}-${hex}`} style={{ backgroundColor: hex }}>
         </div>  
       )
     })
@@ -140,7 +142,8 @@ function ShowPic(){
       await deletePic(pic.id)
       e.target.parentNode.parentNode.parentNode.classList.add('delete')
       setTimeout(()=>{
-        history.push('/')
+        // history.push('/')
+        history.push(`/artistpage/${userId}`)
       },1000) 
     } catch (err) {
       console.log('fav error', err.response)
@@ -190,21 +193,28 @@ function ShowPic(){
               <div className="categories">
                 {pic.categories.map(category=>{
                   return (
-                    <span key={category.name}>
+                    <span key={category.name}
+                      onClick={()=>history.push(`/pics/${category.name}/1`)}
+                    >
                       {`${category.name}${pic.categories[pic.categories.length - 1].name !== category.name ? ', ' : ''}`}
                     </span>  
                   )
                 })}
               </div>  
               {pic.artist.id === userId &&
-
                 <div className="delete_button">
+                  <button 
+                    className="edit"
+                    onClick={()=>history.push(`/pics/${pic.id}/edit/`)}>
+                      edit
+                  </button>  
                   <button 
                     className="delete"
                     onClick={()=>setDisplayDelete(true)}>
-                        delete
+                      delete
                   </button>  
                 </div>  
+    
               }
               { 
                 !displayDelete ?

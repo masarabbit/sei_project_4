@@ -11,6 +11,7 @@ function ShowArtistPics (){
   const { id } = useParams()
   const [artistData,setArtistData] = React.useState(null)
   const [error,setError] = React.useState(false)
+  const [followedNow, setFollowedNow]  = React.useState(false)
   
   const [ picCounter, setPicCounter ] = React.useState(0)
   let idN = 0
@@ -26,7 +27,7 @@ function ShowArtistPics (){
       }
     }
     getData()
-  },[id])
+  },[id, followedNow])
 
 
 
@@ -94,6 +95,7 @@ function ShowArtistPics (){
                     }).length > 0 ? true : false
                   }
                   artistData = {artistData}
+                  setFollowedNow={setFollowedNow}
                 />
                 
               </div>  
@@ -109,13 +111,13 @@ function ShowArtistPics (){
           :
           error ?
             <div className="wrapper">
-              <p>something wrong?</p>
+              <p>oops... error...</p>
             </div>  
             :
             <p>loading... </p>
       }   
     </>
- 
+
   )
 }
 

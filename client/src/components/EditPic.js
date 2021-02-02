@@ -1,36 +1,27 @@
 import React from 'react'
 import { useRef } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { v4 as uuidv4 } from 'uuid'
 import { useHistory } from 'react-router-dom'
 
+import { getSinglePic, getUserInfo, editPic } from '../lib/api'
 import { getUserId } from '../lib/auth'
-import { createPic, getUserInfo } from '../lib/api'
 import { sortedByFrequencyDuplicatesAndBlankRemoved, rgbToHex } from '../lib/utils'
-import { clickAnimation, drawIntoGrid, explode, mapFromDots } from '../lib/draw'
-import ArtSubmitForm from './ArtSubmitForm'
+
+
+import { clickAnimation, drawIntoGrid, mapFromDots, explode } from '../lib/draw'
 import cross from '../assets/cross.svg'
 import useForm from '../hooks/useForm' 
-
-import profileIcon from '../assets/profile_icon.svg'
-
+import ArtSubmitForm from './ArtSubmitForm'
 
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 
-function CreatePic(){
+function EditPic(){
+  const { id } = useParams()
   const history = useHistory()
-  const [user, setUser] = React.useState(null)
-  const [displayPalette, setDisplayPalette] = React.useState(false)
-  const [palette, setPalette] = React.useState(null)
-  const [uploadedImageBlobUrl, setUploadedImageBlobUrl] = React.useState(null)
-
-  const [drawingUrl, setDrawingUrl] = React.useState(null)
-  const [drawSetting, setDrawSetting] = React.useState({
-    color: '#c5884d'
-  }) 
-  const { formdata,  handleChange, setErrors, errors } = useForm({
+  const { formdata, setFormdata, setErrors, errors, handleChange } = useForm({
     title: '', 
     image: '', 
     dots: '', 
@@ -39,25 +30,29 @@ function CreatePic(){
     artist: '',
     description: ''
   })
-
+  const [drawSetting, setDrawSetting] = React.useState({
+    color: '#c5884d'
+  }) 
+  
+  const [user, setUser] = React.useState(null)
+  const [palette, setPalette] = React.useState(null)
+  const [displayPalette, setDisplayPalette] = React.useState(false)
+  const [uploadedImageBlobUrl, setUploadedImageBlobUrl] = React.useState(null)
   const [dots, setDots] = React.useState(Array(256).fill(''))
   const [draw, setDraw] = React.useState(false)
   const drawOn = ()=> setDraw(true) 
   const drawOff = ()=> setDraw(false) 
-  const canvas = useRef()
-  const drawingGrid = useRef()
   const submissionForm = useRef(null)
   let ctx = null
-  
-  const userId = getUserId()
+  const [drawingUrl, setDrawingUrl] = React.useState(null)
 
-  const mapFromImage = e => {
-    if (!e.target.files[0]) return
-    const uploadedImage = e.target.files[0]
-    const blobUrl = window.URL.createObjectURL(uploadedImage)
-    setUploadedImageBlobUrl(blobUrl)
+  const canvas = useRef()
+  const drawingGrid = useRef()
+  const userId = getUserId()
+  const handleSettingChange = e => {
+    setDrawSetting({ ...drawSetting, [e.target.name]: e.target.value })
   }
-  
+
   const historyLimit = 50
   const [drawingHistory, setDrawingHistory] = React.useState(Array(historyLimit - 1).fill(Array(256).fill('')))
   const [historyStep, setHistoryStep] = React.useState(historyLimit)
@@ -73,6 +68,85 @@ function CreatePic(){
     }
     setDrawingHistory(records)
   }
+
+  const setUpCanvas = () =>{
+    const canvasEle = canvas.current
+    canvasEle.width = canvasEle.clientWidth
+    canvasEle.height = canvasEle.clientHeight    
+    ctx = canvasEle.getContext('2d')
+  }
+
+  const mapFromImage = e => {
+    if (!e.target.files[0]) return
+    const uploadedImage = e.target.files[0]
+    const blobUrl = window.URL.createObjectURL(uploadedImage)
+    setUploadedImageBlobUrl(blobUrl)
+  }
+
+
+  const handleUpload = async e => { 
+    e.preventDefault()
+    
+    const drawnDots = dots.filter(dot=> dot)
+    const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
+    const titleError = formdata.title === '' ? 'please enter title' : ''
+    const selectError = formdata.categories.length === 0 ? 'please select atleast one' : ''
+    const descriptionError = formdata.description === '' ? 'please enter description' : ''
+    setErrors({ 
+      title: titleError, 
+      categories: selectError, 
+      description: descriptionError,
+      dots: dotsError 
+    })
+    if (dotsError || titleError || selectError || descriptionError) {     
+      submissionForm.current = e.target.parentNode.parentNode
+      submissionForm.current.classList.add('shake')
+      setTimeout(()=>{
+        submissionForm.current.classList.add('static')
+        submissionForm.current.classList.remove('shake') 
+      },500)
+      return
+    }
+    setUpCanvas() //these ensure that canvas is rendered before upload
+    mapFromDots(dots,ctx)
+    let can = canvas.current.toDataURL('image/png')
+    can = can.replace('image/png', 'image/octet-stream')
+    const data = new FormData() 
+    data.append('file', can)
+    data.append('upload_preset', uploadPreset)
+    const res = await axios.post(uploadUrl, data)
+    setDrawingUrl(res.data.url)
+  }
+
+
+  const handleSubmit = async () => {  
+    const palette = filterPalette(dots)
+    try {
+      await editPic(id,{ 
+        title: formdata.title, 
+        image: drawingUrl, 
+        dots: JSON.stringify(dots), 
+        colorPalette: JSON.stringify(palette),
+        categories: formdata.categories,
+        artist: userId,
+        description: formdata.description 
+      })
+  
+      explode(drawingGrid)
+      setTimeout(()=>{
+        history.push(`/artistpage/${userId}`)
+      },1100)
+    } catch (err){
+      console.log(err)
+    }
+  }
+
+  React.useEffect(() => {
+    if (!drawingUrl) return
+    handleSubmit()
+  }, [drawingUrl])
+  
+
 
   React.useEffect(() => {
     if (!uploadedImageBlobUrl) return
@@ -102,81 +176,37 @@ function CreatePic(){
   }, [uploadedImageBlobUrl])
   
 
-  const setUpCanvas = () =>{
-    const canvasEle = canvas.current
-    canvasEle.width = canvasEle.clientWidth
-    canvasEle.height = canvasEle.clientHeight    
-    ctx = canvasEle.getContext('2d')
-  }
   
-  const handleSettingChange = e => {
-    setDrawSetting({ ...drawSetting, [e.target.name]: e.target.value })
-  }
-
-  const handleUpload = async e => { 
-    e.preventDefault()
-    e.target.classList.add('display_none')
-    setTimeout(()=>{
-      e.target.classList.remove('display_none') //! setSomething to disable?
-    },1400)
-    const drawnDots = dots.filter(dot=> dot)
-    const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
-    const titleError = formdata.title === '' ? 'please enter title' : ''
-    const selectError = formdata.categories.length === 0 ? 'please select atleast one' : ''
-    const descriptionError = formdata.description === '' ? 'please enter description' : ''
-    setErrors({ 
-      title: titleError, 
-      categories: selectError, 
-      description: descriptionError,
-      dots: dotsError 
-    })
-    if (dotsError || titleError || selectError || descriptionError) {     
-      submissionForm.current = e.target.parentNode.parentNode
-      submissionForm.current.classList.add('shake')
-      setTimeout(()=>{
-        submissionForm.current.classList.add('static')
-        submissionForm.current.classList.remove('shake') 
-      },500)
-      return
-    }
-
-    setUpCanvas() //these ensure that canvas is rendered before upload
-    mapFromDots(dots,ctx)
-    let can = canvas.current.toDataURL('image/png')
-    can = can.replace('image/png', 'image/octet-stream')
-    const data = new FormData() 
-    data.append('file', can)
-    data.append('upload_preset', uploadPreset)
-    const res = await axios.post(uploadUrl, data)
-    setDrawingUrl(res.data.url)
-  }
-  
-  const handleSubmit = async () => {  
-    const palette = filterPalette(dots)
-    try {
-      await createPic({ 
-        title: formdata.title, 
-        image: drawingUrl, 
-        dots: JSON.stringify(dots), 
-        colorPalette: JSON.stringify(palette),
-        categories: formdata.categories,
-        artist: userId,
-        description: formdata.description 
-      })
-  
-      explode(drawingGrid)
-      setTimeout(()=>{
-        history.push(`/artistpage/${userId}`)
-      },1100)
-    } catch (err){
-      console.log(err)
-    }
-  }
 
   React.useEffect(() => {
-    if (!drawingUrl) return
-    handleSubmit()
-  }, [drawingUrl])
+    const getData = async () => {
+      try {
+        const { data } = await getSinglePic(id)
+        setFormdata(data)
+        setDots(JSON.parse(data.dots))
+        drawIntoGrid(JSON.parse(data.dots),drawingGrid)
+
+        // const record = [...drawingHistory]
+        // record[0] = data.dots
+        // setDrawingHistory(record)
+      } catch (err) {
+        console.log('error')
+      }
+    }
+    getData()
+  },[id])
+
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await getUserInfo()
+        setUser(data)
+      } catch (err) {
+        console.log('error')
+      }
+    }
+    getData()
+  },[])
   
 
   const drawDot = e =>{
@@ -200,38 +230,6 @@ function CreatePic(){
     recordHistory(dots)
     setHistoryStep(historyLimit)
   }
-  
-  const filterPalette = arr =>{
-    const palette = Array(8).fill('')
-    for (let i = 0; i < 8; i++){
-      palette[i] = sortedByFrequencyDuplicatesAndBlankRemoved(arr)[i]
-    }
-    return palette
-  }
-
-  //! don't need uuid? to be considered
-  const mapPalette = arr =>{   
-    const palette = filterPalette(arr)
-    return palette.map(hex=>{
-      const idN = uuidv4()
-      return (
-        <div key={idN} 
-          onClick={handlePalettePick}
-          id={`p${idN}_${hex}`}
-          className="palette_block"
-          style={{ backgroundColor: hex }}  
-        >  
-        </div>
-      )
-    })
-  }
-
-  const handlePalettePick = e =>{
-    if (e.target.id.split('_')[1] === 'undefined') return
-    console.log(e.target.style.backgroundColor)
-    setDrawSetting({ ...drawSetting, color: e.target.id.split('_')[1] })
-  }
-
 
   const mapGrid = () =>{    
     const grids = []
@@ -247,23 +245,34 @@ function CreatePic(){
       )
     })
   }
-  
 
-  React.useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await getUserInfo()
-        setUser(data)
-      } catch (err) {
-        console.log('error')
-      }
+  const filterPalette = arr =>{
+    const palette = Array(8).fill('')
+    for (let i = 0; i < 8; i++){
+      palette[i] = sortedByFrequencyDuplicatesAndBlankRemoved(arr)[i]
     }
-    getData()
-  },[])
-  
+    return palette
+  }
 
   
   let idN = 0
+  const mapPalette = arr =>{   
+    const palette = filterPalette(arr)
+    return palette.map(hex=>{
+      idN++
+      return (
+        <div key={idN} 
+          onClick={handlePalettePick}
+          id={`p${idN}_${hex}`}
+          className="palette_block"
+          style={{ backgroundColor: hex }}  
+        >  
+        </div>
+      )
+    })
+  }
+
+
   const mapFavoritedPalette = pic =>{
     return JSON.parse(pic.colorPalette).map(hex=>{
       idN++
@@ -277,7 +286,12 @@ function CreatePic(){
       )
     })
   }
-  
+
+  const handlePalettePick = e =>{
+    if (e.target.id.split('_')[1] === 'undefined') return
+    setDrawSetting({ ...drawSetting, color: e.target.id.split('_')[1] })
+  }
+
   const fork = forkedDots =>{
     drawIntoGrid(JSON.parse(forkedDots),drawingGrid)
     setDots(JSON.parse(forkedDots))
@@ -308,18 +322,20 @@ function CreatePic(){
   
   //! still a little buggy
   const handleBack = () =>{
+    console.log('trig')
     if (historyStep === 0 || !drawingHistory[historyStep]) return
     drawIntoGrid(drawingHistory[historyStep],drawingGrid)
     setDots(drawingHistory[historyStep - 1])
     setHistoryStep(historyStep - 1)
   }
 
+
   return (
     <>
       {
-        !userId ?
+        !userId || userId !== formdata.artist.id ?
           <div className="wrapper">
-            <p>please log in</p>
+            <p>you are not authorised</p>
           </div>
           :
           <div className="wrapper no_height slide_in">
@@ -337,19 +353,19 @@ function CreatePic(){
                 <div className="color_background">
                 </div>
               </div>  
-    
+  
               <div className="color_palette">
                 {mapPalette(dots)}
               </div>  
             </div>
-      
+    
             <div className="tool_box">
               <div 
                 onClick={handleBack}
                 className="back">
-                &#60;
+              &#60;
               </div>  
-          
+        
               <input type="color" 
                 className="color pinkfocus"
                 name="color"
@@ -360,19 +376,8 @@ function CreatePic(){
               <button onClick={()=>{ 
                 setDisplayPalette(!displayPalette) 
               }}>
-                +
+              +
               </button>  
-
-              <div className="image_upload_wrapper">
-                <label className="" htmlFor="upload" > 
-                  <img src={profileIcon} alt="upload_button" />
-                </label>
-                <input
-                  id="upload"
-                  type="file"
-                  onChange={mapFromImage}
-                />
-              </div>  
             </div>
             <div 
               onMouseLeave={()=>setDisplayPalette(false)}
@@ -386,9 +391,24 @@ function CreatePic(){
               {
                 user &&
             <>
+
               <div>
                 {mapOptions(user)}  
               </div>  
+              <div className="upload_test">
+                <div className="upload_button_wrapper">
+                  <div className="input_wrapper">
+                    <label className="upload_button" htmlFor="upload" > 
+                    upload
+                    </label>
+                    <input
+                      id="upload"
+                      type="file"
+                      onChange={mapFromImage}
+                    />
+                  </div>  
+                </div>
+              </div>
             </>   
               }
             </div>  
@@ -400,7 +420,7 @@ function CreatePic(){
                 :
                 null
             }
-  
+
             <ArtSubmitForm 
               handleUpload={handleUpload}
               formdata={formdata}
@@ -413,7 +433,4 @@ function CreatePic(){
   )
 }
 
-export default CreatePic
-
-
-
+export default EditPic

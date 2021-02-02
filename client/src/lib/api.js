@@ -28,6 +28,11 @@ export function createPic(formdata){
   return axios.post(`${baseUrl}/pics/`,formdata)
 }
 
+export function editPic(picId,formdata){
+  return axios.put(`${baseUrl}/pics/${picId}/`,formdata, headers())
+}
+
+
 
 
 

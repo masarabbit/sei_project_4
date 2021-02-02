@@ -52,6 +52,10 @@ button.nav {
   margin: 0 5px;
 }
 
+button.edit {
+  margin: 0 10px;
+}
+
 button.sign_in, button.sign_up {
   margin: 0 auto;
 }
@@ -86,6 +90,10 @@ button.yes:after,button.yes:before {
 
 button.no:after,button.no:before {
   content: "no";
+}
+
+button.edit:after,button.edit:before {
+  content: "edit";
 }
 
 
@@ -228,7 +236,7 @@ form {
   height: 200px;
   width: 300px;
   transform-origin: 100% 0%;
-  margin: -150px 0 0 0;
+  margin: -110px 0 0 0;
 }
 
 .error {
@@ -290,14 +298,26 @@ form {
   }
 }
 
+.error.center {
+  text-align: center;
+  padding: 5px;
+  p {
+    font-size: 13px;
+  }
+}
+
 .error.sign_up, .error.comment{
   padding: 0 50px;
   height: auto;
   margin: -10px 0 0 0;  
 }
 
-.error.sign_up.margin_adjusted {
+.error.sign_up.margin_adjusted_forty {
   margin: -40px 0 20px 0;  
+}
+
+.error.sign_up.margin_adjusted_twenty {
+  margin: -30px 0 20px 0;  
 }
 
 .column {
@@ -311,6 +331,42 @@ form.art_submission_menu {
   width: 320px;
   height: auto;
 }
+
+
+
+
+
+
+  .image_upload_wrapper {
+    margin: 0;
+    // display: flex;
+    padding: 0;
+    height: 34px;
+    width: 34px;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid red;
+  }
+
+  label {
+    font-size: 0px;
+    padding: 0px;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    img:hover {
+      position: relative;
+      animation: bop infinite 0.5s;
+    }
+  }
+
+
 
 .upload_button_wrapper {
   margin: 0 auto;

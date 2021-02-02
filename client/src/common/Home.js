@@ -2,53 +2,65 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { getAllPics } from '../lib/api'
+import { getUserId } from '../lib/auth'
 
 
 function Home(){
-  const [pics, setPics] = React.useState(null)
   const [error, setError] = React.useState(false)
 
   const [ picCounter, setPicCounter ] = React.useState(0)
   let idN = 0
 
-  // const [ indexLimit, setIndexLimit ] = React.useState(12)
-  // const [ scrolling, setScrolling ] = React.useState(false)
+  const user = getUserId()
 
-  // window.addEventListener('scroll', function() {
-  //   if (scrolling) return
-  //   setScrolling(true)
-  //   setTimeout(()=>{
-  //     setScrolling(false)
-  //   },1000)
-
-  //   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-  //     console.log('you\'re at the bottom of the page')
-  //     // Show loading spinner and make fetch request to api
-  //     setIndexLimit(indexLimit + 1)
-  //     console.log('i', indexLimit)
+  // const [user, setUser] = React.useState(null)
+  const [pics, setPics] = React.useState(null)
+  const [filteredPics, setFilteredPics] = React.useState([])
+  
+  // React.useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await getUserInfo()
+  //       setUser(data)
+  //     } catch (err) {
+  //       console.log('error')
+  //     }
   //   }
-  // })
+  //   getData()
+  // },[])
+  
+
+  const filterPics = pics => {
+    const artistCheck = pics.map(pic=>{
+      return pic.artist.followedBy.filter(follower=>{
+        return follower === user
+      })
+    })
+    const result = pics.filter((_pic,i) =>{
+      return artistCheck[i].length !== 0
+    }) 
+    return result
+  }
+  
+
 
   React.useEffect(() => {
+    if (!user) return
     const getData = async () => {
       try {
         const { data } = await getAllPics()
-        setPics(data)
+        setFilteredPics(filterPics(data))
+        if (filterPics(data).length === 0) setPics(data.slice(0,12))
+        
       } catch (err) {
         console.log('error')
         setError(true)
       }
     }
     getData()
-  },[])
-
-  // if (pics) console.log(pics)
-
-  
+  },[user])
 
 
-  //! very similar to the one in createPic, so can be refactored and taken outside.
-  //! in which case the id needs to be put in as argument.
   const mapColorPalette = pic =>{
     return JSON.parse(pic.colorPalette).map(hex=>{
       idN++
@@ -97,17 +109,38 @@ function Home(){
   return (
     <div className="wrapper">
       {
+        !user ?
+          <p>home</p>
+          :
+          null
+      }
+
+
+      {
+        filteredPics && filteredPics.length !== 0 ?
+          <main className="index_wrapper">
+            {mapPics(filteredPics)}
+          </main>
+          :
+          error ?
+            <p>hmm... error...</p>
+            :
+            null
+      }
+
+      {
         pics ?
           <main className="index_wrapper">
             {mapPics(pics)}
           </main>
           :
           error ?
-            <p> can&#39;t find it ...</p>
+            <p>hmm... error...</p>
             :
-            <p> loading </p>
-      }
+            null
 
+        
+      } 
     </div>  
   )
 }
@@ -139,3 +172,22 @@ export default Home
 //     )
 //   })
 // }
+
+
+// const [ indexLimit, setIndexLimit ] = React.useState(12)
+// const [ scrolling, setScrolling ] = React.useState(false)
+
+// window.addEventListener('scroll', function() {
+//   if (scrolling) return
+//   setScrolling(true)
+//   setTimeout(()=>{
+//     setScrolling(false)
+//   },1000)
+
+//   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+//     console.log('you\'re at the bottom of the page')
+//     // Show loading spinner and make fetch request to api
+//     setIndexLimit(indexLimit + 1)
+//     console.log('i', indexLimit)
+//   }
+// })

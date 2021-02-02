@@ -1,0 +1,41 @@
+.pagination_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .inner_wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 90px;
+    width: 320px;
+
+    button {
+      background-color: black;
+      height: 34px;
+      width: 34px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      position: relative;
+      animation: bop infinite 0.5s;
+    }
+
+    .current {
+      background-color: $light_blue;
+      color: white;
+    }
+
+    .null, .null:hover {
+      background-color: grey;
+      color: white;
+      cursor: default;
+    }
+  }
+}

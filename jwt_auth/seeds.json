@@ -1,1161 +1,1248 @@
 [
-  {
-    "model": "jwt_auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "admin@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite53.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "masa",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "masa@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "pikachu",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "pikachu@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite52.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 4,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "gameboy",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "gameboy@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite50.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 5,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "davinci",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "davinci@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite49.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 6,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "vangogh",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "vangogh@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite48.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 7,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "jack",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "jack@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite46.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 8,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "cloud",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "cloud@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite47.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 9,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "tifa",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "tifa@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite45.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 10,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "ash",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "ash@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite44.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 11,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "misty",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "misty@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite39.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 12,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "brock",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "brock@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite43.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 13,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "vivi",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "vivi@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite40.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 14,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "barret",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "barret@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite37.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 15,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "vincent",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "vincent@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite42.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 16,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "yuffy",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "yuffy@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite41.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 17,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "aerith",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "aerith@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite38.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 18,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "mario",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "mario@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite36.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 19,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "luigi",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "luigi@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite33.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 20,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "peach",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "peach@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite34.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 21,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "bowser",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "bowser@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite32.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 22,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "wii",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "wii@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite35.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 23,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "switch",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "switch@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite31.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 24,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "gengar",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "gengar@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite30.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 25,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "pixel1987",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "pixel1987@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite29.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 26,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "dude",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "dude@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite26.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 27,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "dotdotdot",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "dotdotdot@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite27.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 28,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "kraken",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "kraken@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite24.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 29,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "bahamut",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "bahamut@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite28.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 30,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "titan",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "titan@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite25.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 31,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "ditto",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "ditto@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite22.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 32,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "slowpoke",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "slowpoke@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite23.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 33,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "char",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "char@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite21.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 34,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "noa",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "noa@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite20.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 35,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "trex",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "trex@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite19.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 36,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "raichu",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "raichu@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite99.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 37,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "golem",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "golem@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite100.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 38,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "caitsith",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "caitsith@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite98.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 39,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "squall",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "squall@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite97.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 40,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "rinoa",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "rinoa@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite17.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 41,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "selphie",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "selphie@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite96.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 42,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "irvine",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "irvine@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite18.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 43,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "quistis",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "quistis@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite95.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 44,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "sephiroth",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "sephiroth@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite94.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 45,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "lugia",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "lugia@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite93.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 46,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "mewtwo",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "mewtwo@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite92.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 47,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "mew",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "mew@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite16.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 48,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "zidane",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "zidane@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite90.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 49,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "beatrix",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "beatrix@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite91.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 50,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "garnet",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "garnet@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite88.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 51,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "rufus",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "rufus@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite89.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 52,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "bulbasaur",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "bulbasaur@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite87.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 53,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "charmander",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "charmander@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite15.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 54,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "squirtle",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "squirtle@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite13.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 55,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "randomartist",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "randomartist@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite86.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 56,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "snake",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "snake@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite85.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 57,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "meryl",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "meryl@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite14.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 58,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "mantis",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "mantis@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite84.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 59,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "bigboss",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "bigboss@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite83.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 60,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "metalgear",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "metalgear@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572647/user_image/sprite82.png",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 61,
-    "fields": {
-      "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
-      "last_login": "2021-01-26T21:01:45.664Z",
-      "is_superuser": false,
-      "username": "",
-      "first_name": "",
-      "last_name": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2021-01-26T20:59:56.915Z",
-      "email": "@email.com",
-      "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572647/user_image/sprite81.png",
-      "groups": [],
-      "user_permissions": []
-    }
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "admin@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite53.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
   }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "masa",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "masa@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "pikachu",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "pikachu@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite52.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "gameboy",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "gameboy@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite50.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": [
+      2
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "davinci",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "davinci@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite49.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "vangogh",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "vangogh@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite48.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "jack",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "jack@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite46.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "cloud",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "cloud@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite47.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": [
+      17
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "tifa",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "tifa@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite45.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "ash",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "ash@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite44.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "misty",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "misty@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite39.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "brock",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "brock@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite43.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "vivi",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "vivi@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite40.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "barret",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "barret@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite37.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "vincent",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "vincent@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite42.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "yuffy",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "yuffy@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite41.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "aerith",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "aerith@email.com",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612227211/image_upload_test/jktruwx1drhcwze3vrfk.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "mario",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "mario@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite36.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "luigi",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "luigi@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite33.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "peach",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "peach@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite34.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 21,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "bowser",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "bowser@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite32.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 22,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "wii",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "wii@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite35.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 23,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "switch",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "switch@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite31.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 24,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "gengar",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "gengar@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite30.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 25,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "pixel1987",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "pixel1987@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite29.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 26,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "dude",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "dude@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite26.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 27,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "dotdotdot",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "dotdotdot@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite27.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 28,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "kraken",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "kraken@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite24.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 29,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "bahamut",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "bahamut@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite28.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 30,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "titan",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "titan@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite25.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 31,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "ditto",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "ditto@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite22.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 32,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "slowpoke",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "slowpoke@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite23.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 33,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "char",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "char@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite21.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 34,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "noa",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "noa@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite20.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 35,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "trex",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "trex@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite19.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 36,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "raichu",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "raichu@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite99.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 37,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "golem",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "golem@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite100.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 38,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "caitsith",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "caitsith@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite98.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 39,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "squall",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "squall@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite97.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 40,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "rinoa",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "rinoa@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite17.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 41,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "selphie",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "selphie@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite96.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 42,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "irvine",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "irvine@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite18.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 43,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "quistis",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "quistis@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite95.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 44,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "sephiroth",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "sephiroth@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite94.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 45,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "lugia",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "lugia@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite93.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 46,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "mewtwo",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "mewtwo@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite92.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 47,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "mew",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "mew@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite16.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 48,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "zidane",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "zidane@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite90.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 49,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "beatrix",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "beatrix@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite91.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 50,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "garnet",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "garnet@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite88.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 51,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "rufus",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "rufus@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite89.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 52,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "bulbasaur",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "bulbasaur@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite87.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 53,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "charmander",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "charmander@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite15.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 54,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "squirtle",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "squirtle@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite13.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": [
+      2
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 55,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "randomartist",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "randomartist@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite86.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 56,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "snake",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "snake@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite85.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 57,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "meryl",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "meryl@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite14.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 58,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "mantis",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "mantis@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite84.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 59,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "bigboss",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "bigboss@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite83.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 60,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "metalgear",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "metalgear@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572647/user_image/sprite82.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 61,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sabrgb5MtfGK$5elrKsrzJJkoKzDFt54RULTe/HsKhasHaWrJn8N3oQY=",
+    "last_login": "2021-01-26T21:01:45.664Z",
+    "is_superuser": false,
+    "username": "",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-26T20:59:56.915Z",
+    "email": "@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572647/user_image/sprite81.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 62,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$25OWf8BCrWMJ$nBRsoRwm1ZLwVqu8D+g4NO4jbt02Wi/SI1+Vfxe3nWY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "antoinette",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-02-01T00:25:13.776Z",
+    "email": "antoinette@email.com",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612139096/image_upload_test/hgjrwntv4iqrwjrzpyqv.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+}
 ]

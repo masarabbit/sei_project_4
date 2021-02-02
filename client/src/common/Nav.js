@@ -3,6 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 
 import { getUserInfo } from '../lib/api'
 import { logout, isAuthenticated } from '../lib/auth'
+import logo from '../assets/16.png'
 
 function Nav(){
   const loggedIn = isAuthenticated()
@@ -36,7 +37,7 @@ function Nav(){
   return (
     <nav>
       <Link to="/">
-        <p>16</p>
+        <img className="logo" src={logo} alt="logo" />
       </Link>
       <div className="link_menu">
         {
@@ -51,6 +52,12 @@ function Nav(){
               <button className="nav logout" onClick={handleLogout}>
                 logout
               </button>
+
+              <Link to="/pics/new">
+                <button className="nav draw">
+                  draw
+                </button>  
+              </Link>
             </>
             :
             <>
@@ -67,11 +74,7 @@ function Nav(){
             </>
         }
     
-        <Link to="/pics/new">
-          <button className="nav draw">
-            draw
-          </button>  
-        </Link>
+        
       </div>
     </nav>
   )

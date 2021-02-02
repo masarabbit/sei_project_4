@@ -2,8 +2,27 @@
 @import 'animation';
 @import 'form';
 @import 'artist_profile';
+@import 'pagination';
 
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $main_font;
+  background-color: rgb(255, 255, 255);
+  // background: url($bg) repeat 0 0;
+  // animation: bg_scrolling 4s infinite linear; 
+}
 
+.logo {
+  height: 34px;
+  width: auto;
+}
+
+.logo:hover{
+  position: relative;
+  animation: bop infinite 0.5s;
+  cursor: pointer;
+}
 
 p, h1, h2, h3, h4 {
   display: inline-block;
@@ -53,14 +72,6 @@ a {
 //   border-width: 0 0 1px 0;
 // }
 
-body {
-  padding: 0;
-  margin: 0;
-  font-family: $main_font;
-  background-color: rgb(255, 255, 234);
-  background: url($bg) repeat 0 0;
-  // animation: bg_scrolling 4s infinite linear; 
-}
 
 .tool_box {
   height: 50px;
@@ -89,7 +100,31 @@ body {
   border: 0;
   
 }
+
+.color:hover {
+  position: relative;
+  animation: infinite bop 0.5s;
 }
+
+.back {
+  position: relative;
+  height: 32px; 
+  width: 32px;
+  padding: 0;
+  color: white;
+  background-color: black;
+  margin: 0 auto 0 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back:hover {
+  animation: bop 0.5s infinite;
+}
+}
+
+
 
 .palette_choice_menu {
   background-color: $clear_blue;
@@ -104,18 +139,7 @@ body {
   display: flex;
   // flex-direction: column;
   // align-items: flex-start;
-}
-
-.upload_test {
-  width: 200px;
-  height: 100px;
-
-  border: yellow 1px solid;
-
-  input {
-    height: 20px;
-    width: 100px;
-  }
+  
 }
 
 .palette_wrapper {
@@ -142,7 +166,7 @@ body {
 .palette_option {
   width: 320px;
   height: 40px;
-  // border: 1px solid white;
+  border: 0px transparent solid;
   // position: relative;
   display: flex;
   margin: 10px 0;
@@ -152,6 +176,8 @@ body {
     padding: calc(1 / 16 * 100%);
     width: calc(100% / 8);
     cursor: pointer;
+    border: 0px transparent;
+    
   }
 
   div:hover {
@@ -176,7 +202,7 @@ nav {
   height: $nav_height;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 30px;
 }
 
 .link_menu {
@@ -195,15 +221,29 @@ nav {
   }
 }
 
+.category_label {
+  position: fixed;
+  // border: red solid 1px;
+  bottom: 51px;
+  right: 30px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  color: $gray;
+  font-size: 20px;
+}
+
 .index_wrapper {
   // border: 1px solid red;
   padding: 10px;
   height: 100%;
   width: 100%;
+  max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
 }
+
 
 .index {
   border: 2px solid $light_blue;
@@ -230,10 +270,16 @@ nav {
     height: auto;
     // background-color: white;
   }
+
+  // img:hover {
+  //   position: relative;
+  //   animation: bop infinite 0.5s;
+  // }
+  
 }
 
 .wrapper {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 80px);
 
   // height: 5000px;
   width: 100%;
@@ -250,7 +296,7 @@ nav {
 }
 
 .wrapper.non_center {
-  padding: 60px;
+  padding: 40px 0 0 0;
   justify-content: flex-start;
   height: auto;
   // border: red solid 1px;
@@ -276,7 +322,7 @@ nav {
 .delete_menu {
   font-size: 14px;
   color: $light_pink;
-
+  padding: 10px 0;
 }
 
 .wrapper.artist_profile {
@@ -305,9 +351,13 @@ nav {
   }
 
   .categories {
-    font-size: 13px;
+    font-size: 14px;
     color: $dark_blue;
     padding: 5px 0 0 0;
+
+    span:hover {
+      color: $light_pink;
+    }
   }
 }
 
@@ -359,14 +409,7 @@ nav {
   align-items: center;
   padding: 0 8px 0 2px;
 }
-.followers_following {
-  border: red 1px solid;
-  font-size: 14px;
-  span {
-    color: $gray;
-    margin: 0 20px 0 0;
-  }
-}
+
 
 
 .menu_button {
@@ -385,6 +428,12 @@ nav {
   img:hover {
     filter: hue-rotate(180deg);
     animation: bop infinite 0.5s;
+  }
+}
+
+.menu_button.inflate {
+  img:hover {
+    animation: none;
   }
 }
 
@@ -579,21 +628,39 @@ nav {
   // flex: 1;
   border: solid $light_blue 1px;
   border-width: 1px 1px 0 0;
-  // border-color: $light_blue $light_blue transparent transparent; 
-  border-color: white white transparent transparent; 
+  border-color: $light_blue $light_blue transparent transparent; 
+  // border-color: white white transparent transparent; 
+  // border-color: transparent;
+  overflow:visible;
 
   .grid{
     width: 20px;
     height: 20px;
-    // border: 1px solid $light_blue;
     border: 1px solid $light_blue;
     border-width: 0 0 1px 1px;
-    // border-color: transparent transparent $light_blue $light_blue;
     border-color: transparent transparent white white;
     
+    // border: 1px solid $light_blue;
+    border-color: transparent transparent $light_blue $light_blue;
     // opacity: 0.2;
+    
+  }
+
+  .grid.explode {
+    position: relative;
+    animation: slide_submission forwards ease 1s;
+    border: transparent;
   }
 }
+
+@keyframes slide_submission{
+  0% {margin-left:0px; width: 20px; opacity: 0}
+  40% {margin-left:0px; width: 20px; opacity: 1}
+  70% {width: 40px; margin-left:0; }
+  100% {width: 2000px; margin-left: 100vh; opacity: 1}
+}
+
+
 
 .inner_wrapper {
   // border: red 1px solid;
@@ -605,7 +672,7 @@ nav {
 .color_palette {
   height: 100%;
   width: 40px;
-  // border: solid $light_blue;
+  // border: solid $light_blue 1px;
   // border-width: 0 0 1px 0;
   background: url($blue_checkered_bg) repeat 0 0;
   margin: 0 0 0 15px;
@@ -657,10 +724,11 @@ canvas.dots {
 
 .color_background {
   background: url($blue_checkered_bg) repeat 0 0;
-  margin: -321px 0 0 0;
+  margin: -321px 0 0 0px;
   height: 320px;
   width: 320px;
   z-index: -20;
+  border: 1px solid #d0f3fd;
 }
 
 

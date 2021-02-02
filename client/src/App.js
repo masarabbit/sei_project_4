@@ -8,6 +8,8 @@ import CreatePic from './components/CreatePic'
 import Login from './auth/Login'
 import SignUp from './auth/SignUp'
 import ShowArtistPics from './components/ShowArtistPics'
+import EditPic from './components/EditPic'
+import ShowFilteredPics from './components/ShowFilteredPics'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
       <Nav/>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/pics/:id/edit" component={EditPic} />
+        <Route path="/pics/:category/:page" component={ShowFilteredPics} />
         <Route exact path="/pics/new" component={CreatePic} />
         <Route path="/pics/:id" component={ShowPic} />
         <Route path="/artistpage/:id" component={ShowArtistPics} />

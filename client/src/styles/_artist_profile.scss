@@ -1,7 +1,7 @@
 
 
 .artist_info_wrapper {
-  border: pink 1px solid;
+  // border: pink 1px solid;
   height: 100px;
   width: 100%;
   display: flex;
@@ -21,7 +21,7 @@
   }
 
   .artist_name {
-    border: 1px solid red;
+    // border: 1px solid red;
     padding: 0 5px;
     width: calc(100% - 90px);
     // width: 100px;
@@ -30,8 +30,19 @@
 }
 
 .artworks {
-  border: pink 1px solid;
+  // border: pink 1px solid;
   height: 100px;
   width: 100%;
 
+}
+
+.followers_following {
+  // border: red 1px solid;
+  font-size: 14px;
+  span {
+    color: $gray;
+    margin: 0 20px;
+    padding: 0 5px 0 0;
+    display: inline-block;
+  }
 }
