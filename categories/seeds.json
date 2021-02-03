@@ -31,7 +31,7 @@
   "model": "categories.category",
   "pk": 5,
   "fields": {
-    "name": "film and TV show"
+    "name": "film and tv show"
   }
 },
 {

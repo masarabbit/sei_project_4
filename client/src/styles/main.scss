@@ -298,10 +298,25 @@ a {
     // animation: slide_up forwards 0.5s;
     animation: bop infinite 0.5s;
   }
+}
 
+.favorited_palettes {
 
+  margin: 10px 0 0 20px;
+
+  .palette_option:hover{
+    position: relative;
+    animation: bop infinite 0.5s;
+    cursor: pointer;
+  }
+
+  div:hover {
+    animation: none;
+  }
 
 }
+
+
 
 .palette_choice_menu.open {
   height: 50vh;

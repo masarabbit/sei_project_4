@@ -391,7 +391,7 @@ function CreatePic(){
               {
                 user &&
             <>
-              <div>
+              <div className="favorited_palettes">
                 {mapOptions(user)}  
               </div>  
             </>   
@@ -420,5 +420,32 @@ function CreatePic(){
 
 export default CreatePic
 
+
+// React.useEffect(() => {
+//   if (!uploadedImageBlobUrl) return
+
+//   setUpCanvas()
+//   if (uploadedImageBlobUrl) {
+//     const image = new Image()
+//     image.onload = function() {    
+//       ctx.drawImage(image, 0, 0)
+//       const arr = []
+//       const dotsFromImage = []
+//       for (let i = 0; i < 256; i++) arr.push(i)
+
+//       arr.forEach(ele=>{
+//         const y = Math.floor(ele / 16) * 20
+//         const x = ele % 16 * 20
+//         ctx.drawImage(image, x, y, 20, 20, x, y, 20, 20)
+//         const c = ctx.getImageData(x + 5, y + 5, 1, 1).data
+//         const hex = '#' + ('000000' + rgbToHex(c[0], c[1], c[2])).slice(-6)
+//         dotsFromImage.push(hex)
+//       })
+//       setDots(dotsFromImage)
+//       drawIntoGrid(dotsFromImage,drawingGrid)
+//     }
+//     image.src = uploadedImageBlobUrl
+//   }
+// }, [uploadedImageBlobUrl])
 
 
