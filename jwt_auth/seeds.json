@@ -33,12 +33,13 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "masa@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612351870/16/qvbym6zsryn4pymop2gx.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
       3,
       6,
+      8,
       18,
       24,
       26
@@ -79,11 +80,12 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "gameboy@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite50.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612311786/16/hrkzhjlwtguhpdicwff2.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
-      2
+      2,
+      8
     ]
   }
 },
@@ -101,7 +103,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "davinci@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite49.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612353386/16/qn9yxiq5wzliwqdf1qmc.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -124,7 +126,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "vangogh@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite48.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612352677/16/pn5a7bek8muiv0mewfwl.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -190,7 +192,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "tifa@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite45.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612308502/16/gj6hshsmwbzvomfn9m9d.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -904,7 +906,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "sephiroth@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite94.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612358978/16/cdkmrijvpjylvtkdiwty.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -1064,7 +1066,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "bulbasaur@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite87.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612310257/16/ol0ivzy2akeubi8ymb3e.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -1084,7 +1086,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "charmander@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite15.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612359522/16/oyqfffyej4rpyxvoqca7.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -1104,7 +1106,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "squirtle@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite13.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612311256/16/thiwxgz53njkbop1fhuk.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -1274,6 +1276,46 @@
     "followed_by": [
       9
     ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 63,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$BGMmJs2ADzq5$sDwZdOIyj25NwGZ899XV2dpTuzGFEK+OqAZV2KBITg0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "yoshi",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-02-03T00:25:19.659Z",
+    "email": "yoshi@email.com",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612311907/16/mon1zx8p7tmznximlr4g.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 64,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$1JqDxa8TGNf4$jW4PnrdIgz1sr5vVgPOYMvkUmY21OMTH/deBJsKf5iU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "tetsu",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-02-03T00:32:00.304Z",
+    "email": "tetsu@email.com",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1612090815/image_upload_test/wuzrwkwj1e4qs24n2bg0.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
   }
 }
 ]

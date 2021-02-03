@@ -17,6 +17,15 @@ body {
   // animation: bg_scrolling 4s infinite linear; 
 }
 
+p, h1, h2, h3, h4 {
+  display: inline-block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+
 .logo_grid {
   margin: -30px 0 0 0;
   height: 256px;
@@ -68,6 +77,48 @@ body {
   animation: fade_out_gradual forwards ease 1s;
 }
 
+
+.loading_wrapper {
+    width: 90px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    animation: fade_in 1s forwards;
+    
+
+  .blue_box {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: $light_blue;
+    animation: shift_a infinite ease 0.8s;
+  }
+
+  .gray_box {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: $very_light_blue;
+    animation: shift_b infinite ease 0.8s;
+  }
+}
+
+@keyframes shift_a {
+  0% {left: 0;}
+  50% {left: 60px;}
+  100% {left: 0; z-index:1;}
+}
+
+@keyframes shift_b {
+  0% {right: 0;}
+  50% {right: 60px;}
+  100% {right: 0;}
+}
+
+
+
+
 .feed_title {
   color: $gray;
   text-align: left;
@@ -76,14 +127,7 @@ body {
   padding: 20px 20px 0 20px;
 }
 
-p, h1, h2, h3, h4 {
-  display: inline-block;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 0px;
-}
+
 
 p.blue {
   color: $dark_blue;
@@ -163,7 +207,6 @@ a {
   padding: 0;
   background-color: transparent;
   border: 0;
-  
 }
 
 .color:hover {
@@ -277,11 +320,16 @@ nav {
 
 .link_menu {
   // border: red 1px solid;
-  width: 200px;
+
+  // width: 200px;
   margin: 0 0 0 auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  button.nav {
+    margin: 0 0 0 15px;
+  }
 
   img {
     height: 40px;
@@ -317,7 +365,7 @@ nav {
 }
 
 .feed_wrapper {
-  padding: 10px 0 50px 0;
+  padding: 10px 0 20px 0;
   height: auto;
   width: 100%;
   max-width: 1000px;
@@ -725,6 +773,7 @@ nav {
   // border: solid $light_blue;
   // border-width: 0 1px 0 0;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: flex-end;
   animation: palette_load ease 0.8s forwards;
 
@@ -840,7 +889,7 @@ canvas.dots {
 }
 
 .color_background {
-  background: url($blue_checkered_bg) repeat 0 0;
+  background: url($light_blue_checkered_bg) repeat 0 0;
   margin: -321px 0 0 0px;
   height: 320px;
   width: 320px;

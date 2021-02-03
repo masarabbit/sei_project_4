@@ -7,6 +7,7 @@ import { getAllPics } from '../lib/api'
 
 function ShowFilteredPics(){
   const history = useHistory()
+  // const { pathname } = useLocation()
   const { category, page } = useParams()
   const [error, setError] = React.useState(false)
   const [pics, setPics] = React.useState(null)
@@ -33,7 +34,7 @@ function ShowFilteredPics(){
       try {
         const { data } = await getAllPics()
         setPics(data)
-        setFilteredPics(filterPics(data).slice(firstPic,page * noOfPicsToDisplay))
+        setFilteredPics(filterPics(data).sort((a, b) => b.id - a.id).slice(firstPic,page * noOfPicsToDisplay))
       } catch (err) {
         console.log('error')
         setError(true)
@@ -42,9 +43,16 @@ function ShowFilteredPics(){
     getData()
   },[page])
 
+  // React.useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [pathname])
+
   React.useEffect(() => {
     window.scrollTo(0, 0)
-  }, [page])
+    setPicCounter(0)
+  }, [filteredPics])
+
+
 
   const noOfPicsToDisplay = 12
   const firstPic = (page - 1) * noOfPicsToDisplay
@@ -52,7 +60,7 @@ function ShowFilteredPics(){
   function prevPage(){
     history.push(`/pics/${category}/${Number(page) - 1}`)
   }
-  function nextPage(){
+  function nextPage(){ 
     history.push(`/pics/${category}/${Number(page) + 1}`)
   }
 
@@ -78,7 +86,7 @@ function ShowFilteredPics(){
     if (picCounter <= pics.length){
       setTimeout(()=>{
         setPicCounter(picCounter + 1)
-      },80)
+      },70)
     }
     return pics.filter(pic=>{
       if (pics.indexOf(pic) <= picCounter) return pic
@@ -90,7 +98,7 @@ function ShowFilteredPics(){
         >  
           <Link to={`/pics/${pic.id}/`}>
             <img 
-              className="fade_in"
+              className="bop"
               src={pic.image} 
               alt={pic.title} 
             />
@@ -104,6 +112,16 @@ function ShowFilteredPics(){
   }
 
 
+  //prevent memmory leak
+  const [didMount, setDidMount] = React.useState(false)
+  React.useEffect(() => {
+    setDidMount(true)
+    return () => setDidMount(false)
+  }, [])
+  if (!didMount) return null
+
+
+
 
   return (
     <div className="wrapper">
@@ -112,7 +130,7 @@ function ShowFilteredPics(){
           <>
             <main className="index_wrapper">
 
-              <div className="category_label">
+              <div className="category_label fade_in">
                 {category !== 'all' && `${category}/` }
               </div> 
 
@@ -132,9 +150,12 @@ function ShowFilteredPics(){
           </>
           :
           error ?
-            <p> can&#39;t find it ...</p>
+            <p> hmmm... error?...</p>
             :
-            <p> loading... </p>
+            <div className="loading_wrapper">
+              <div className="blue_box"></div>
+              <div className="gray_box"></div>
+            </div>  
       }
     </div>  
   )

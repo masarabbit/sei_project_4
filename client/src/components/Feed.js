@@ -43,8 +43,8 @@ function Feed({ username, userId, mapPics }){
     const getData = async () => {
       try {
         const { data } = await getAllPics()
-        setFilteredPicsFollowed(filterPicsFollowed(data))
-        setFilteredPicsFavorited(filterPicsFavorited(data))
+        setFilteredPicsFollowed(filterPicsFollowed(data.sort((a, b) => b.id - a.id)))
+        setFilteredPicsFavorited(filterPicsFavorited(data.sort((a, b) => b.id - a.id)))
         // if (filterPics(data).length === 0) setPics(data.slice(0,12))
       } catch (err) {
         console.log('error')
@@ -102,7 +102,7 @@ function Feed({ username, userId, mapPics }){
             null
       
       }
-     
+
     
     </>  
   )

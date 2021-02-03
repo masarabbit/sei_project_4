@@ -45,7 +45,7 @@ function Home(){
   React.useEffect(() => {
     if (!logoGrid) return
     const cluster = setInterval(()=>{
-      Math.random() < 0.4 ?
+      Math.random() < 0.3 ?
         gather(logoGrid)
         :
         disperse(logoGrid)

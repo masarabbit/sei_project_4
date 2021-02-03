@@ -1,6 +1,7 @@
 $main_font: 'Nunito', sans-serif;
 // $main_font: lores-12, sans-serif;
 $light_color: rgb(255, 255, 255);
+$very_light_blue: #d7f6ff;
 $light_blue: #b2eaf9;
 $dark_blue: #32d0fc;
 $clear_blue: rgba(53, 188, 250, 0.562);
@@ -13,4 +14,9 @@ $bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAACLUlEQ
 
 $blue_checkered_bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAALElEQVQYV2M89fH3fwYGBgYzflZGEM0IE2D9xyIIFgAR59//F/jN9Oc9VgEAp9YUPNgR6OoAAAAASUVORK5CYII='; 
 
-$light_blue_checkered_bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAALElEQVQYV2N8/vPvfwYGBgZJdmZGEM0IE/jBxiQIFgAR9///F+D49e89VgEAtGUUqj9PlvgAAAAASUVORK5CYII=';
+//? this one is slightly lighter
+// $light_blue_checkered_bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAASElEQVQYV2O8/O3/fwYGBoZ//xka9bkZG0BsRpjgfwaGDs7vDO1gwYtf/zcwMjKwM4F4UMAIom+//c/3k5Oh8j8DQwVYJTZBAI1kHLlIMYFYAAAAAElFTkSuQmCC';
+
+$light_blue_checkered_bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAALElEQVQYV2O8/O3/fwYGBgZdLkZGEM0IE/jzk0EQLAAizr//L8DCzvAeqwAAly4RYMSxwlgAAAAASUVORK5CYII=';
+
+// $gray_checkered_bg:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAALElEQVQYV2P89evXfwYGBgY2NjZGEM0IE2BlZRUEC4CI/\///C/z+/fs9VgEAtPAV7MHV8/MAAAAASUVORK5CYII='

@@ -60,9 +60,9 @@ function ShowArtistPics (){
           className={`index index_float_up ${subclass}`}
         >  
           <Link to={`/pics/${pic.id}/`}>
-            <img src={pic.image} alt={pic.title} />
+            <img src={pic.image} alt={pic.title} className="bop" />
           </Link>
-          <div className="index_palette">
+          <div className="index_palette fade_in">
             {mapColorPalette(pic)}
           </div>  
         </div>  
@@ -122,7 +122,12 @@ function ShowArtistPics (){
               <p>oops... error...</p>
             </div>  
             :
-            <p>loading... </p>
+            <div className="wrapper">
+              <div className="loading_wrapper">
+                <div className="blue_box"></div>
+                <div className="gray_box"></div>
+              </div>  
+            </div>
       }   
     </>
 

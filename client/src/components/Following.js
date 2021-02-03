@@ -28,7 +28,7 @@ function Following(){
     const getData = async () => {
       try {
         const { data } = await getAllPics()
-        setPics(data)
+        setPics(data.sort((a, b) => b.id - a.id))
       } catch (err) {
         console.log('error')
         // setError(true)
@@ -110,9 +110,10 @@ function Following(){
                 <p>{artistData.username} isn&apos;t following anyone &#40;yet&#41;</p>  
               </div>  
             :
-            <div className="wrapper">
-              <p>loading...</p>  
-            </div>    
+            <div className="loading_wrapper">
+              <div className="blue_box"></div>
+              <div className="gray_box"></div>
+            </div>  
       }
     </>
   )

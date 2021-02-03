@@ -62,7 +62,7 @@
 
 .index_float_up {
   position: relative;
-  animation: index_float_up forwards 0.6s;
+  animation: index_float_up forwards 0.5s;
 }
 
 
@@ -86,6 +86,7 @@
         }
 }
 
+
 .fade_in {
   animation: fade_in forwards 1s;
 }
@@ -96,7 +97,7 @@
 
 @keyframes fade_in {
   0% {opacity: 0;}
-  70% {opacity: 0;}
+  60% {opacity: 0;}
   100% {opacity: 1;}
 }
 
@@ -335,6 +336,11 @@
   100% { margin-left: -10px;}
 }
 
+
+.bop:hover {
+  position: relative;
+  animation: infinite bop 0.5s;
+}
 
 @keyframes bop {
   0% { bottom: 0px;}

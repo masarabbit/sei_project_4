@@ -39,6 +39,9 @@
       background-color: transparent;
       color: $gray;
       cursor: default;
+      animation: none;
+      outline: none !important;
     }
+
   }
 }

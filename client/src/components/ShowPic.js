@@ -261,7 +261,10 @@ function ShowPic(){
           </div>
           :
           <div className="wrapper">
-            <p> loading... </p>
+            <div className="loading_wrapper">
+              <div className="blue_box"></div>
+              <div className="gray_box"></div>
+            </div>  
           </div>
       }
     </>
