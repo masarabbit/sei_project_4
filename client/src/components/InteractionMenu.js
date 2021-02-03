@@ -23,7 +23,12 @@ function InteractionMenu({ pic, userId, displayCommentForm, setLikedNow }){
         <img src={pic.artist.profileImage} alt={pic.artist.username} />
       </div>
       <div className="artist_name">
-        <span>by</span>{pic.artist.username}
+        <span>by</span>
+        <span 
+          className="name"
+          onClick={()=> history.push(`/artistpage/${pic.artist.id}` )}>
+          {pic.artist.username}
+        </span>  
       </div>
       {!userId || commentedByUser(pic) ?
         <div className="menu_button inactive">

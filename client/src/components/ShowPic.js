@@ -115,7 +115,12 @@ function ShowPic(){
               src={comment.owner.profileImage} alt={comment.owner.username} 
               onClick={()=>history.push(`/artistpage/${comment.owner.id}`)}
             />
-            {comment.owner.username}
+            <span
+              className="artist_name_link"
+              onClick={()=>history.push(`/artistpage/${comment.owner.id}`)}
+            >
+              {comment.owner.username}
+            </span>
             <span>
               {comment.rating}pts
             </span>
@@ -174,35 +179,35 @@ function ShowPic(){
         userId={userId}
       />
 
-      <div className="wrapper non_center">
-        {pic ? 
-          <>
-            <div className={ `dot_wrapper ${gather && 'assemble'}`}>
-              {mapDots(pic)}
+ 
+      {pic ? 
+        <div className="wrapper non_center">
+          <div className={ `dot_wrapper ${gather && 'assemble'}`}>
+            {mapDots(pic)}
+          </div>
+          <div className="pic_info">
+            <div className="title">
+              {pic.title}
+              <span>
+                {averagePoint(pic)}pts
+              </span>
             </div>
-            <div className="pic_info">
-              <div className="title">
-                {pic.title}
-                <span>
-                  {averagePoint(pic)}pts
-                </span>
-              </div>
-              <div className="description">
-                {pic.description}
-              </div>
-              <div className="categories">
-                {pic.categories.map(category=>{
-                  return (
-                    <span key={category.name}
-                      onClick={()=>history.push(`/pics/${category.name}/1`)}
-                    >
-                      {`${category.name}${pic.categories[pic.categories.length - 1].name !== category.name ? ', ' : ''}`}
-                    </span>  
-                  )
-                })}
-              </div>  
-              {pic.artist.id === userId &&
-                <div className="delete_button">
+            <div className="description">
+              {pic.description}
+            </div>
+            <div className="categories">
+              {pic.categories.map(category=>{
+                return (
+                  <span key={category.name}
+                    onClick={()=>history.push(`/pics/${category.name}/1`)}
+                  >
+                    {`${category.name}${pic.categories[pic.categories.length - 1].name !== category.name ? ', ' : ''}`}
+                  </span>  
+                )
+              })}
+            </div>  
+            {pic.artist.id === userId &&
+                <div className="pic_show_user_menu">
                   <button 
                     className="edit"
                     onClick={()=>history.push(`/pics/${pic.id}/edit/`)}>
@@ -215,48 +220,50 @@ function ShowPic(){
                   </button>  
                 </div>  
     
-              }
-              { 
-                !displayDelete ?
-                  null
-                  :
-                  <div className="delete_menu">
+            }
+            { 
+              !displayDelete ?
+                null
+                :
+                <div className="delete_menu">
                       are you sure you want to delete?
-                    <button 
-                      className="yes"
-                      onClick={deleteArt}>
+                  <button 
+                    className="yes"
+                    onClick={deleteArt}>
                       yes
-                    </button>
-                    <button 
-                      className="no"
-                      onClick={()=>setDisplayDelete(false)}>
+                  </button>
+                  <button 
+                    className="no"
+                    onClick={()=>setDisplayDelete(false)}>
                       no
-                    </button>
-                  </div>
-              }
-            </div>  
+                  </button>
+                </div>
+            }
+          </div>  
 
-            <InteractionMenu 
-              pic = {pic} 
-              userId = {userId} 
-              displayCommentForm = {displayCommentForm}
-              setLikedNow={setLikedNow}
-            />
+          <InteractionMenu 
+            pic = {pic} 
+            userId = {userId} 
+            displayCommentForm = {displayCommentForm}
+            setLikedNow={setLikedNow}
+          />
             
-            {mapComments(pic.comments)}
+          {mapComments(pic.comments)}
 
-            <div className="used_colors">
-              {mapColorPalette(pic)}
-            </div> 
-          </> 
-          :
-          error ?
+          <div className="used_colors">
+            {mapColorPalette(pic)}
+          </div> 
+        </div> 
+        :
+        error ?
+          <div className="wrapper">
             <p> can&#39;t find it ...</p>
-            :
-            <p> loading </p>
-        }
-
-      </div>
+          </div>
+          :
+          <div className="wrapper">
+            <p> loading... </p>
+          </div>
+      }
     </>
   )
 }

@@ -111,26 +111,30 @@ function ShowFilteredPics(){
         filteredPics && pics ?
           <>
             <main className="index_wrapper">
+
+              <div className="category_label">
+                {category !== 'all' && `${category}/` }
+              </div> 
+
               {mapPics(filteredPics)}
+
+              <PaginationLinks 
+                page={page} 
+                pics={pics} 
+                filterPics={filterPics}
+                prevPage={prevPage}
+                nextPage={nextPage} 
+                goToPage={goToPage}
+                noOfPicsToDisplay={noOfPicsToDisplay}
+              />
             </main>
-            <PaginationLinks 
-              page={page} 
-              pics={pics} 
-              filterPics={filterPics}
-              prevPage={prevPage}
-              nextPage={nextPage} 
-              goToPage={goToPage}
-              noOfPicsToDisplay={noOfPicsToDisplay}
-            />
-            <div className="category_label">
-              {category}
-            </div>  
+            
           </>
           :
           error ?
             <p> can&#39;t find it ...</p>
             :
-            <p> loading </p>
+            <p> loading... </p>
       }
     </div>  
   )

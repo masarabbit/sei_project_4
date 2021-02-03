@@ -36,7 +36,13 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite51.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      3,
+      6,
+      18,
+      24,
+      26
+    ]
   }
 },
 {
@@ -53,7 +59,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "pikachu@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite52.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612131756/image_upload_test/x4zz4bnblpf2rblgtu0b.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -98,7 +104,10 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite49.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      6,
+      16
+    ]
   }
 },
 {
@@ -118,7 +127,9 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite48.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      24
+    ]
   }
 },
 {
@@ -155,11 +166,13 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "cloud@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite47.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612137756/image_upload_test/hgnpuoksd8isnvck9rl5.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
-      17
+      16,
+      17,
+      26
     ]
   }
 },
@@ -180,7 +193,11 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite45.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      16,
+      22,
+      26
+    ]
   }
 },
 {
@@ -340,7 +357,10 @@
     "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612227211/image_upload_test/jktruwx1drhcwze3vrfk.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      9,
+      22
+    ]
   }
 },
 {
@@ -357,10 +377,13 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "mario@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite36.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612129953/image_upload_test/tgaphxmohnh2e6mm9yws.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      9,
+      24
+    ]
   }
 },
 {
@@ -477,7 +500,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "gengar@email.com",
-    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite30.png",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612307865/16/wmp2s4phpbtswctr9o28.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -500,7 +523,11 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite29.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      3,
+      22,
+      24
+    ]
   }
 },
 {
@@ -1122,7 +1149,9 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite85.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      26
+    ]
   }
 },
 {
@@ -1242,7 +1271,9 @@
     "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612139096/image_upload_test/hgjrwntv4iqrwjrzpyqv.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      9
+    ]
   }
 }
 ]

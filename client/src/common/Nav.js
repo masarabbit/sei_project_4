@@ -36,7 +36,7 @@ function Nav(){
 
   return (
     <nav>
-      <Link to="/">
+      <Link to={`/${ userData ? 'pics/all/1' : ''}`}>
         <img className="logo" src={logo} alt="logo" />
       </Link>
       <div className="link_menu">

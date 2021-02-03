@@ -12,7 +12,9 @@ import ArtSubmitForm from './ArtSubmitForm'
 import cross from '../assets/cross.svg'
 import useForm from '../hooks/useForm' 
 
-import profileIcon from '../assets/profile_icon.svg'
+import uploadIcon from '../assets/upload.svg'
+import paletteIcon from '../assets/palette.svg'
+import undoIcon from '../assets/undo.svg'
 
 
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
@@ -28,7 +30,7 @@ function CreatePic(){
 
   const [drawingUrl, setDrawingUrl] = React.useState(null)
   const [drawSetting, setDrawSetting] = React.useState({
-    color: '#c5884d'
+    color: '#32d0fc'
   }) 
   const { formdata,  handleChange, setErrors, errors } = useForm({
     title: '', 
@@ -47,6 +49,7 @@ function CreatePic(){
   const canvas = useRef()
   const drawingGrid = useRef()
   const submissionForm = useRef(null)
+  const submissionButton = useRef(null)
   let ctx = null
   
   const userId = getUserId()
@@ -115,28 +118,28 @@ function CreatePic(){
 
   const handleUpload = async e => { 
     e.preventDefault()
-    e.target.classList.add('display_none')
-    setTimeout(()=>{
-      e.target.classList.remove('display_none') //! setSomething to disable?
-    },1400)
+    if ( e.target.classList.contains('deactivate')) return
+    e.target.classList.add('deactivate')
+
     const drawnDots = dots.filter(dot=> dot)
     const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
     const titleError = formdata.title === '' ? 'please enter title' : ''
     const selectError = formdata.categories.length === 0 ? 'please select atleast one' : ''
-    const descriptionError = formdata.description === '' ? 'please enter description' : ''
+    // const descriptionError = formdata.description === '' ? 'please enter description' : ''
     setErrors({ 
       title: titleError, 
       categories: selectError, 
-      description: descriptionError,
+      // description: descriptionError,
       dots: dotsError 
     })
-    if (dotsError || titleError || selectError || descriptionError) {     
+    if (dotsError || titleError || selectError) {     
       submissionForm.current = e.target.parentNode.parentNode
       submissionForm.current.classList.add('shake')
       setTimeout(()=>{
         submissionForm.current.classList.add('static')
         submissionForm.current.classList.remove('shake') 
       },500)
+      e.target.classList.remove('deactivate')
       return
     }
 
@@ -149,6 +152,7 @@ function CreatePic(){
     data.append('upload_preset', uploadPreset)
     const res = await axios.post(uploadUrl, data)
     setDrawingUrl(res.data.url)
+    submissionButton.current = e.target 
   }
   
   const handleSubmit = async () => {  
@@ -163,13 +167,13 @@ function CreatePic(){
         artist: userId,
         description: formdata.description 
       })
-  
       explode(drawingGrid)
       setTimeout(()=>{
         history.push(`/artistpage/${userId}`)
-      },1100)
+      },1000)
     } catch (err){
       console.log(err)
+      submissionButton.current.classList.remove('deactivate')
     }
   }
 
@@ -347,7 +351,7 @@ function CreatePic(){
               <div 
                 onClick={handleBack}
                 className="back">
-                &#60;
+                <img src={undoIcon} alt="undo" />
               </div>  
           
               <input type="color" 
@@ -357,15 +361,16 @@ function CreatePic(){
                 value={drawSetting.color}
               />
 
-              <button onClick={()=>{ 
-                setDisplayPalette(!displayPalette) 
-              }}>
-                +
-              </button>  
+              <img src={paletteIcon}
+                className="palette_icon"
+                onClick={()=>{ 
+                  setDisplayPalette(!displayPalette) 
+                }}
+              /> 
 
               <div className="image_upload_wrapper">
-                <label className="" htmlFor="upload" > 
-                  <img src={profileIcon} alt="upload_button" />
+                <label htmlFor="upload" > 
+                  <img src={uploadIcon} alt="upload button" />
                 </label>
                 <input
                   id="upload"

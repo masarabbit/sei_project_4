@@ -14,6 +14,10 @@ import cross from '../assets/cross.svg'
 import useForm from '../hooks/useForm' 
 import ArtSubmitForm from './ArtSubmitForm'
 
+import uploadIcon from '../assets/upload.svg'
+import paletteIcon from '../assets/palette.svg'
+import undoIcon from '../assets/undo.svg'
+
 const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
@@ -31,7 +35,7 @@ function EditPic(){
     description: ''
   })
   const [drawSetting, setDrawSetting] = React.useState({
-    color: '#c5884d'
+    color: '#32d0fc'
   }) 
   
   const [user, setUser] = React.useState(null)
@@ -43,6 +47,7 @@ function EditPic(){
   const drawOn = ()=> setDraw(true) 
   const drawOff = ()=> setDraw(false) 
   const submissionForm = useRef(null)
+  const submissionButton = useRef(null)
   let ctx = null
   const [drawingUrl, setDrawingUrl] = React.useState(null)
 
@@ -86,6 +91,8 @@ function EditPic(){
 
   const handleUpload = async e => { 
     e.preventDefault()
+    if ( e.target.classList.contains('deactivate')) return
+    e.target.classList.add('deactivate')
     
     const drawnDots = dots.filter(dot=> dot)
     const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
@@ -105,6 +112,7 @@ function EditPic(){
         submissionForm.current.classList.add('static')
         submissionForm.current.classList.remove('shake') 
       },500)
+      e.target.classList.remove('deactivate')
       return
     }
     setUpCanvas() //these ensure that canvas is rendered before upload
@@ -116,6 +124,7 @@ function EditPic(){
     data.append('upload_preset', uploadPreset)
     const res = await axios.post(uploadUrl, data)
     setDrawingUrl(res.data.url)
+    submissionButton.current = e.target
   }
 
 
@@ -135,9 +144,10 @@ function EditPic(){
       explode(drawingGrid)
       setTimeout(()=>{
         history.push(`/artistpage/${userId}`)
-      },1100)
+      },1000)
     } catch (err){
       console.log(err)
+      submissionButton.current.classList.remove('deactivate')
     }
   }
 
@@ -363,7 +373,7 @@ function EditPic(){
               <div 
                 onClick={handleBack}
                 className="back">
-              &#60;
+                <img src={undoIcon} alt="undo" />
               </div>  
         
               <input type="color" 
@@ -373,11 +383,22 @@ function EditPic(){
                 value={drawSetting.color}
               />
 
-              <button onClick={()=>{ 
-                setDisplayPalette(!displayPalette) 
-              }}>
-              +
-              </button>  
+              <img src={paletteIcon}
+                className="palette_icon"
+                onClick={()=>{ 
+                  setDisplayPalette(!displayPalette) 
+                }}
+              />  
+              <div className="image_upload_wrapper">
+                <label htmlFor="upload" > 
+                  <img src={uploadIcon} alt="upload button" />
+                </label>
+                <input
+                  id="upload"
+                  type="file"
+                  onChange={mapFromImage}
+                />
+              </div>  
             </div>
             <div 
               onMouseLeave={()=>setDisplayPalette(false)}
@@ -395,20 +416,6 @@ function EditPic(){
               <div>
                 {mapOptions(user)}  
               </div>  
-              <div className="upload_test">
-                <div className="upload_button_wrapper">
-                  <div className="input_wrapper">
-                    <label className="upload_button" htmlFor="upload" > 
-                    upload
-                    </label>
-                    <input
-                      id="upload"
-                      type="file"
-                      onChange={mapFromImage}
-                    />
-                  </div>  
-                </div>
-              </div>
             </>   
               }
             </div>  

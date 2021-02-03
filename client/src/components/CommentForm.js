@@ -1,6 +1,7 @@
 import React from 'react'
 
-import profileIcon from '../assets/profile_icon.svg'
+import commentIcon from '../assets/comment_icon.svg'
+import scoreIcon from '../assets/score_icon.svg'
 import cross from '../assets/cross.svg'
 
 import useForm from '../hooks/useForm'
@@ -75,9 +76,9 @@ function CommentForm ( { displayComment, setDisplayComment, pic, userId }){
           />
         </div>  
         <div className="input_box" onMouseEnter={handleHover} onMouseLeave={removeHover}>
-          <img src={profileIcon} 
+          <img src={commentIcon} 
             className={`${hover === 'text' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="comment" />
           <textarea 
             name="text"
             onChange={handleChange}
@@ -92,9 +93,9 @@ function CommentForm ( { displayComment, setDisplayComment, pic, userId }){
         
         <div className="input_box twenty_px_bottom_margin" 
           onMouseEnter={handleHover} onMouseLeave={removeHover}>
-          <img src={profileIcon} 
+          <img src={scoreIcon} 
             className={`range ${hover === 'rating' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="score" />
           
           <div className="rating_wrapper">
             <label>

@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import ImageUploadField from './ImageUploadField'
 import profileIcon from '../assets/profile_icon.svg'
+import emailIcon from '../assets/email_icon.svg'
+import passIcon from '../assets/pass_icon.svg'
 import RandomBlocks from '../components/RandomBlocks'
 
 function SignUp(){
@@ -33,7 +35,7 @@ function SignUp(){
       e.target.classList.add('accepted')
       setAnimate(true)
       setTimeout(()=>{
-        history.push('/')
+        history.push('/login')
       },1000)
     } catch (err) {
       setErrors(err.response.data)
@@ -73,11 +75,12 @@ function SignUp(){
         >
           <img src={profileIcon} 
             className={`${hover === 'username' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="username" />
           <input 
             placeholder="username"
             onChange={handleChange}
             name="username"
+            type="text"
             value={formdata.username}
             className="pinkfocus"
           />
@@ -90,11 +93,12 @@ function SignUp(){
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
         >
-          <img src={profileIcon} 
+          <img src={emailIcon} 
             className={`${hover === 'email' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="email" />
           <input 
             placeholder="email"
+            type="text"
             onChange={handleChange}
             name="email"
             value={formdata.email}
@@ -109,11 +113,12 @@ function SignUp(){
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
         >
-          <img src={profileIcon} 
+          <img src={passIcon} 
             className={`${hover === 'password' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="password" />
           <input 
             placeholder="password"
+            type="password"
             onChange={handleChange}
             name="password"
             value={formdata.password}
@@ -129,11 +134,12 @@ function SignUp(){
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
         >
-          <img src={profileIcon} 
+          <img src={passIcon} 
             className={`${hover === 'passwordConfirmation' ? 'hover' : ''}`}
-            alt="smiley face" />
+            alt="password confirmation" />
           <input 
             placeholder="confirm your password"
+            type="password"
             onChange={handleChange}
             name="passwordConfirmation"
             value={formdata.passwordConfirmation}

@@ -1,6 +1,14 @@
 
 
 
+button.deactivate {
+  background-color: $gray;
+}
+
+button.deactivate:hover {
+  animation: none;
+}
+
 input, textarea {
   padding: 5px 8px;
   border-color: black;

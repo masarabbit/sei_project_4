@@ -2,13 +2,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
+  margin: 50px 0 0 0;
 
-  .inner_wrapper {
+  .pagination_inner_wrapper {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
     height: 90px;
     width: 320px;
+    margin: 0;
 
     button {
       background-color: black;
@@ -33,8 +36,8 @@
     }
 
     .null, .null:hover {
-      background-color: grey;
-      color: white;
+      background-color: transparent;
+      color: $gray;
       cursor: default;
     }
   }

@@ -4,6 +4,10 @@
 @import 'artist_profile';
 @import 'pagination';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -11,6 +15,29 @@ body {
   background-color: rgb(255, 255, 255);
   // background: url($bg) repeat 0 0;
   // animation: bg_scrolling 4s infinite linear; 
+}
+
+.logo_grid {
+  margin: -30px 0 0 0;
+  height: 256px;
+  width: 256px;
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    height: 16px;
+    width: 16px;
+    position: relative;
+    transition: 0.8s;
+    // background-color: yellow;
+  }
+
+  .b000000, .bffffff {
+    opacity: 0;
+  }
+
+  .b000000.show_black, .bffffff.show_black {
+    opacity: 1;
+  }
 }
 
 .logo {
@@ -24,6 +51,31 @@ body {
   cursor: pointer;
 }
 
+.slogan_container {
+  // border: 1px solid red;
+  width: 256px;
+  height: 256px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -256px 0 0 0;
+  z-index: -20;
+  opacity: 1;
+}
+
+.slogan_container.hide {
+  opacity: 0;
+  animation: fade_out_gradual forwards ease 1s;
+}
+
+.feed_title {
+  color: $gray;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px 20px 0 20px;
+}
+
 p, h1, h2, h3, h4 {
   display: inline-block;
   margin-block-start: 0em;
@@ -33,9 +85,11 @@ p, h1, h2, h3, h4 {
   padding-inline-start: 0px;
 }
 
-* {
-  box-sizing: border-box;
+p.blue {
+  color: $dark_blue;
 }
+
+
 
 a {
   color: black;
@@ -91,10 +145,21 @@ a {
     cursor: pointer;
   }
 
+  .palette_icon {
+    margin: 0 10px;
+    height: 34px;
+    width: 34px;
+  }
+
+  .palette_icon:hover {
+    position: relative;
+    animation: infinite bop 0.5s;
+  }
+
   /* color input */
 .color {
-  height: 40px; 
-  width: 40px;
+  height: 42px; 
+  width: 39px;
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -108,8 +173,8 @@ a {
 
 .back {
   position: relative;
-  height: 32px; 
-  width: 32px;
+  height: 34px; 
+  width: 34px;
   padding: 0;
   color: white;
   background-color: black;
@@ -118,6 +183,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
 .back:hover {
   animation: bop 0.5s infinite;
@@ -222,26 +292,44 @@ nav {
 }
 
 .category_label {
-  position: fixed;
+  // position: fixed;
   // border: red solid 1px;
-  bottom: 51px;
-  right: 30px;
+  // bottom: 51px;
+  // right: 30px;
   height: 34px;
   display: flex;
   align-items: center;
-  color: $gray;
-  font-size: 20px;
+  color: $light_blue;
+  font-size: 17px;
+  width: 100%;
+  padding: 0 22px;
 }
 
 .index_wrapper {
   // border: 1px solid red;
-  padding: 10px;
+  padding: 10px 10px 10px 10px;
   height: 100%;
   width: 100%;
   max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+}
+
+.feed_wrapper {
+  padding: 10px 0 50px 0;
+  height: auto;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  .index.small {
+    width: calc(100% / 6 - 44px);
+    margin: 22px;
+    padding: 8px;
+  }
+
 }
 
 
@@ -290,6 +378,15 @@ nav {
   flex-direction: column;
 }
 
+.wrapper.overflow_hidden{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index:-1;
+  // border: red 1px solid;
+}
+
 .wrapper.no_height {
   height: auto;
   padding: 60px;
@@ -306,9 +403,10 @@ nav {
   animation: delete_art forwards ease 1s;
 }
 
-.delete_button {
+.pic_show_user_menu {
   // border: 1px solid red;
   text-align: right;
+  margin: 10px 0 0 0;
 
   // span {
   //   font-size: 12px;
@@ -401,6 +499,15 @@ nav {
     color: $gray;
     margin: 0 4px 0 0;
   }
+
+  span.name {
+    color: black;
+    margin: 0;
+  }
+
+  span.name:hover {
+    color: $light_pink;
+  }
 }
 
 .stats {
@@ -477,6 +584,16 @@ nav {
     display: flex;
     align-items: center;
     padding: 0 5px 0 0;
+
+    span.artist_name_link {
+      text-align: left;
+      font-size: 16px;
+      color: black;
+    }
+    span.artist_name_link:hover {
+      color: $light_pink;
+      cursor: pointer;
+    }
     span {
       font-size: 14px;
       color: $gray;

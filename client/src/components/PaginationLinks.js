@@ -40,7 +40,7 @@ function PaginationLinks({ page, pics, filterPics, prevPage, nextPage, goToPage,
 
   return (
     <div className="pagination_wrapper">
-      <div className="inner_wrapper">
+      <div className="pagination_inner_wrapper">
         {
           Number(page) !== 1 &&
       <button onClick={prevPage}>

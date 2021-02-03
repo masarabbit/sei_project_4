@@ -1,7 +1,9 @@
 import React from 'react'
 
 import Select from 'react-select'
-import profileIcon from '../assets/profile_icon.svg'
+import titleIcon from '../assets/title_icon.svg'
+import categoryIcon from '../assets/category_icon.svg'
+import descriptionIcon from '../assets/description_icon.svg'
 
 import { selectOptions } from './select/selectOptions.js'
 import { customStyles } from './select/customStyles.js'
@@ -16,17 +18,8 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
   const removeHover = () => setHover(null)
   const handleHoverSelect = () => setHover('categories')
 
-  
-  // const handleFormChange = e => {
-  //   setPicInfo({ ...picInfo, [e.target.name]: e.target.value })
-  // }
-
   const handleMultiChange = (selected, name) => {
     const value = selected ? selected.map(item=> item.value) : []
-    // console.log(value)
-    // handleFormChange({
-    //   target: { name, value }
-    // })
     handleChange({
       target: { name, value }
     })
@@ -44,9 +37,9 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
       }
         
       <div className="input_box">
-        <img src={profileIcon} 
+        <img src={titleIcon} 
           className={`${hover === 'title' ? 'hover' : ''}`}
-          alt="smiley face" />
+          alt="title" />
         <input type="title" 
           name="title"
           onChange={handleChange}
@@ -65,9 +58,9 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
         onMouseEnter={handleHoverSelect}
         onMouseLeave={removeHover}
       >
-        <img src={profileIcon} 
+        <img src={categoryIcon} 
           className={`${hover === 'categories' ? 'hover' : ''}`}
-          alt="smiley face" 
+          alt="category" 
           onMouseEnter={removeHover}
         />
         <Select
@@ -83,9 +76,9 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
       }
 
       <div className="input_box">
-        <img src={profileIcon} 
+        <img src={descriptionIcon} 
           className={`${hover === 'description' ? 'hover' : ''}`}
-          alt="smiley face" />
+          alt="description" />
         <textarea type="description" 
           name="description"
           onChange={handleChange}
@@ -99,9 +92,6 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
       { errors.description && 
           <div className="error sign_up margin_adjusted_twenty"><p>{errors.description}</p></div>
       }
-     
-
-
 
       <div className="button_wrapper">
         <button 
