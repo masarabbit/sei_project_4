@@ -13,6 +13,7 @@ djangorestframework-camel-case = "*"
 python-dotenv = "*"
 dj-database-url = "*"
 django-on-heroku = "*"
+dj = "*"
 
 [dev-packages]
 
