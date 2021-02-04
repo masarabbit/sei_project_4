@@ -37,12 +37,12 @@
     "groups": [],
     "user_permissions": [],
     "followed_by": [
-      3,
-      6,
       8,
+      6,
       18,
       24,
-      26
+      26,
+      3
     ]
   }
 },
@@ -63,7 +63,9 @@
     "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612131756/image_upload_test/x4zz4bnblpf2rblgtu0b.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      53
+    ]
   }
 },
 {
@@ -84,8 +86,9 @@
     "groups": [],
     "user_permissions": [],
     "followed_by": [
+      8,
       2,
-      8
+      53
     ]
   }
 },
@@ -108,7 +111,8 @@
     "user_permissions": [],
     "followed_by": [
       6,
-      16
+      16,
+      2
     ]
   }
 },
@@ -174,7 +178,8 @@
     "followed_by": [
       16,
       17,
-      26
+      26,
+      2
     ]
   }
 },
@@ -197,8 +202,8 @@
     "user_permissions": [],
     "followed_by": [
       16,
-      22,
-      26
+      26,
+      22
     ]
   }
 },
@@ -465,7 +470,9 @@
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite35.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      2
+    ]
   }
 },
 {
@@ -526,9 +533,9 @@
     "groups": [],
     "user_permissions": [],
     "followed_by": [
-      3,
+      24,
       22,
-      24
+      3
     ]
   }
 },
@@ -1069,7 +1076,9 @@
     "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612310257/16/ol0ivzy2akeubi8ymb3e.png",
     "groups": [],
     "user_permissions": [],
-    "followed_by": []
+    "followed_by": [
+      53
+    ]
   }
 },
 {
@@ -1110,6 +1119,7 @@
     "groups": [],
     "user_permissions": [],
     "followed_by": [
+      53,
       2
     ]
   }
@@ -1313,6 +1323,46 @@
     "date_joined": "2021-02-03T00:32:00.304Z",
     "email": "tetsu@email.com",
     "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1612090815/image_upload_test/wuzrwkwj1e4qs24n2bg0.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 65,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$oEFW5UnmRCRC$g/SoMjOQ+gDDRv/yzbd21H50yeTowamslQkRHVwNDeo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "tomo",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-02-03T14:02:00.982Z",
+    "email": "tomo@email.com",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612360903/16/zve4v5klrzwadovts5un.png",
+    "groups": [],
+    "user_permissions": [],
+    "followed_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 66,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$sMKECB2zKbHx$fir65tbTeHaEp3iGFo9GBCgoh+e6wt2lA5DJxE41EWg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "masa2",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-02-03T15:14:36.801Z",
+    "email": "masa2@email.com",
+    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612365255/16/qcpdjwzbdjcur7vnmmyu.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
