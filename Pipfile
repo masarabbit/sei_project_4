@@ -10,6 +10,9 @@ psycopg2-binary = "*"
 djangorestframework = "*"
 pyjwt = "*"
 djangorestframework-camel-case = "*"
+python-dotenv = "*"
+dj-database-url = "*"
+django-on-heroku = "*"
 
 [dev-packages]
 

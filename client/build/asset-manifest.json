@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a5e40fad.chunk.css",
+    "main.js": "/static/js/main.3fbda505.chunk.js",
+    "main.js.map": "/static/js/main.3fbda505.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c012fedc.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c012fedc.js.map",
+    "static/js/2.f1513b23.chunk.js": "/static/js/2.f1513b23.chunk.js",
+    "static/js/2.f1513b23.chunk.js.map": "/static/js/2.f1513b23.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a5e40fad.chunk.css.map": "/static/css/main.a5e40fad.chunk.css.map",
+    "static/js/2.f1513b23.chunk.js.LICENSE.txt": "/static/js/2.f1513b23.chunk.js.LICENSE.txt",
+    "static/media/category_icon.09ed3314.svg": "/static/media/category_icon.09ed3314.svg",
+    "static/media/comment.e74e3903.svg": "/static/media/comment.e74e3903.svg",
+    "static/media/comment_icon.f5777408.svg": "/static/media/comment_icon.f5777408.svg",
+    "static/media/cross.7b5950ad.svg": "/static/media/cross.7b5950ad.svg",
+    "static/media/description_icon.4f89bb2c.svg": "/static/media/description_icon.4f89bb2c.svg",
+    "static/media/email_icon.6e6a1ef3.svg": "/static/media/email_icon.6e6a1ef3.svg",
+    "static/media/palette.4de6f000.svg": "/static/media/palette.4de6f000.svg",
+    "static/media/pass_icon.837d96c9.svg": "/static/media/pass_icon.837d96c9.svg",
+    "static/media/profile_icon.e00fda7b.svg": "/static/media/profile_icon.e00fda7b.svg",
+    "static/media/score_icon.9003a9e1.svg": "/static/media/score_icon.9003a9e1.svg",
+    "static/media/star.4665b34a.svg": "/static/media/star.4665b34a.svg",
+    "static/media/title_icon.28ae5457.svg": "/static/media/title_icon.28ae5457.svg",
+    "static/media/undo.5ce6f111.svg": "/static/media/undo.5ce6f111.svg",
+    "static/media/upload.7a8fabce.svg": "/static/media/upload.7a8fabce.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c012fedc.js",
+    "static/js/2.f1513b23.chunk.js",
+    "static/css/main.a5e40fad.chunk.css",
+    "static/js/main.3fbda505.chunk.js"
+  ]
+}
