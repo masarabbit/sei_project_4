@@ -5,7 +5,7 @@ import titleIcon from '../assets/title_icon.svg'
 import categoryIcon from '../assets/category_icon.svg'
 import descriptionIcon from '../assets/description_icon.svg'
 
-import { selectOptions } from './select/selectOptions.js'
+import { selectOptions, selectOptionsArray } from './select/selectOptions.js'
 import { customStyles } from './select/customStyles.js'
 
 
@@ -19,12 +19,12 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
   const handleHoverSelect = () => setHover('categories')
 
   const handleMultiChange = (selected, name) => {
+    console.log('selected', selected)
     const value = selected ? selected.map(item=> item.value) : []
     handleChange({
       target: { name, value }
     })
   }
-
 
 
   return (
@@ -69,6 +69,12 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
           isMulti
           name='categories'
           onChange = {(selected) => handleMultiChange(selected, 'categories')} 
+          value = {formdata.categories.map(ele=>{ 
+            if (!ele.id) {
+              return { value: ele, label: selectOptionsArray[ele - 1] }
+            }
+            return { value: ele.id, label: selectOptionsArray[ele.id - 1] }
+          })}
         />
       </div>  
       { errors.categories && 

@@ -136,7 +136,10 @@ function EditPic(){
         image: drawingUrl, 
         dots: JSON.stringify(dots), 
         colorPalette: JSON.stringify(palette),
-        categories: formdata.categories,
+        categories: formdata.categories.map(ele=>{
+          if (!ele.id) return ele
+          return ele.id
+        }),
         artist: userId,
         description: formdata.description 
       })
@@ -200,11 +203,19 @@ function EditPic(){
         // record[0] = data.dots
         // setDrawingHistory(record)
       } catch (err) {
-        console.log('error')
+        console.log('error test')
       }
     }
     getData()
   },[id])
+  
+  // React.useEffect(() => {
+  //   if (!formdata) return
+  //   const categoriesArray = formdata.categories.map(ele=>ele.name)
+  //   setFormdata({ ...formdata, categories: categoriesArray })
+  // },[formdata])
+
+
 
   React.useEffect(() => {
     const getData = async () => {
@@ -345,7 +356,7 @@ function EditPic(){
       {
         !userId || userId !== formdata.artist.id ?
           <div className="wrapper">
-            <p>you are not authorised</p>
+            <p>error</p>
           </div>
           :
           <div className="wrapper no_height slide_in">
