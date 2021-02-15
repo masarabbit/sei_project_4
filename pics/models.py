@@ -3,9 +3,9 @@ from django.db import models
 class Pic(models.Model):
     title = models.CharField(max_length=50)
     image = models.CharField(max_length=300)
-    description = models.TextField(max_length=200, null=True)
-    dots = models.TextField()
-    color_palette = models.TextField()
+    description = models.TextField(max_length=200, null=True, blank=True)
+    dots = models.TextField(max_length=3100)
+    color_palette = models.TextField(max_length=100)
     categories = models.ManyToManyField(
         "categories.Category",  
         related_name="pics"
