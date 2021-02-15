@@ -12,7 +12,6 @@ import EditPic from './components/EditPic'
 import ShowFilteredPics from './components/ShowFilteredPics'
 import Followers from './components/Followers'
 import Following from './components/Following'
-import DashBoard from './components/DashbBoard'
 
 function App() {
 
@@ -28,7 +27,6 @@ function App() {
         <Route exact path="/pics/new" component={CreatePic} />
         <Route path="/pics/:id" component={ShowPic} />
         <Route path="/artistpage/:id" component={ShowArtistPics} />
-        <Route exact path="/dashboard" component={DashBoard} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
       </Switch>

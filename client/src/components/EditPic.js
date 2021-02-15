@@ -98,14 +98,14 @@ function EditPic(){
     const dotsError = drawnDots.length === 0 ? 'your canvas is blank!' : ''
     const titleError = formdata.title === '' ? 'please enter title' : ''
     const selectError = formdata.categories.length === 0 ? 'please select atleast one' : ''
-    const descriptionError = formdata.description === '' ? 'please enter description' : ''
+    // const descriptionError = formdata.description === '' ? 'please enter description' : ''
     setErrors({ 
       title: titleError, 
       categories: selectError, 
-      description: descriptionError,
+      // description: descriptionError,
       dots: dotsError 
     })
-    if (dotsError || titleError || selectError || descriptionError) {     
+    if (dotsError || titleError || selectError) {     
       submissionForm.current = e.target.parentNode.parentNode
       submissionForm.current.classList.add('shake')
       setTimeout(()=>{
