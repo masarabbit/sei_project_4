@@ -60,7 +60,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "pikachu@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612131756/image_upload_test/x4zz4bnblpf2rblgtu0b.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite52.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -82,7 +82,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "gameboy@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612311786/16/hrkzhjlwtguhpdicwff2.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite50.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -106,7 +106,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "davinci@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612353386/16/qn9yxiq5wzliwqdf1qmc.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite49.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -130,7 +130,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "vangogh@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612352677/16/pn5a7bek8muiv0mewfwl.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite48.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -172,7 +172,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "cloud@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612137756/image_upload_test/hgnpuoksd8isnvck9rl5.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572652/user_image/sprite47.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -197,7 +197,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "tifa@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612308502/16/gj6hshsmwbzvomfn9m9d.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite45.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -361,7 +361,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "aerith@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612227211/image_upload_test/jktruwx1drhcwze3vrfk.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite38.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -384,7 +384,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "mario@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612129953/image_upload_test/tgaphxmohnh2e6mm9yws.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572651/user_image/sprite36.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -509,7 +509,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "gengar@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612307865/16/wmp2s4phpbtswctr9o28.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572650/user_image/sprite30.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -913,7 +913,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "sephiroth@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612358978/16/cdkmrijvpjylvtkdiwty.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572649/user_image/sprite94.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -1073,7 +1073,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "bulbasaur@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612310257/16/ol0ivzy2akeubi8ymb3e.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite87.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [
@@ -1095,7 +1095,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "charmander@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612359522/16/oyqfffyej4rpyxvoqca7.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite15.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": []
@@ -1115,7 +1115,7 @@
     "is_active": true,
     "date_joined": "2021-01-26T20:59:56.915Z",
     "email": "squirtle@email.com",
-    "profile_image": "http://res.cloudinary.com/dcwxp0m8g/image/upload/v1612311256/16/thiwxgz53njkbop1fhuk.png",
+    "profile_image": "https://res.cloudinary.com/dcwxp0m8g/image/upload/v1610572648/user_image/sprite13.png",
     "groups": [],
     "user_permissions": [],
     "followed_by": [

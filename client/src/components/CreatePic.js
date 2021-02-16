@@ -145,8 +145,8 @@ function CreatePic(){
 
     setUpCanvas() //these ensure that canvas is rendered before upload
     mapFromDots(dots,ctx)
-    let can = canvas.current.toDataURL('image/png')
-    can = can.replace('image/png', 'image/octet-stream')
+    const can = canvas.current.toDataURL('image/png')
+    // can = can.replace('image/png', 'image/octet-stream')
     const data = new FormData() 
     data.append('file', can)
     data.append('upload_preset', uploadPreset)
@@ -212,6 +212,10 @@ function CreatePic(){
     }
     return palette
   }
+
+  // const filterPalette = arr =>{
+  //   return sortedByFrequencyDuplicatesAndBlankRemoved(arr).slice(0,8)
+  // } //* this would give me blank array to begin, so I will use filterPalette above.
 
   //! don't need uuid? to be considered
   const mapPalette = arr =>{   
