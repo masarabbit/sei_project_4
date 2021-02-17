@@ -5,13 +5,24 @@
 * [Brief](./README.md#brief)
 * [Technologies Used](./README.md#technologies-used)
 * [Approach](./README.md#approach)
+	* [ERD Diagram](./README.md#erd-diagram)
 	* [Mock Up](./README.md#mock-up)
-	* [Requesting Data from the API](./README.md#requesting-data-from-the-api)
-	* [Displaying Details of Individual Pokémon](./README.md#displaying-details-of-individual-pokémon)
-	* [Styling and Animation](./README.md#styling-animation)
-    * [Background](./README.md#background)
-    * [Hover Effects](./README.md#hover-effects)
-    * [Animation for Pokémon Entering the Page](./README.md#animation-for-pokémon-entering-the-page)
+	* [Testing the Drawing Functionality](./README.md#testing-the-drawing-functionality)
+	* [Storing the Drawing on the Database](./README.md#storing-the-drawing-on-the-database)
+	* [Recording Hex Colour Codes](./README.md#recording-hex-colour-codes)
+  * [Setting up the Backend](./README.md#setting-up-the-backend)  
+    * [User Model](./README.md#user-model)
+    * [Pics and Categories Model](./README.md#pics-and-categories-model)
+    * [Comments Model](./README.md#comments-model)
+  * [Building the Frontend](./README.md#building-the-frontend)
+    * [User Registration and Login](./README.md#user-registration-and-login)
+    * [Favouriting](./README.md#favouriting)
+    * [Connecting Pages with Database Relationships](./README.md#connecting-pages-with-database-relationships)
+  * [Other Drawing Functions](./README.md#other-drawing-functions)  
+    * [Image Upload and Pixelation](./README.md#image-upload-and-pixelation)
+    * [Forking](./README.md#forking)
+    * [Continuous Line and Remove Fill](./README.md#continous-line-and-remove-fill)
+    * [Colour Palettes](./README.md#colour-palettes)
 * [Final Thoughts](./README.md#final-thoughts)
 	* [Wins and Challenges](./README.md#wins-and-challenges)
 	* [Key Learnings](./README.md#key-learnings)
@@ -311,10 +322,10 @@ Arguably, I no longer needed the canvas, since I could draw with the divs and re
 
 <br/>
 
-## Setting up the Backend
+### Setting up the Backend
 
 Once I tested the basic drawing functionality and identified what kind of data I wanted on the database, I worked on setting up the backend.
-### User Model
+#### User Model
 
 After setting up the boiler-plate Django, the first thing I set up was the user model. I used the default user model that comes with Django, but made slight customisation. I eventually added a many-to-many relationship to itself to add the 'followed_by' and 'following' field, but other than this left the user model basic since the Django user model came complete with enough features, including password verification.
 
@@ -328,7 +339,7 @@ class User(AbstractUser):
 
 ```    
 
-### Pics and Categories Model
+#### Pics and Categories Model
 
 The drawings to be stored on the database had the following model:
 
@@ -386,7 +397,7 @@ class PicFavoriteView(PicDetailView):
 ```
 
 
-### Comments Model
+#### Comments Model
 
 Comments were given its own model, then hooked up with the users and pics models with one-to-many relationship.
 
@@ -417,7 +428,7 @@ I added some users using a seed data loaded with `python manage.py loaddata jwt_
 
 <br />
 
-## Building the Frontend
+### Building the Frontend
 
 With the backend put into place, I worked on the frontend. Since the drawing functionality was already tested in advance, I was able to hook this up to the backend with relative ease. Drawing would be sent to the database as a stringified array of hex colour code as part of the formdata, along with the image url generated with Cloudinary, using axios post request below:
 
@@ -430,7 +441,7 @@ I had plans to add further drawing related features, but decided to focus first 
 
 <br />
 
-### User Registration and Login
+#### User Registration and Login
 
 I tend to favour rounded border radius and squishy animation effects using `transform: scale`, but decided to keep the design sharp and square this time, since the site was about pixel art. I kept the form design simple, with each input field represented by an icon (since the icon on its own may not be obvious, I labelled each field using placeholders). I had a concept of a square sliding in and transforming into the form. I realised this with the following keyframe animation:
 
@@ -569,7 +580,7 @@ Similar styling and animation were applied to the registration form. Since the f
 
 <br />
 
-### Favouriting
+#### Favouriting
 
 With the login functionality set up, it was easier to testing the various social interaction features. The favouriting functionality would work by recording the logged in user's id in the 'pics model' database under the 'favorited_by' field. I figured it would intuitive if favouriting and unfavouriting could be done with the same button, with the button being coloured differently to indicate if it has been favourited already or not. I displayed the number of favourites next to the button to make this even more obvious.
 
@@ -661,7 +672,7 @@ The comment can be deleted by clicking the delete button, which would only be di
 
 <br/>
 
-### Making Use of Database Relationships
+#### Connecting Pages with Database Relationships
 
 I had set up the backend so that the website could request data of all the drawing made by a particular user. Using this, I made a user profile page, which was essentially a gallery of that user's work. To this, I added section which also displayed art favourited by the user, and arwork created by other users followed by the user.
 
@@ -690,7 +701,7 @@ Similar page was also made to dislay users followed by any given user - in other
 
 <br/>
 
-## Other Drawing Features (Forking) / continous line
+### Other Drawing Functions
 
 Having created the functionalities to enable users to share and interact with each other, I added further functionality in relation to creating pixel art.
 
@@ -698,7 +709,7 @@ There were two features I was keen to build - feature enabling users to upload f
 
 <br />
 
-### Upload function
+#### Image Upload and Pixelation
 
 While creating sample pixel art to populate the website, I felt it would be useful to add a feature to upload images, rather than limiting the user to create the artwork on the website. Even better, if a non-pixel art image could be uploaded and converted to pixel image, it could help users get started quicker. I researched ways to approach this, and came up with the following solution.
 
@@ -787,7 +798,7 @@ Once rendered, the uploaded image can be edited by the user by clicking on each 
 
 <br />
 
-### Forking the Image
+#### Forking
 
 What if you could load any image they had favourited, and make their own copy which could be edited freely? This idea was inspired by the forking functionality in GitHub. The solution was surprisingly simpler compared to the image upload feature explained earlier.
 
@@ -835,7 +846,7 @@ Screencapture below shows this feature in action:
 
 <br />
 
-### Other Drawing Features 
+#### Continuous Line and Remove Fill
 
 While using the drawing interface, I felt it would be easier to draw if I could click and drag to create a line rather than clicking repeatedly. I enabled this by introducing a state variable called 'draw' which is turned either `true` or `false`, toggled by `onMouseDown` and `onMouseUp`:
 
@@ -879,39 +890,50 @@ const drawDotClick = e =>{
 Screen capture below shows these two functionalities in action:
 
   <p align="center">
-	  <img src="README_images/drawing.gif" alt="continous line drawn and deleting by clicking" />
+	  <img src="README_images/drawing.gif" width="500px" alt="continous line drawn and deleting by clicking" />
   </p>
 
 <br />
 
-### Undo
+#### Undo
 
 I also attempted a function allowing users to undo what they have done. It works by recording the array of hex codes each time the user draws - this essentially creates an array of an array, which is set to state. Clicking the back button would fire a function which references the last recorded array of hex codes, and renders it on the grid. 
 
   <p align="center">
-	  <img src="README_images/undo.gif" alt="undo button in action" />
+	  <img src="README_images/undo.gif" width="500px" alt="undo button in action" />
   </p>
 
 It works fine for undoing few steps, but I found it buggy when I used it repeatedly on large number of steps - this seems to be because the recorded array keeps track of everything, including any mistakes that were undone. In other words, the undo button would sometimes undo a step where the user undid something (very confusing...) Due to time constraint I did not refine this any further, but would be nice to revisit this feature at some point.
 
 <br />
 
-### Colour Palettes
+#### Colour Palettes
 
 The final feature I would like to touch on is the colour palettes - the colour used on the grid is recorded each time the user draws. User can reuse a colour they have already used by clicking these palettes. Users can also select colours from the palette 'forked' from a drawing they have favourited.
 
   <p align="center">
-	  <img src="README_images/palette.png" alt="palettes featuring colours already used by the user, and palette 'forked' from other users' artwork" />
+	  <img src="README_images/palettes.png" alt="palettes featuring colours already used by the user, and palette 'forked' from other users' artwork" />
   </p>
 
 <br />
 
 ## Final Thoughts
 ### Wins and Challenges
-I had a lot of fun working on this project, as I was able to play with HTML canvas element 
+I had a lot of fun working on this project, as I was able to play with HTML canvas element and gain insight into how images are rendered and manipulated using drawing softwares. There were many more directions I could have taken, such as function to apply filter to the image by manipulating the hex codes (eg changing the image to black and white, or inverting colours). 
 
-We chose to use Bulma for some of the CSS. I found myself fighting against Bulma at times, but it was useful for getting things into shape quickly, such as the stats bar and form fields. Having said this, if I were to make something similar in the future, I would probably write my own CSS to have better control.
+In terms of dealing with the database, I felt I was doing a lot of heavy lifting in the frontend, since I am a lot more comfortable working with React and JavaScript rather than Python and Django. I think I could have changed the structure of the database to make it easier to retrieve what I needed in the front. This is something I could work on in the future. 
 
 <br />
 
 ### Key Learnings
+I feel I was able to take my animation skills even further with this project, by acquainting myself with the `useRef` hook. I struggled when I moved from vanilla JavaScript to React since some of my techniques using the DOM could not be used as is. When I realised that you could call direct reference to elements using  `userRef` and refer to each of its child elements with `.children[i]`, it opened up a lot of possibilities, which I explored when I made the animation for the Home page.
+
+  <p align="center">
+	  <img src="README_images/home.gif" alt="home page animation" />
+  </p>
+
+In retrospect, I feel there is quite a lot of refactoring that could be done as there are similar components and functionality with slight variation, which I may be able to tweak to reuse rather than repeat.
+
+Overall, I believe the project help me level up rapidly, since it gave me an opportunity to think about and work on every aspect of the website.
+
+(Click [here](https://sixteensquared.herokuapp.com/) to see project)
