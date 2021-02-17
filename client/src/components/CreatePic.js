@@ -84,19 +84,29 @@ function CreatePic(){
     if (uploadedImageBlobUrl) {
       const image = new Image()
       image.onload = function() {    
-        ctx.drawImage(image, 0, 0)
-        const arr = []
+        const width = image.naturalWidth 
+        const height = image.naturalHeight 
+        if (width < height){
+          canvas.current.setAttribute('width', 320)
+          canvas.current.setAttribute('height', 320 * (height / width)) 
+          ctx.drawImage(image, 0, 0, 320, 320 * (height / width))
+        } else {
+          canvas.current.setAttribute('width', 320 * (width / height))
+          canvas.current.setAttribute('height', 320) 
+          ctx.drawImage(image, 0, 0, 320 * (width / height), 320)
+        }
+      
+        // ctx.drawImage(image, 0, 0)
+        // ctx.drawImage(image, 0, 0, 320, 320)
         const dotsFromImage = []
-        for (let i = 0; i < 256; i++) arr.push(i)
 
-        arr.forEach(ele=>{
-          const y = Math.floor(ele / 16) * 20
-          const x = ele % 16 * 20
-          ctx.drawImage(image, x, y, 20, 20, x, y, 20, 20)
+        for (let i = 0; i < 256; i++) {
+          const y = Math.floor(i / 16) * 20
+          const x = i % 16 * 20
           const c = ctx.getImageData(x + 5, y + 5, 1, 1).data
           const hex = '#' + ('000000' + rgbToHex(c[0], c[1], c[2])).slice(-6)
           dotsFromImage.push(hex)
-        })
+        }
         setDots(dotsFromImage)
         drawIntoGrid(dotsFromImage,drawingGrid)
       }
@@ -292,7 +302,7 @@ function CreatePic(){
   }
 
   const mapOptions = arr =>{
-    return arr.favoritedPic.map(pic=>{
+    return arr.map(pic=>{
       return (
         <div key={`p${pic.id}`}
           className="palette_wrapper"
@@ -396,7 +406,7 @@ function CreatePic(){
                 user &&
             <>
               <div className="favorited_palettes">
-                {mapOptions(user)}  
+                {mapOptions(user.favoritedPic)}  
               </div>  
             </>   
               }
@@ -452,4 +462,32 @@ export default CreatePic
 //   }
 // }, [uploadedImageBlobUrl])
 
+
+//?
+// React.useEffect(() => {
+//   if (!uploadedImageBlobUrl) return
+
+//   setUpCanvas()
+//   if (uploadedImageBlobUrl) {
+//     const image = new Image()
+//     image.onload = function() {    
+//       ctx.drawImage(image, 0, 0)
+//       const arr = []
+//       for (let i = 0; i < 256; i++) arr.push(i)
+//       const dotsFromImage = []
+
+//       arr.forEach(ele=>{
+//         const y = Math.floor(ele / 16) * 20
+//         const x = ele % 16 * 20
+//         // ctx.drawImage(image, x, y, 20, 20, x, y, 20, 20)
+//         const c = ctx.getImageData(x + 5, y + 5, 1, 1).data
+//         const hex = '#' + ('000000' + rgbToHex(c[0], c[1], c[2])).slice(-6)
+//         dotsFromImage.push(hex)
+//       })
+//       setDots(dotsFromImage)
+//       drawIntoGrid(dotsFromImage,drawingGrid)
+//     }
+//     image.src = uploadedImageBlobUrl
+//   }
+// }, [uploadedImageBlobUrl])
 

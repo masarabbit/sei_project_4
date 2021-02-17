@@ -19,7 +19,6 @@ function ArtSubmitForm({ formdata, handleChange, handleUpload, errors }){
   const handleHoverSelect = () => setHover('categories')
 
   const handleMultiChange = (selected, name) => {
-    console.log('selected', selected)
     const value = selected ? selected.map(item=> item.value) : []
     handleChange({
       target: { name, value }

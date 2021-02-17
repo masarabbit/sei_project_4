@@ -59,6 +59,7 @@ function Login (){
         <div className="input_box"
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
+          onFocus={()=>setError(false)}
         >
           <img src={emailIcon} 
             className={`${hover === 'email' ? 'hover' : ''}`}
@@ -76,6 +77,7 @@ function Login (){
         <div className="input_box thirty_px_bottom_margin"
           onMouseEnter={handleHover} 
           onMouseLeave={removeHover}
+          onFocus={()=>setError(false)}
         >
           <img src={passIcon} 
             className={`${hover === 'password' ? 'hover' : ''}`}
@@ -97,9 +99,9 @@ function Login (){
 
         <div className="button_wrapper">
           <button 
-            className="sign_in"
+            className="login center"
           >
-            sign in
+            login
           </button>  
         </div>
       </form>

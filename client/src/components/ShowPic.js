@@ -21,8 +21,8 @@ function ShowPic(){
   const userId = getUserId()
 
   const [displayDelete, setDisplayDelete] = React.useState(false)
-  const [commentDeleted, setCommentDeleted] = React.useState(false)
-  const [likedNow, setLikedNow]  = React.useState(false)
+  const [commentDeleted, setCommentDeleted] = React.useState(null)
+  const [likedNow, setLikedNow]  = React.useState(null)
 
 
   const vertPos = []

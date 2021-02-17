@@ -93,14 +93,14 @@ function Following(){
       { 
         error ?
           <div className="wrapper">
-            <p>oops... something gone wrong...</p>
+            <p>oops... something went wrong...</p>
           </div>  
           :  
           artistData ?
             artistData.following.length !== 0 ?
               
               <div className="wrapper artist_profile slide_in">
-                <div className="feed_title">
+                <div className="feed_title follow_feed">
                   {`artists followed by ${artistData.username}:`}
                 </div>
                 {mapUserData()}

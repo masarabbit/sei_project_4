@@ -178,18 +178,15 @@
   }
   40% {
     left: 30vh; 
-    height: 0;
     width: 0;
   }
   60% {
     left: 0vh; 
-    height: 0;
     width: 300px;
   }
   61% {
     border: black;
     background-color: black;
-    height: 0;
   }
   80% {
     border: #b2eaf9;
@@ -213,25 +210,21 @@
     border: 2px solid black;
     background-color: black;
     left: -200vh;
-    // transform: scale(0.5,1); /*do it with scale transform instead*/ 
     height: 0;
     width: 0;
     padding: 10px;
   }
   40% {
     left: 30vh; 
-    height: 0;
     width: 0;
   }
   60% {
     left: 0vh; 
-    height: 0;
     width: 300px;
   }
   61% {
     border: black;
     background-color: black;
-    height: 0;
   }
   80% {
     border: #b2eaf9;
@@ -262,7 +255,6 @@
   }
   40% {
     left: 30vh; 
-    height: 0;
     width: 0;
   }
   60% {
@@ -369,13 +361,13 @@
 
 /* button related */
 
-@keyframes shiver_zero {
+@keyframes offset_zero {
   0%{transform: translate(0);}
   50%{transform: translate(0, -2px);}
   100%{transform: translate(0);}
 }
 
-@keyframes shiver_one {
+@keyframes offset_one {
   0%{transform: translate(0);}
   50%{transform: translate(-5px, -5px);}
 /*   40%{transform: translate(0, -5px);}
@@ -383,7 +375,7 @@
   100%{transform: translate(0);}
 }
 
-@keyframes shiver_two {
+@keyframes offset_two {
   0%{transform: translate(0);}
   50%{transform: translate(5px, 5px);}
 /*   60%{transform: translate(0, 5px);} */

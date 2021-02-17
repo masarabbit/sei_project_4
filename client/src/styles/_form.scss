@@ -64,9 +64,11 @@ button.edit {
   margin: 0 10px;
 }
 
-button.sign_in, button.sign_up {
+button.sign_in, button.sign_up, 
+button.login.center {
   margin: 0 auto;
 }
+
 
 button::after,button::before{
   position: absolute;
@@ -152,15 +154,15 @@ button::after{
 }
 
 button:hover {
-  animation: shiver_zero 0.5s infinite;
+  animation: offset_zero 0.5s infinite;
 }
 
 button:hover::before {
-  animation: shiver_one 0.5s infinite;
+  animation: offset_one 0.5s infinite;
 }
 
 button:hover::after{
-  animation: shiver_two 0.5s infinite;
+  animation: offset_two 0.5s infinite;
 }
 
 form.comment {

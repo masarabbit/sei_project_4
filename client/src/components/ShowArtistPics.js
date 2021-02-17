@@ -11,7 +11,7 @@ function ShowArtistPics (){
   const { id } = useParams()
   const [artistData,setArtistData] = React.useState(null)
   const [error,setError] = React.useState(false)
-  const [followedNow, setFollowedNow]  = React.useState(false)
+  const [followedNow, setFollowedNow]  = React.useState(null)
   const [picCounter, setPicCounter] = React.useState(0)
   let idN = 0
 

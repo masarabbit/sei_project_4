@@ -93,14 +93,14 @@ function Followers(){
       { 
         error ?
           <div className="wrapper">
-            <p>oops... something gone wrong...</p>
+            <p>oops... something went wrong...</p>
           </div>  
           :  
           artistData ?
             artistData.followedBy.length !== 0 ?
               
               <div className="wrapper artist_profile slide in">
-                <div className="feed_title">
+                <div className="feed_title follow_feed">
                   {`${artistData.username}'s followers:`}
                 </div>
                 {mapUserData()}
