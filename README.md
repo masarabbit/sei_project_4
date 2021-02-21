@@ -6,7 +6,7 @@
 * [Technologies Used](./README.md#technologies-used)
 * [Approach](./README.md#approach)
 	* [ERD Diagram](./README.md#erd-diagram)
-	* [Mock Up](./README.md#mock-up)
+	* [Mockup](./README.md#mockup)
 	* [Testing the Drawing Functionality](./README.md#testing-the-drawing-functionality)
 	* [Storing the Drawing on the Database](./README.md#storing-the-drawing-on-the-database)
 	* [Recording Hex Colour Codes](./README.md#recording-hex-colour-codes)
@@ -28,28 +28,28 @@
 	* [Key Learnings](./README.md#key-learnings)
 
 
-(Click [here](https://sixteensquared.herokuapp.com/) to see project)
+(Click [here](https://sixteensquared.herokuapp.com/) to see project.)
 
 
-(* I have used American spelling for 'favourite' and 'color' through out the code for the website. This is because the coding language itself uses American spelling, for example 'color' in CSS. In this Read Me I will be using the British spelling for these words, except when I am making direct references to codes and/or variables)
+(* I have used American spelling for 'favourite' and 'color' through out the code for the website. This is because the coding language itself uses American spelling, for example 'color' in CSS. In this README I will be using the British spelling for these words, except when I am making direct references to codes and/or variables.)
 
 
 <br/>
 
 ## Overview 
-This was my final project at General Assembly's Software Engineering Immersive Course - we were given 7 days to create a full stack website. As well as putting into practice what we had learnt during the lesson, I decided to use the opportunity to develop my personal experiment using canvas. 
+This was my final project at General Assembly's Software Engineering Immersive Course, and we were given 7 days to create a full stack website. As well as putting into practice what we had learnt during the course, I decided to use the opportunity to play with the HTML canvas element. 
 
-I had already worked with HTML 5 canvas element to make a simple drawing app, but I was interested in finding out how it could be built in React. Also, for my earlier projects I did not experiment with users following each other, so I wanted to incorporate this feature into this project. With these thoughts in mind, I decided to make a website where users can draw and share pixel art.
+I had already used the canvas element before to make a simple drawing app, but I was interested in finding out how it could be built in React. Also, for my earlier projects I did not experiment with users following each other, so I wanted to incorporate this feature into this project. For these reasons, I decided to make a website where users can draw and share pixel art.
 
-We had the choice to work in group, or on our own - I decided to work on my own this time, since I have a tendency to lean a lot on the frontend when in group. I wanted to make sure I could put together the backend on my own.
+We had the choice to work in group, or on our own - I decided to work on my own this time, since I have a tendency to lean a lot on the front end when in group. I wanted to make sure I could put together the back end on my own.
 
 <br/>
 
 ## Brief
-* To build a full-stack application, making our own backend and frontend
-* To use a Python Django API, using Django REST Framework to serve data from a Postgres database
-* To build the frontend using React to consume the API
-* The API should have multiple relationships and CRUD functionality for at least a couple of models
+* To build a full-stack application, making our own back end and front end.
+* To use a Python Django API, using Django REST Framework to serve data from a Postgres database.
+* To build the frontend using React to consume the API.
+* The API should have multiple relationships and CRUD functionality for at least a couple of models.
 
 
 <br/>
@@ -78,14 +78,16 @@ We had the choice to work in group, or on our own - I decided to work on my own 
 
 ## Approach
 ### ERD Diagram
-As part of our sign off prcess, we had to submit an ERD diagram to illustrate what kind of database we planned to make. Below is what I submitted, made using [quickdatabasediagrams.com](https://www.quickdatabasediagrams.com/). The main models would be for the users, and a model for the pixel art the users could create on the site. A separate model was planned for the comments users could leave on drawings, and for the drawing category. 
+As part of our sign off prcess, we had to submit an ERD diagram to illustrate what kind of database we planned to make. Below is what I submitted, made using [quickdatabasediagrams.com](https://www.quickdatabasediagrams.com/). The main models would be for the users, and for the pixel art the users could create on the site. Separate models were planned for the comments users could leave on drawings, and for the drawing categories. 
 
   <p align="center">
 	  <img src="README_images/database_diagram.png" alt="ERD diagram" />
   </p>
 
+<br />
+
 ### Mock Up
-From early stage, I had a fairly specific idea of what I wanted the project to look like - since my other projects were quite colourful, I wanted to make something sleek and simple, with limited colour palette. 
+From the early stage, I had a fairly specific idea of what I wanted the project to look like - since my other projects were quite colourful and busy, I wanted to make something simple. 
 
   <p align="center">
 	  <img src="README_images/mockup_one.png" alt="mockup pages" />
@@ -95,13 +97,15 @@ From early stage, I had a fairly specific idea of what I wanted the project to l
 	  <img src="README_images/mockup_two.png" alt="mockup for the 'show page' of the pixel art" />
   </p>
 
-I really like the 16 x 16 pixel art in old games, so I chose this as the grid size for the canvas drawing. This led me to make icons used in the website to be also made using 16 x 16 squares. 
+<br />
+I really like the 16 x 16 pixel art in old games, so I chose this as the grid size for the pixel art. This led me to make icons used in the website to be also made using 16 x 16 squares. 
 
    <p align="center">
 	  <img src="README_images/assets.png" alt="assets" />
   </p>
 
-The working title for the project was 'dotomo' - 'tomo' means 'friend' in Japanese, so the concept was that this would be a friendly community for 'dot artist'. I changed this for several reasons - the name needed some explanation, and also I realised that the term 'dot art' was more associated with pointilism (people in Japan tend to refer to 'pixel art' as 'dot art'). I also wanted to make the logo also fit into a 16 x 16 grid. 
+<br />
+The working title for the project was 'dotomo' - 'tomo' means 'friend' in Japanese. The concept was that this website would be a friendly community for 'dot artist'. I decided to change the name because I realised that the term 'dot art' was more associated with pointilism (I didn't know this because people in Japan tend to refer to 'pixel art' as 'dot art'). I also wanted to make the logo also fit into a 16 x 16 grid. 
 
   <p align="center">
 	  <img src="README_images/logo.png" alt="sixteensquared logo" />
@@ -112,9 +116,9 @@ This led me to settle with the name 'sixteensquared'. I originally thought of a 
 <br />
 
 ## Testing the Drawing Functionality
-Before setting up the database in the backend, I spent some time testing if the HTML canvas element would work in the way I anticipated.
+Before setting up the database in the back end, I spent some time testing if the HTML canvas element would work in the way I had anticipated.
 
-In vanilla JavaScript, I would have used the DOM to refer to a canvas element on the page, so that I could trigger functions to draw on it using 'EventListeners'. Having researched, I found that the common approach in React was to use the `useRef` hook to deal with canvas element. 
+In vanilla JavaScript, I would have used the DOM to refer to a canvas element on the page, so that I could trigger functions to draw on it using `EventListeners`. Having researched, I found that the common approach in React was to use the `useRef` hook to deal with canvas element. 
 
 ```
   const canvas = useRef()
@@ -131,9 +135,9 @@ In vanilla JavaScript, I would have used the DOM to refer to a canvas element on
 
 With the above set up, I could just add ` <canvas ref={canvas} />` in my JSX. The set up is triggered using  `useEffect` to make sure the component is mounted first before 'ctx' (context) is defined. 
 
-Once 'ctx' is defined, I could use `ctx.fillRect(<x-coordinate>, <y-coordinate>, <fill width>, <fill height>)` to draw squares on canvas. For example, `ctx.fillRect(30, 40 , 10, 10)` would draw a 10 x 10 square on canvas, positioned 30px from the left and 40px from the top.
+Once 'ctx' is defined, I could use `ctx.fillRect(<x-coordinate>, <y-coordinate>, <fill width>, <fill height>)` to draw squares on canvas. For example, `ctx.fillRect(30, 40 , 10, 10)` would draw a 10 x 10 square on the canvas, positioned 30px from the left and 40px from the top.
 
-With this method, all I needed was a way to define the x and y coordinate. I figured that the best way to do this was to map a div into grid on the page, then give each divs an `onclick` event. By giving each divs an id based on it's grid position, it could be used to calculate the x and y coordinate.
+With this method, all I needed was a way to define the x and y coordinate. I figured that the best way to do this was to map a div into grid on the page, then give each divs an `onclick` event. By giving each divs an ID based on it's grid position, it could be used to calculate the x and y coordinate.
 
 So I first mapped out the grid using function below:
 
@@ -155,17 +159,19 @@ So I first mapped out the grid using function below:
   }
 ```
 
+<br/>
+
 This gave me a grid like below (for clarity, I mapped the grid number within each grid as well). 
 
   <p align="center">
 	  <img src="README_images/grid.png" alt="16 x 16 grid mapped out" />
   </p>
 
-To each of divs in the grid, I assigned an `onclick` event below - this would essentially draw a black square in the coordinate clicked on the grid. 
+To each divs in the grid, I assigned an `onclick` event below — this would draw a black square in the coordinate clicked on the grid. 
 
-The x coordinate can be worked out using modulus - for example, if I clicked 58, `58 % 16` would be 10, which I could multiply by 20px to give me 200px.
+The x coordinate can be worked out using modulus — for example, if I clicked 58, `58 % 16` would be 10, which I could multiply by 20px to give me 200px.
 
-The y coordinate can be calculated by dividing the number by 16, and multipliying the answer (rounded down) by 20 - eg, `58 / 16 = 3.625`, and `3 * 20px = 60px`. In other words, 58 would be 60px down.
+The y coordinate can be calculated by dividing the number by 16, and multipliying the answer (rounded down) by 20 — eg, `58 / 16 = 3.625`, and `3 * 20px = 60px`. In other words, 58 would be 60px down.
 
 ```
   const drawSquare = e =>{
@@ -175,9 +181,9 @@ The y coordinate can be calculated by dividing the number by 16, and multipliyin
     ctx.fillStyle = '#000000'
     ctx.fillRect(x, y, 20, 20)
   }
-
 ```  
 
+<br/>
 Screen capture below shows the function in action.
 
   <p align="center">
@@ -190,14 +196,17 @@ By layering the grid on top of the canvas, the position being clicked and square
 	  <img src="README_images/other_squares_coloured.gif" alt="grid layered on top of the canvas" />
   </p>
 
+<br/>
+
 I then took this a step further by adding a colour input field which can set the selected colour to state. However, this was where I started encountering issues. This can be seen in the screen capture below. Each time I set a new colour, the canvas rerenders and squares shaded in the previous colour disappears.
 
  <p align="center">
 	  <img src="README_images/testing_colour.gif" alt="shaded squares resetting each time a different colour is set" />
   </p>
 
+<br />
 
-As a work around, I added a line in the 'drawSquare' function to set whatever drawn on the canvas to a state variable called 'drawingRecord'. 
+As a workaround, I added a line in the 'drawSquare' function to set whatever drawn on the canvas to a state variable called 'drawingRecord'. 
 ```
   const drawSquare = e =>{
     const x = e.target.id % 16 * 20
@@ -210,8 +219,9 @@ As a work around, I added a line in the 'drawSquare' function to set whatever dr
 
 ```
 
-I then added a useEffect which would redraw the drawn image onto the canvas each time the fill colour and/or drawingRecord was updated. The canvas image was stored in 'drawingRecord' as Base64 data, which could be redrawn using the drawImage() method. This ensured that the shaded squares persisted even when the fill colours were changed.
+I then added a useEffect which would redraw the drawn image onto the canvas each time the fill colour and/or the 'drawingRecord' was updated. The canvas image was stored in the 'drawingRecord' as Base64 data, which could be redrawn using the `drawImage()` method. This ensured that the shaded squares persisted even when the fill colours were changed.
 
+```
  useEffect(() => {
     if (drawingRecord) {
       const image = new Image()
@@ -221,14 +231,15 @@ I then added a useEffect which would redraw the drawn image onto the canvas each
       image.src = drawingRecord
     }
   }, [drawSetting, drawingRecord])
+```
 
 <br/>
 
 ### Storing the Drawing on the Database
 
-Once I had the basic drawing functionality working, I had to figure out how to store it on the database. The first idea I had was to send the image to Cloudinary, retrieve the image url from Cloudinary, then send this to the database. I was keen to try this out because I had read in the documentation that you could send images as Base64 data to Cloudinary. 
+Once I had the basic drawing functionality working, I had to figure out how to store it on the database. The first idea I had was to send the image to Cloudinary, retrieve the image URL from Cloudinary, then send this to the database. I was keen to try this out because I had read in the Cloudinary documentation that you could upload images as Base64 data. 
 
-Below is the function, and it worked! The image drawn on the canvas was indeed sent to Cloudinary, so became accessible via it's generated url.
+Below is the function, and it worked! The image drawn on the canvas was indeed sent to Cloudinary, so became accessible via it's generated URL.
 
   ```
   const handleUpload = async () => { 
@@ -245,17 +256,22 @@ Below is the function, and it worked! The image drawn on the canvas was indeed s
 	  <img src="README_images/test.png" alt="test image drawn on the canvas" />
   </p>
 
-  Once I had the image url, it could be easily displayed again on the website.
+  <br />
+
+  Once I had the image URL, it could be easily displayed again on the website.
 
   <p align="center">
 	  <img src="README_images/test_displayed.png" alt="test image displayed" />
   </p>
 
-However, I settled on recording the image both as canvas-generated png and as a stringified array of hex colour codes, since I felt it gave me more freedom for manipulation later down the line. Also, I found that redrawing the image onto the canvas from the Cloudinary url caused the canvas to 'taint'. Screenshot below shows the error message I saw when I tried to render the canvas with the Cloudinary url. Apparently this is a 'securityError' , since the image could have come from anywhere.
+<br/>
+However, I settled on recording the image both as canvas-generated png and as a stringified array of hex colour codes, since I felt it gave me more freedom for manipulation later down the line. Also, I found that redrawing the image onto the canvas from the Cloudinary URL caused the canvas to 'taint'. Screenshot below shows the error message I saw when I tried to render the canvas with the Cloudinary URL. Apparently this is a 'securityError', since the image could have come from anywhere.
 
  <p align="center">
 	  <img src="README_images/canvas_taint.png" alt="error message for 'tainted' canvas " />
   </p>
+
+<br />
 
 ### Recording Hex Colour Codes
 
@@ -265,6 +281,7 @@ To record the hex colour codes, I first made an array of 256 blank strings:
   const [dots, setDots] = React.useState(Array(256).fill(''))
 ```
 
+<br />
 Then, it was a case of adding lines below into the drawing function, pushing the hex code into the relevant index of the dots array, setting it to state.
 
 ```
@@ -272,13 +289,17 @@ dots[e.target.id] = drawSetting.color
 setDots(dots)
 ```
 
-This would give me an array like below. I was able to send this to the database as strings by using `JSON.stringify()`. To reuse data, it can changed back to array with `JSON.parse()`.
+<br />
+
+This would give me an array like below. I was able to send this to the database as strings by using `JSON.stringify()`. To use the data again, it can changed back to an array with `JSON.parse()`.
 
  <p align="center">
 	  <img src="README_images/dots.png" alt="error message for 'tainted' canvas " />
   </p>
 
-Once I had this array, I realised that I could draw without using canvas by replacing ` ctx.fillRect(x, y, 20, 20)` with `e.target.style.backgroundColor = drawSetting.color`. This was lot simpler because I didn't even have to specify the coordinate. Also, if the grid was rerendered due to any change on the page, the divs could be coloured again by referring to the hex codes stored in the 'dots' array:
+<br/>
+
+Once I had this array, I realised that I could draw without using canvas by replacing ` ctx.fillRect(x, y, 20, 20)` with `e.target.style.backgroundColor = drawSetting.color`. This was a lot simpler because I didn't even have to specify the coordinate. Also, if the grid was rerendered due to any change on the page, the divs could be recoloured by referring to the hex codes stored in the 'dots' array:
 
 ```
 const drawIntoGrid = (sourceDots, target) =>{
@@ -287,7 +308,7 @@ const drawIntoGrid = (sourceDots, target) =>{
   })
 }
 ```
-
+<br />
 I also had the idea to store the colour palette of the image on the database. The colour palette would be derived from the 'dots' array by sorting the hex codes in order of prevalence, then removing duplicates. 
 
 ```
@@ -300,8 +321,8 @@ const sortedByFrequencyDuplicatesAndBlankRemoved = array =>{
   return [ ...new Set(orderedByFrequency.map(ele=>ele.split('_')[0]))]
 }
 ```
-
-For simplicity, I also limited the palette to 8 colours with function below:
+<br />
+For simplicity, I also limited the palette to 8 colours with the function below:
 
 ```
   const filterPalette = arr =>{
@@ -312,7 +333,7 @@ For simplicity, I also limited the palette to 8 colours with function below:
     return palette
   }
 ```  
-
+<br />
 Having the data for the colour palette allowed me to map them onto various part of the website, like below:
  <p align="center">
 	  <img src="README_images/palette.png" alt="colour palette" />
