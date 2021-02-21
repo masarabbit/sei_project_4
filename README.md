@@ -9,7 +9,7 @@
 	* [Mockup](./README.md#mockup)
 	* [Testing the Drawing Functionality](./README.md#testing-the-drawing-functionality)
 	* [Storing the Drawing on the Database](./README.md#storing-the-drawing-on-the-database)
-	* [Recording Hex Colour Codes](./README.md#recording-hex-colour-codes)
+	* [Recording the Hex Colour Codes](./README.md#recording-the-hex-colour-codes)
   * [Setting up the Back End](./README.md#setting-up-the-back-end)  
     * [User Model](./README.md#user-model)
     * [Pics and Categories Model](./README.md#pics-and-categories-model)
@@ -17,11 +17,11 @@
   * [Building the Front End](./README.md#building-the-front-end)
     * [User Registration and Login](./README.md#user-registration-and-login)
     * [Favouriting](./README.md#favouriting)
-    * [Connecting Pages with Database Relationships](./README.md#connecting-pages-with-database-relationships)
+    * [Connecting the Pages with Database Relationships](./README.md#connecting-the-pages-with-database-relationships)
   * [Other Drawing Functions](./README.md#other-drawing-functions)  
     * [Image Upload and Pixelation](./README.md#image-upload-and-pixelation)
     * [Forking](./README.md#forking)
-    * [Continuous Line and Remove Fill](./README.md#continous-line-and-remove-fill)
+    * [Continuous Line and Remove Fill](./README.md#continuous-line-and-remove-fill)
     * [Colour Palettes](./README.md#colour-palettes)
 * [Final Thoughts](./README.md#final-thoughts)
 	* [Wins and Challenges](./README.md#wins-and-challenges)
@@ -86,7 +86,7 @@ As part of our sign off prcess, we had to submit an ERD diagram to illustrate wh
 
 <br />
 
-### Mock Up
+### Mockup
 From the early stage, I had a fairly specific idea of what I wanted the project to look like - since my other projects were quite colourful and busy, I wanted to make something simple. 
 
   <p align="center">
@@ -272,7 +272,7 @@ However, I settled on recording the image both as canvas-generated png and as a 
 
 <br />
 
-### Recording Hex Colour Codes
+### Recording the Hex Colour Codes
 
 To record the hex colour codes, I first made an array of 256 blank strings:
 
@@ -710,7 +710,7 @@ The comment can be deleted by clicking the delete button, which would only be di
 
 <br/>
 
-#### Connecting Pages with Database Relationships
+#### Connecting the Pages with Database Relationships
 
 I had set up the back end so that the website could request data of all the drawing made by a particular user. Using this, I made a user profile page, displaying that user's work. It also had a section displaying art favourited by the user, and another section for arwork created by other users followed by the user.
 
