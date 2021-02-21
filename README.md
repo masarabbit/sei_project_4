@@ -10,11 +10,11 @@
 	* [Testing the Drawing Functionality](./README.md#testing-the-drawing-functionality)
 	* [Storing the Drawing on the Database](./README.md#storing-the-drawing-on-the-database)
 	* [Recording Hex Colour Codes](./README.md#recording-hex-colour-codes)
-  * [Setting up the Backend](./README.md#setting-up-the-backend)  
+  * [Setting up the Back End](./README.md#setting-up-the-back-end)  
     * [User Model](./README.md#user-model)
     * [Pics and Categories Model](./README.md#pics-and-categories-model)
     * [Comments Model](./README.md#comments-model)
-  * [Building the Frontend](./README.md#building-the-frontend)
+  * [Building the Front End](./README.md#building-the-front-end)
     * [User Registration and Login](./README.md#user-registration-and-login)
     * [Favouriting](./README.md#favouriting)
     * [Connecting Pages with Database Relationships](./README.md#connecting-pages-with-database-relationships)
@@ -120,7 +120,7 @@ Before setting up the database in the back end, I spent some time testing if the
 
 In vanilla JavaScript, I would have used the DOM to refer to a canvas element on the page, so that I could trigger functions to draw on it using `EventListeners`. Having researched, I found that the common approach in React was to use the `useRef` hook to deal with canvas element. 
 
-```
+```js
   const canvas = useRef()
   let ctx = null
 
@@ -141,7 +141,7 @@ With this method, all I needed was a way to define the x and y coordinate. I fig
 
 So I first mapped out the grid using function below:
 
-```
+```js
   const mapGrid = ()=>{    
     const grids = []
     for (let i = 0; i < 256; i++){
@@ -173,7 +173,7 @@ The x coordinate can be worked out using modulus — for example, if I clicked 5
 
 The y coordinate can be calculated by dividing the number by 16, and multipliying the answer (rounded down) by 20 — eg, `58 / 16 = 3.625`, and `3 * 20px = 60px`. In other words, 58 would be 60px down.
 
-```
+```js
   const drawSquare = e =>{
     const x = e.target.id % 16 * 20
     const y = Math.floor(e.target.id / 16) * 20
@@ -207,7 +207,7 @@ I then took this a step further by adding a colour input field which can set the
 <br />
 
 As a workaround, I added a line in the 'drawSquare' function to set whatever drawn on the canvas to a state variable called 'drawingRecord'. 
-```
+```js
   const drawSquare = e =>{
     const x = e.target.id % 16 * 20
     const y = Math.floor(e.target.id / 16) * 20
@@ -216,12 +216,11 @@ As a workaround, I added a line in the 'drawSquare' function to set whatever dra
     ctx.fillRect(x, y, 20, 20)
     setDrawingRecord(canvas.current.toDataURL())
   }
-
 ```
 
 I then added a useEffect which would redraw the drawn image onto the canvas each time the fill colour and/or the 'drawingRecord' was updated. The canvas image was stored in the 'drawingRecord' as Base64 data, which could be redrawn using the `drawImage()` method. This ensured that the shaded squares persisted even when the fill colours were changed.
 
-```
+```js
  useEffect(() => {
     if (drawingRecord) {
       const image = new Image()
@@ -241,7 +240,7 @@ Once I had the basic drawing functionality working, I had to figure out how to s
 
 Below is the function, and it worked! The image drawn on the canvas was indeed sent to Cloudinary, so became accessible via it's generated URL.
 
-  ```
+  ```js
   const handleUpload = async () => { 
     const can = canvas.current.toDataURL('image/png')
     const data = new FormData() 
@@ -277,14 +276,14 @@ However, I settled on recording the image both as canvas-generated png and as a 
 
 To record the hex colour codes, I first made an array of 256 blank strings:
 
-```
+```js
   const [dots, setDots] = React.useState(Array(256).fill(''))
 ```
 
 <br />
 Then, it was a case of adding lines below into the drawing function, pushing the hex code into the relevant index of the dots array, setting it to state.
 
-```
+```js
 dots[e.target.id] = drawSetting.color
 setDots(dots)
 ```
@@ -301,7 +300,7 @@ This would give me an array like below. I was able to send this to the database 
 
 Once I had this array, I realised that I could draw without using canvas by replacing ` ctx.fillRect(x, y, 20, 20)` with `e.target.style.backgroundColor = drawSetting.color`. This was a lot simpler because I didn't even have to specify the coordinate. Also, if the grid was rerendered due to any change on the page, the divs could be recoloured by referring to the hex codes stored in the 'dots' array:
 
-```
+```js
 const drawIntoGrid = (sourceDots, target) =>{
   sourceDots.forEach((dot, i)=>{
     target.current.children[i].style.backgroundColor = dot
@@ -311,7 +310,7 @@ const drawIntoGrid = (sourceDots, target) =>{
 <br />
 I also had the idea to store the colour palette of the image on the database. The colour palette would be derived from the 'dots' array by sorting the hex codes in order of prevalence, then removing duplicates. 
 
-```
+```js
 const sortedByFrequencyDuplicatesAndBlankRemoved = array =>{  
   const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0)
   const blankRemoved = array.filter(dot=> dot !== '' && dot)
@@ -324,7 +323,7 @@ const sortedByFrequencyDuplicatesAndBlankRemoved = array =>{
 <br />
 For simplicity, I also limited the palette to 8 colours with the function below:
 
-```
+```js
   const filterPalette = arr =>{
     const palette = Array(8).fill('')
     for (let i = 0; i < 8; i++){
@@ -339,32 +338,35 @@ Having the data for the colour palette allowed me to map them onto various part 
 	  <img src="README_images/palette.png" alt="colour palette" />
   </p>
 
-Arguably, I no longer needed the canvas, since I could draw with the divs and redraw the images with the hex colour code. However, I left the canvas in since having the url for png image useful for rendering thumbnail images.
+Arguably, I no longer needed the canvas, since I could draw with the divs and redraw the images with the hex colour code. However, I left the canvas in since having the URL for png image was useful for rendering thumbnail images.
 
 <br/>
 
-### Setting up the Backend
+### Setting up the Back End
 
-Once I tested the basic drawing functionality and identified what kind of data I wanted on the database, I worked on setting up the backend.
+Once I tested the basic drawing functionality and identified what kind of data I wanted on the database, I worked on setting up the back end.
+
+<br />
+
 #### User Model
 
-After setting up the boiler-plate Django, the first thing I set up was the user model. I used the default user model that comes with Django, but made slight customisation. I eventually added a many-to-many relationship to itself to add the 'followed_by' and 'following' field, but other than this left the user model basic since the Django user model came complete with enough features, including password verification.
+After setting up the boiler-plate Django, the first thing I set up was the user model. I used the default user model that comes with Django, but made slight customisation. I eventually added a many-to-many relationship to itself to add the 'followed_by' and 'following' field, but made no other changes since the Django user model came complete with enough features, including password verification.
 
-```
+```python
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     email = models.CharField(max_length=50, unique=True)
     profile_image = models.CharField(max_length=300)
-
 ```    
+<br />
 
 #### Pics and Categories Model
 
 The drawings to be stored on the database had the following model:
 
-```
+```python
 from django.db import models
 
 class Pic(models.Model):
@@ -374,10 +376,11 @@ class Pic(models.Model):
     dots = models.TextField(max_length=3100)
     color_palette = models.TextField(max_length=100)
 ```    
+<br/>
 
-I eventually added relationships below to the model. I made another model for categories, which simply had a field for the category name (the id would be defined automatically by Django). To keep the project simple, I didn't add a functionality to enable user to add their own category this time. Users could 'like' the pixel art, and this would be stored in the database as 'favourited_by'.
+I eventually added relationships below to this model. I made another model for categories, which simply had a field for the category name (the ID would be defined automatically by Django). To keep the project simple, I didn't add a functionality to enable user to add their own category this time. Users could also 'like' the pixel art, and this would be stored in the database as 'favourited_by'.
 
-```
+```python
     categories = models.ManyToManyField(
         "categories.Category",  
         related_name="pics"
@@ -394,9 +397,11 @@ I eventually added relationships below to the model. I made another model for ca
     )
 ```
 
-The functionality for favouriting the pixel art was defined in the views.py. I was going to change the icon displayed on the frontend depending on if the pixel art was favourited or not, so I settled with having two separate definitions rather than having just one to toggle the status.
+<br />
 
-```
+The functionality for favouriting the pixel art was defined in the 'views.py'. I was going to change the icon displayed on the front end depending on if the pixel art was favourited or not, so I settled with having separate definitions for 'favouriting' and 'unfavourtiting' (alternative would have been to have one definiton to control both, which would require some kind of control flow to determine which would be triggered).
+
+```python
 class PicFavoriteView(PicDetailView):
 
     permission_classes = (IsAuthenticated, )
@@ -416,13 +421,13 @@ class PicFavoriteView(PicDetailView):
         serialized_favorited_pic = PopulatedPicSerializer(pic_to_unfavorite)
         return Response(serialized_favorited_pic.data, status=status.HTTP_204_NO_CONTENT)        
 ```
-
+<br />
 
 #### Comments Model
 
 Comments were given its own model, then hooked up with the users and pics models with one-to-many relationship.
 
-```
+```python
 class Comment(models.Model):
     text = models.TextField(max_length=200)
     rating = models.PositiveIntegerField()
@@ -438,9 +443,11 @@ class Comment(models.Model):
         on_delete=models.CASCADE
     )
 ```    
-I spent one whole day setting up the backend, testing as I went using Django's inbuilt admin page and insomnia. Once the backend was functional, I set up React to work on the frontend - once I moved onto this stage I made minor tweaks in the backend, mainly to alter what data was visible from where by changing the settings on the serializers. 
 
-I added some users using a seed data loaded with `python manage.py loaddata jwt_auth/seeds.json` command, but this time I couldn't create the seed data for the pixel art in advance, since it needed the hex colour code arrays. These were easier to produce using the drawing function in the website. 
+<br />
+I spent one whole day setting up the back end, testing as I went using Django's inbuilt admin page and insomnia. Once the back end was functional, I set up React to work on the front end - once I moved onto this stage I only made minor tweaks in the back end, mainly to alter what data was visible from where by changing the settings on the serializers. 
+
+I was able to create seed data for users using Google Sheets and load them with `python manage.py loaddata jwt_auth/seeds.json` command. However, the seed data for pixel art was tricker to produce, since it needed the hex colour code arrays. So I made the pixel art data by actually drawing them on the website. I was able to speed up this process thanks to some functionality I added, but I will explain this in the [Other Drawing Functions](./README.md#other-drawing-functions) section.
 <!-- Due to the nature of Django, it was easier to set up compared to Mongo and Express, however I did find that there were less freedom with Django's seeding process. -->
 
  <p align="center">
@@ -449,24 +456,26 @@ I added some users using a seed data loaded with `python manage.py loaddata jwt_
 
 <br />
 
-### Building the Frontend
+### Building the Front End
 
-With the backend put into place, I worked on the frontend. Since the drawing functionality was already tested in advance, I was able to hook this up to the backend with relative ease. Drawing would be sent to the database as a stringified array of hex colour code as part of the formdata, along with the image url generated with Cloudinary, using axios post request below:
+With the back end put into place, I worked on the front end. Since the drawing functionality was already tested in advance, I was able to hook this up to the back end with relative ease. Drawing would be sent to the database as a stringified array of hex colour code as part of the formdata, along with the image URL generated with Cloudinary, using axios post request below:
 
-```
+```js
 function createPic(formdata){
   return axios.post(`${baseUrl}/pics/`,formdata)
 }
 ```
-I had plans to add further drawing related features, but decided to focus first on the social aspect of the website - the functionality to allow users to favourite art work, add comments, and follow other users. To work on these functionality, I needed to be able to login to the page.
+
+<br />
+I had plans to add further drawing related features, but decided to focus first on the social aspect of the website - the functionality to allow users to favourite pixel art, add comments, and follow other users. To work on these functionality, I needed to be able to login to the website. I could have used Insomnia to simulate this, but I felt it would be useful to have the feature on the website early on.
 
 <br />
 
 #### User Registration and Login
 
-I tend to favour rounded border radius and squishy animation effects using `transform: scale`, but decided to keep the design sharp and square this time, since the site was about pixel art. I kept the form design simple, with each input field represented by an icon (since the icon on its own may not be obvious, I labelled each field using placeholders). I had a concept of a square sliding in and transforming into the form. I realised this with the following keyframe animation:
+I tend to favour rounded border radius and squishy animation effects using `transform: scale`, but decided to keep the design sharp and square this time, since the site was about pixel art. I kept the form design simple, with each input field represented by an icon (since the icon on its own may not be obvious, I labelled each field using placeholders). I had a concept of a square sliding in and transforming into the form. I achieved this with the following keyframe animation:
 
-```
+```css
 @keyframes form_load {
   0% {
     border: 2px solid black;
@@ -504,22 +513,24 @@ I tend to favour rounded border radius and squishy animation effects using `tran
   }
 }
 ```
-
-Having played around with keyframe animations, I realised you could use pretty much any css property. I think this was the first time I changed the padding using the animation. Pretty much every property for this css class were defined in the final keyframe. It meant I had to edit the animation each time I wanted to restyle this class, however I felt it was worth the hassle. The result can be seen in the screen capture below. I'm pleased that I managed to recreate what I had in mind. 
+<br />
+Having played around with keyframe animations, I realised you could use pretty much any css property to animate. I think this was the first time I changed the padding using the animation. Pretty much every property for this css class were defined in the final keyframe. It meant I had to edit the animation each time I wanted to restyle this class, however I felt it was worth the hassle. The result can be seen in the screen capture below:
 
  <p align="center">
 	  <img src="README_images/login_form.gif" alt="login form animation" />
   </p>
 
+<br />
 Since the form came in from the left when it was loaded, I felt it would be natural to make it slide out of the page again when the user successfully logged in. I decided to jazz up this animation by animating other random squares slide together with the form. Screen capture below shows what I mean:
 
    <p align="center">
 	  <img src="README_images/sign_in.gif" alt="animation for successful login" />
   </p>
 
+<br />
 This was done by mapping out square divs onto the page with random positions. They would start off invisible with the `opacity` set to 0.
 
-```
+```css
 .wrapper {
   .color_block_container {
     height: 20px;
@@ -535,10 +546,10 @@ This was done by mapping out square divs onto the page with random positions. Th
   }
 }
 ``` 
-
+<br />
 On successful login, class 'animate' is added to the wrapper - this triggers all divs with the class 'class_block' to be animated with the 'slide' keyframe. Controlling the animation by toggling classes on the parent div saved me from attaching new classes to each child divs, which would have required some sort of loop. With this animation I also altered the width of the div, which creates the illusion of the divs blurring due to high speed.
 
-```
+```css
 .wrapper.animate {
   .color_block {
     position: relative;
@@ -554,13 +565,14 @@ On successful login, class 'animate' is added to the wrapper - this triggers all
 }
 ```
 
-The buttons were given hover effects inspired by glitchy offset effect which I had applied to the website logo. This was achieved by applying separate keyframe animation to pseudo elements. The pseudo elements were coloured in blue and pink, but were only visible during the hover animation because they were styled with `  mix-blend-mode: color-burn;`.
+<br />
+The buttons were given hover effects inspired by the glitchy offset effect which I had applied to the website logo. This was achieved by applying separate keyframe animation to pseudo elements. The pseudo elements were coloured in blue and pink, but were only visible during the hover animation because they were styled with `  mix-blend-mode: color-burn`.
 
    <p align="center">
 	  <img src="README_images/login_button.gif" alt="login button animation" />
   </p>
 
-```
+```css
 button:hover {
   animation: offset_zero 0.5s infinite;
 }
@@ -593,6 +605,8 @@ button:hover::after{
 
 ```
 
+<br />
+
 Similar styling and animation were applied to the registration form. Since the form was bigger than the login form, the keyframe animation was tweaked to accomodate this.
 
    <p align="center">
@@ -603,15 +617,15 @@ Similar styling and animation were applied to the registration form. Since the f
 
 #### Favouriting
 
-With the login functionality set up, it was easier to testing the various social interaction features. The favouriting functionality would work by recording the logged in user's id in the 'pics model' database under the 'favorited_by' field. I figured it would intuitive if favouriting and unfavouriting could be done with the same button, with the button being coloured differently to indicate if it has been favourited already or not. I displayed the number of favourites next to the button to make this even more obvious.
+With the login functionality set up, it was easier to test the various social interaction features. The favouriting functionality would work by recording the logged in user's ID in the 'pics model' database under the 'favorited_by' field. I figured it would be intuitive if favouriting and unfavouriting could be done with the same button, with the button being coloured differently to indicate if it has been favourited already or not. I displayed the number of favourites next to the button to make this even more obvious.
 
    <p align="center">
 	  <img src="README_images/like_unlike.gif" alt="favouriting and unfavouriting" />
   </p>
 
- As mentioned earlier, I had made separate definitions in the backend to trigger favouriting and unfavouriting - I controlled this by assigning these definitions to different buttons. Although the user only sees one button, a different button is actually displayed using a ternary operator below:
+ As mentioned earlier, I had made separate definitions in the back end to trigger favouriting and unfavouriting - I controlled this by assigning these definitions to different buttons. Although the user only sees one button, a different button is actually displayed using a ternary operator below:
 
-```
+```js
  !like ?
   <div 
     className="menu_button"
@@ -628,10 +642,10 @@ With the login functionality set up, it was easier to testing the various social
   </div>  
 
 ```
+<br />
+While building, I intially encountered a problem where the result of the button was not reflected until the page was refreshed (ie, the button did trigger the favouriting, but the result only reflected after refresh). This threw me for a while, but I was able to resolve by having the favouriting function update a 'likedNow' state, which I included in the dependency array for the `useEffect` below. 
 
-While building, I intially encountered a problem where result of the button was not reflected until the page was refreshed (ie, the button did trigger the favouriting, but the result was reflected on the page until a refresh). This threw me for a while, but I was able to resolve by having the favouriting function update a 'likedNow' state, which I included in the dependency array for the useEffect below. 
-
-```
+```js
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -647,7 +661,7 @@ While building, I intially encountered a problem where result of the button was 
   },[id, likedNow])
 ```  
 
-By doing this, the website would re-request data from the backend each time the favourite button was clicked, triggering a rerender. 
+By doing this, the website would re-request data from the back end each time the favourite button was clicked, triggering a rerender. 
 
 Similar approach worked for the follow/unfollow button. 
 
@@ -655,24 +669,25 @@ Similar approach worked for the follow/unfollow button.
 	  <img src="README_images/follow_unfollow.gif" alt="following and unfollowing" />
   </p>
 
-I also did something similar for the commment button, but instead of toggling it with uncomment button, I switched it with a grey-out button to indicate that no more comments could be added (users could only add one comment to each pixel art). 
+I also did something similar for the commment button, but instead of toggling it with uncomment button, I switched it with a greyed-out button to indicate that no more comments could be added (users could only add one comment to each pixel art). 
 
    <p align="center">
 	  <img src="README_images/commented.png" alt="comment button greyed out" />
   </p>
 
 This was done by having the website check if any of the existing comments were made by the user viewing the page. 
-```
+```js
   const commentedByUser = arr => {
     return arr.comments.filter(comment=>{
       return comment.owner.id === userId
     }).length > 0
   }
-
 ```
+
+<br />
 Once this was determined, it could be used to dictate which buttons would be displayed (the comment button would also be greyed out if the user was not logged in).
 
-```
+```js
  {!userId || commentedByUser(pic) ?
     <div className="menu_button inactive">
       <img src={comment} alt="speech bubble" />
@@ -685,7 +700,9 @@ Once this was determined, it could be used to dictate which buttons would be dis
     </div> 
   }                
 ```
-The comment can be deleted by clicking the delete button, which would only be displayed if the user's id matched the comment owner's id (ie, users can only delete comments they made themselves):
+
+<br />
+The comment can be deleted by clicking the delete button, which would only be displayed if the user's id matched the comment owner's id (ie, users can only delete their own comments):
 
    <p align="center">
 	  <img src="README_images/comments.png" alt="comment delete button" />
@@ -695,26 +712,28 @@ The comment can be deleted by clicking the delete button, which would only be di
 
 #### Connecting Pages with Database Relationships
 
-I had set up the backend so that the website could request data of all the drawing made by a particular user. Using this, I made a user profile page, which was essentially a gallery of that user's work. To this, I added section which also displayed art favourited by the user, and arwork created by other users followed by the user.
+I had set up the back end so that the website could request data of all the drawing made by a particular user. Using this, I made a user profile page, displaying that user's work. It also had a section displaying art favourited by the user, and another section for arwork created by other users followed by the user.
 
   <p align="center">
 	  <img src="README_images/feed.png" alt="user feed" />
   </p>
 
-
-Clicking the artwork would take you to the page showing the artwork on its own, displayed along with any comments added. Each user icon displayed on these page can be clicked through to show that user's feed, which would display their work, any art they have favourited and so on. Clicking on the category underneath the artwork would display a other artwork with the same category, so this is another way to find more work.
+<br />
+Clicking the artwork would take you to the page showing the artwork on its own, displayed along with any comments added. Each user icon displayed on these page can be clicked through to show that user's feed, which would display their work, any art they have favourited and so on. Clicking on the category underneath the artwork would display a other artwork with the same category, so this is another way to find more pixel art.
 
   <p align="center">
 	  <img src="README_images/image_display.png" alt="single image displayed" />
   </p>
 
-I also made a separate page to display a user's follower by clicking on 'followers' link on the top of the profile page. This displays list of users with selection of artwork by each of the users - these are also links, so users can explore the website and find even more users and artwork through this page.
+<br />
+I also made a separate page to display a user's follower by clicking on 'followers' link on the top of the profile page. This displays a list of users with selection of their artwork - these are also links, so users can explore the website and find even more users and artwork through this page.
 
    <p align="center">
 	  <img src="README_images/followers.png" alt="followers" />
   </p>
 
-Similar page was also made to dislay users followed by any given user - in other words, the website offers users the opportunity navigate around the website from various angle, made possible due to how the database is linked with various relationships.
+<br />
+Similar page was also made to dislay users followed by any given user - in other words, the website offers users the opportunity navigate around the website from various angle, made possible with the various relationships linking the database.
 
    <p align="center">
 	  <img src="README_images/following.png" alt="following" />
@@ -724,7 +743,7 @@ Similar page was also made to dislay users followed by any given user - in other
 
 ### Other Drawing Functions
 
-Having created the functionalities to enable users to share and interact with each other, I added further functionality in relation to creating pixel art.
+Having created the functionalities to enable users to share and interact with each other, I added further functionality for creating pixel art.
 
 There were two features I was keen to build - feature enabling users to upload files from their desktop, and feature to enable user to 'fork' someone else's artwork.
 
@@ -732,11 +751,11 @@ There were two features I was keen to build - feature enabling users to upload f
 
 #### Image Upload and Pixelation
 
-While creating sample pixel art to populate the website, I felt it would be useful to add a feature to upload images, rather than limiting the user to create the artwork on the website. Even better, if a non-pixel art image could be uploaded and converted to pixel image, it could help users get started quicker. I researched ways to approach this, and came up with the following solution.
+While creating sample pixel art to populate the website, I felt it would be useful to add a feature to upload images, rather than limiting the user to create the artwork on the website. Even better, if a non-pixel art image could be uploaded and converted to pixel image, it could help users new to pixel art. I researched ways to approach this, and came up with the following solution.
 
-First, I made a function below, tied to an file input field. It converts uploaded file to a 'blob URL' and sets it to state.
+First, I made the function below, tied to an file input field. It converts uploaded file to a 'blob URL' and sets it to state.
 
-```
+```js
   const mapFromImage = e => {
     if (!e.target.files[0]) return
     const uploadedImage = e.target.files[0]
@@ -745,9 +764,11 @@ First, I made a function below, tied to an file input field. It converts uploade
   }
 
 ```
-Then, the blob URL set to set to state triggers an `useEffect` below. The blob URL is then assigned to an image created with the `Image()` constructor, then written onto the canvas using `drawImage()`. Once this is done, the drawing can be read using `getImageData()` - with this function, you can convert images into pixel data by specifying the coordinate and area of the image to be sampled. I created a loop to sample pixel data the uploaded image, referencing 256 coordinates. The array of 256 colour codes were then used to colour the grid, thus converting the uploaded image into a pixel art. 
 
-```
+<br />
+The blob URL set to state then triggers an `useEffect` below. The blob URL is assigned to an image created with the `Image()` constructor, then written onto the canvas using `drawImage()`. Once this is done, the drawing can be read using `getImageData()` - with this function, you can convert images into pixel data by specifying the coordinate and area of the image to be sampled. I created a loop to sample pixel data of the uploaded image, referencing 256 coordinates. The array of 256 colour codes were then used to colour the grid, thus converting the uploaded image into a pixel art. 
+
+```js
   React.useEffect(() => {
     if (!uploadedImageBlobUrl) return
 
@@ -774,26 +795,28 @@ Then, the blob URL set to set to state triggers an `useEffect` below. The blob U
     }
   }, [uploadedImageBlobUrl])
 ```
+<br />
+The catch was that the `getImageData()` returns a UintClampedArray, which is an array of rgba colour codes. What I needed instead was hex colour code. Fortunately, this was a common problem, so there were abundance of solutions online. I found an elegant snippet below on [this Stack Overflow thread](https://stackoverflow.com/questions/6735470/get-pixel-color-from-canvas-on-mousemove) which worked perfectly.
 
-The catch was that the `getImageData()` returns UintClampedArray, which is similar to the rgba colour code. What I needed instead was hex colour code. Fortunately, this was a common problem, so there were abundance of solutions online. I found an elegant snippet below on [this Stack Overflow thread](https://stackoverflow.com/questions/6735470/get-pixel-color-from-canvas-on-mousemove) which worked perfectly.
-
-```
+```js
   const rgbToHex = (r, g, b) => {
     if (r > 255 || g > 255 || b > 255)
       throw 'Invalid color component'
     return ((r << 16) | (g << 8) | b).toString(16)
   }
 ```  
-The function accepts each of the `rgb` value as the argument, so it is was combined with the `getImageData()` in the following manner:
 
-```
+<br />
+The function accepts each of the rgb value as the argument, so it is was combined with the `getImageData()` in the following manner:
+
+```js
   const c = ctx.getImageData(x + 5, y + 5, 1, 1).data
   const hex = '#' + ('000000' + rgbToHex(c[0], c[1], c[2])).slice(-6)
 ```
-
+<br />
 Finally, since `ctx.drawImage(image, 0, 0, 320, 320)` would distort the image if the user uploaded something that was not square, I replaced it with the following lines. This would keep the natural ratio of the image, and crop any excess instead. I used a conditional flow to determine where to crop, depending on if the image is landscape or portrait.
 
-```
+```js
     const width = image.naturalWidth 
     const height = image.naturalHeight 
     if (width < height){
@@ -806,6 +829,8 @@ Finally, since `ctx.drawImage(image, 0, 0, 320, 320)` would distort the image if
       ctx.drawImage(image, 0, 0, 320 * (width / height), 320)
     }
 ```      
+
+<br />
 Screen capture below shows this functionality in action:
 
 
@@ -821,26 +846,27 @@ Once rendered, the uploaded image can be edited by the user by clicking on each 
 
 #### Forking
 
-What if you could load any image they had favourited, and make their own copy which could be edited freely? This idea was inspired by the forking functionality in GitHub. The solution was surprisingly simpler compared to the image upload feature explained earlier.
+What if users could load any image they had favourited, and make their own copy which could be edited freely? This idea was inspired by the forking functionality in GitHub. The solution was surprisingly simple compared to the image upload feature explained earlier.
 
 Since I already had the function for mapping images using array of hex codes ('drawIntoGrid()'), I just needed a way to retrieve the array from the database so that I could pass it on this function.
 
-```
+```js
   const fork = forkedDots =>{
     drawIntoGrid(JSON.parse(forkedDots),drawingGrid)
     setDots(JSON.parse(forkedDots))
   }
 ```
-
+<br />
 I achieved this by mapping out the array containing user's favourited image. Within the mapping function,  I assigned the 'fork' function mentioned above to the `img` element, which allowed me to pass the array of hex code relating to the image directly to the function. I made a similar function for the colour palette as well, allowing users to load palettes relating to images they had favourited.
 
-```
+```js
   const mapOptions = arr =>{
     return arr.map(pic=>{
       return (
         <div key={`p${pic.id}`}
           className="palette_wrapper"
         >
+          //* fork function assigned to each img elements
           <img onClick ={()=>fork(pic.dots)}
             src={pic.image} alt={pic.title}
           />  
@@ -859,6 +885,7 @@ I achieved this by mapping out the array containing user's favourited image. Wit
   }
 ```
 
+<br />
 Screencapture below shows this feature in action:
 
   <p align="center">
@@ -869,14 +896,14 @@ Screencapture below shows this feature in action:
 
 #### Continuous Line and Remove Fill
 
-While using the drawing interface, I felt it would be easier to draw if I could click and drag to create a line rather than clicking repeatedly. I enabled this by introducing a state variable called 'draw' which is turned either `true` or `false`, toggled by `onMouseDown` and `onMouseUp`:
+While using the drawing interface, I felt it would be easier to draw if I could click and drag the mouse cursor to create a line rather than clicking each squares individually. I enabled this by introducing a state variable called 'draw' which is turned either `true` or `false`, toggled by `onMouseDown` and `onMouseUp`:
 
-```
+```js
   const drawOn = ()=> setDraw(true) 
   const drawOff = ()=> setDraw(false)
 ```
 
-```
+```js
 <div className="grid_wrapper"
   onMouseDown={drawOn}
   onMouseUp={drawOff}
@@ -886,9 +913,10 @@ While using the drawing interface, I felt it would be easier to draw if I could 
 </div>
 ```
 
-The 'draw' state would determine if the mouse stroke would trigger the squares to be coloured or not. In other words, user can draw by moving the mouse while clicked down, and stop drawing by releasing the mouse.
+<br />
+The 'draw' state would determine if the mouse stroke would trigger the squares to be coloured or not. In other words, users can draw by moving the mouse while clicked down, and stop drawing by releasing the mouse.
 
-```
+```js
   const drawDot = e =>{
     if (!draw) return
     e.target.style.backgroundColor = drawSetting.color
@@ -897,9 +925,10 @@ The 'draw' state would determine if the mouse stroke would trigger the squares t
   }
 ```
 
-Even with the above added, I left in the drawing function triggered by clicking each squares, since users may want to draw bit by bit aswell. Also, I enabled the user to remove fill colour by clicking on the square that is already filled. This is simply done by having the function check if the square has a `backgroundColor` already or not.
+<br />
+Even with the above added, I left in the drawing function triggered by clicking each squares, since users may want to draw bit by bit as well. Also, I enabled users to remove fill colour by clicking on the square that is already filled. This is simply done by having the function check if the square has a `backgroundColor` already or not.
 
-```
+```js
 const drawDotClick = e =>{
   const color = e.target.style.backgroundColor === '' ? drawSetting.color : ''
   e.target.style.backgroundColor = color
@@ -908,6 +937,7 @@ const drawDotClick = e =>{
 }
 ```  
 
+<br />
 Screen capture below shows these two functionalities in action:
 
   <p align="center">
@@ -918,7 +948,7 @@ Screen capture below shows these two functionalities in action:
 
 #### Undo
 
-I also attempted a function allowing users to undo what they have done. It works by recording the array of hex codes each time the user draws - this essentially creates an array of an array, which is set to state. Clicking the back button would fire a function which references the last recorded array of hex codes, and renders it on the grid. 
+I also attempted a function allowing users to undo what they have done. It works by setting to state the array of hex codes each time the user draws - this essentially creates an array of an array. Clicking the back button would fire the function which references the last recorded array of hex codes, and renders it on the grid. 
 
   <p align="center">
 	  <img src="README_images/undo.gif" width="500px" alt="undo button in action" />
@@ -930,7 +960,7 @@ It works fine for undoing few steps, but I found it buggy when I used it repeate
 
 #### Colour Palettes
 
-The final feature I would like to touch on is the colour palettes - the colour used on the grid is recorded each time the user draws. User can reuse a colour they have already used by clicking these palettes. Users can also select colours from the palette 'forked' from a drawing they have favourited.
+The final feature I would like to touch on is the colour palettes - the colour used on the grid is recorded each time the user draws. Users can reuse a colour they have already used by clicking these palettes. Users can also select colours from the palette 'forked' from a drawing they have favourited.
 
   <p align="center">
 	  <img src="README_images/palettes.png" alt="palettes featuring colours already used by the user, and palette 'forked' from other users' artwork" />
@@ -940,14 +970,14 @@ The final feature I would like to touch on is the colour palettes - the colour u
 
 ## Final Thoughts
 ### Wins and Challenges
-I had a lot of fun working on this project, as I was able to play with HTML canvas element and gain insight into how images are rendered and manipulated using drawing softwares. There were many more directions I could have taken, such as function to apply filter to the image by manipulating the hex codes (eg changing the image to black and white, or inverting colours). 
+I had a lot of fun working on this project, as I was able to play with the HTML canvas element and gain insight into how images are rendered and manipulated using drawing softwares. There were many more directions I could have taken, such as function to apply filter to the image by manipulating the hex codes (eg changing the image to black and white, or inverting colours). 
 
-In terms of dealing with the database, I felt I was doing a lot of heavy lifting in the frontend, since I am a lot more comfortable working with React and JavaScript rather than Python and Django. I think I could have changed the structure of the database to make it easier to retrieve what I needed in the front. This is something I could work on in the future. 
+In terms of dealing with the database, I felt I was doing a lot of heavy lifting in the front end, since I am currently more comfortable working with React and JavaScript compared to Python and Django. I think I could have changed the structure of the database to make it easier to retrieve what I needed in the front. This is something I could work on in the future. 
 
 <br />
 
 ### Key Learnings
-I feel I was able to take my animation skills even further with this project, by acquainting myself with the `useRef` hook. I struggled when I moved from vanilla JavaScript to React since some of my techniques using the DOM could not be used as is. When I realised that you could call direct reference to elements using  `userRef` and refer to each of its child elements with `.children[i]`, it opened up a lot of possibilities, which I explored when I made the animation for the Home page.
+I feel I was able to take my animation skills even further with this project, by acquainting myself with the `useRef` hook. I struggled when I moved from vanilla JavaScript to React since some of my techniques using the DOM could not be used as is. When I realised that you could call direct reference to elements using  `userRef` and refer to each of its child elements with `.children[i]`, it opened up a lot of possibilities, which I explored when I made the animation for the Home page, shown below:
 
   <p align="center">
 	  <img src="README_images/home.gif" alt="home page animation" />
@@ -957,4 +987,4 @@ In retrospect, I feel there is quite a lot of refactoring that could be done as 
 
 Overall, I believe the project help me level up rapidly, since it gave me an opportunity to think about and work on every aspect of the website.
 
-(Click [here](https://sixteensquared.herokuapp.com/) to see project)
+(Click [here](https://sixteensquared.herokuapp.com/) to see project.)
