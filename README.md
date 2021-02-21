@@ -796,7 +796,7 @@ The blob URL set to state then triggers an `useEffect` below. The blob URL is as
   }, [uploadedImageBlobUrl])
 ```
 <br />
-The catch was that the `getImageData()` returns a UintClampedArray, which is an array of rgba colour codes. What I needed instead was hex colour code. Fortunately, this was a common problem, so there were abundance of solutions online. I found an elegant snippet below on [this Stack Overflow thread](https://stackoverflow.com/questions/6735470/get-pixel-color-from-canvas-on-mousemove) which worked perfectly.
+The catch was that the `getImageData()` returns a UintClampedArray, which is an array of rgba colour codes. What I needed instead was hex colour code. Fortunately, this was a common problem, so there were abundance of solutions online. I found a nice snippet below on [this Stack Overflow thread](https://stackoverflow.com/questions/6735470/get-pixel-color-from-canvas-on-mousemove) which worked perfectly.
 
 ```js
   const rgbToHex = (r, g, b) => {
