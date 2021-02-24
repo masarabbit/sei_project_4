@@ -1,4 +1,4 @@
-# Project 4: Sixteensquared
+# Project 4: sixteensquared
 
 ## Index
 * [Overview](./README.md#overview)
