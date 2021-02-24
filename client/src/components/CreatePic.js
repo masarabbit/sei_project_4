@@ -128,7 +128,7 @@ function CreatePic(){
 
   const handleUpload = async e => { 
     e.preventDefault()
-    if ( e.target.classList.contains('deactivate')) return
+    if (e.target.classList.contains('deactivate')) return
     e.target.classList.add('deactivate')
 
     const drawnDots = dots.filter(dot=> dot)

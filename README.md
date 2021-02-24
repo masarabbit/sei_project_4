@@ -23,12 +23,15 @@
     * [Forking](./README.md#forking)
     * [Continuous Line and Remove Fill](./README.md#continuous-line-and-remove-fill)
     * [Colour Palettes](./README.md#colour-palettes)
+* [Notable Bugs](./README.md#notable-bugs)  
 * [Final Thoughts](./README.md#final-thoughts)
 	* [Wins and Challenges](./README.md#wins-and-challenges)
 	* [Key Learnings](./README.md#key-learnings)
 
+<br />
+<br />
 
-(Click [here](https://sixteensquared.herokuapp.com/) to see project.)
+Click [here](https://sixteensquared.herokuapp.com/) to see project.
 
 
 (* I have used American spelling for 'favourite' and 'color' through out the code for the website. This is because the coding language itself uses American spelling, for example 'color' in CSS. In this README I will be using the British spelling for these words, except when I am making direct references to codes and/or variables.)
@@ -968,6 +971,18 @@ The final feature I would like to touch on is the colour palettes - the colour u
 
 <br />
 
+## Notable Bugs
+
+There were many small bugs I encountered during production, but there was one significant bug I found relating to image upload. 
+
+After the user creates or edit a pixel art and click on the submit button, it takes a short while for the submission to go through. This is because in the background, the data from canvas is first uploaded to Cloudinary, then the site requests the URL of the uploaded image from Cloudinary so that it can be passed onto the database.
+
+Originally, there was a bug where the user could continue to submit images while the site was communicating with Cloudinary. This would happen if the user clicks on the submission button repeatedly while the image upload was taking place. To test how bad the issue was, I clicked the button as many times as I can, and managed to upload the same image 9 times - obviously not good!
+
+To fix this issue, I added a step to the upload function to add 'deactivate' class to the button. While the button has this class, the function will no longer fire when you click it. The 'deactivate' class is only removed if the submission fails, for example due to incomplete form detail (if the submission is successful, re-activation is no longer necessary because the user will be taken to a different page anyway).
+
+<br />
+
 ## Final Thoughts
 ### Wins and Challenges
 I had a lot of fun working on this project, as I was able to play with the HTML canvas element and gain insight into how images are rendered and manipulated using drawing softwares. There were many more directions I could have taken, such as function to apply filter to the image by manipulating the hex codes (eg changing the image to black and white, or inverting colours). 
@@ -987,4 +1002,4 @@ In retrospect, I feel there is quite a lot of refactoring that could be done as 
 
 Overall, I believe the project help me level up rapidly, since it gave me an opportunity to think about and work on every aspect of the website.
 
-(Click [here](https://sixteensquared.herokuapp.com/) to see project.)
+Click [here](https://sixteensquared.herokuapp.com/) to see project.
