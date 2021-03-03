@@ -953,6 +953,7 @@ canvas.dots {
     display: flex;
     flex-wrap: wrap;
     margin: 0 5px;
+    width: 100%;
   }
 
   .index {
@@ -983,6 +984,7 @@ canvas.dots {
     .user_index_container {
       margin: 0;
       flex-wrap: nowrap;
+      width: auto;
 
       .index {
         margin: 5px;
