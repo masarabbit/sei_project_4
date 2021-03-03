@@ -78,10 +78,12 @@ function Following(){
               {artist.username}
             </div>  
           </div>  
-          {
-            pics && 
-              mapPics(artist.id)
-          }
+          <div className="user_index_container">
+            {
+              pics && 
+                mapPics(artist.id)
+            }
+          </div>
         </div>  
       )
     })
