@@ -329,13 +329,6 @@ a {
 
 
 
-nav {
-  // border: 1px solid blue;
-  height: $nav_height;
-  display: flex;
-  align-items: center;
-  padding: 30px;
-}
 
 .link_menu {
   // border: red 1px solid;
@@ -383,55 +376,6 @@ nav {
   align-content: flex-start;
 }
 
-.feed_wrapper {
-  padding: 10px 0 20px 0;
-  height: auto;
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  .index.small {
-    width: calc(100% / 6 - 44px);
-    margin: 22px;
-    padding: 8px;
-  }
-
-}
-
-
-.index {
-  border: 2px solid $light_blue;
-  padding: 15px;
-  width: calc(25% - 44px);
-  margin: 22px;
-  // height: 200px;
-  
-  .index_palette {
-    margin: 10px 0 0 0;
-    width: 100%;
-    display: flex;
-
-    div {
-      // height: 30px;
-      padding: calc(1 / 16 * 100%);
-      width: calc(100% / 8);
-    }
-  }
-
-
-  img {
-    width: 100%;
-    height: auto;
-    // background-color: white;
-  }
-
-  // img:hover {
-  //   position: relative;
-  //   animation: bop infinite 0.5s;
-  // }
-  
-}
 
 .wrapper {
   height: calc(100vh - 80px);
@@ -492,6 +436,7 @@ nav {
 
 .wrapper.artist_profile {
   justify-content: flex-start;
+  height: auto;
 }
 
 .pic_info {
@@ -945,19 +890,167 @@ canvas.dots {
   }
 }
 
-@keyframes slide{
-  0% {width: 100px; margin-left:-100vh; opacity: 0}
-  40% {margin-left:-20px; width: 100%; opacity: 1}
-  70% {width: 100%; margin-left:0}
-  100% {width: 2000px; margin-left: 100vh;}
+
+@media screen and (min-width:0px) {
+
+
+  nav {
+    height: $nav_height;
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+  }
+
+.feed_wrapper {
+  margin: 10px 0 0 0;
+  padding: 10px 0 20px 0;
+  height: auto;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  
+  .index.small {
+    width: calc(50% - 22px);
+    margin: 11px;
+    padding: 8px;
+  }
+
 }
 
-@keyframes blowup{
-  0% {width: 20px; height: 20px; margin-bottom:-100vh; opacity: 0}
-  40% {width: 20px; height: 20px; margin-bottom: 0; opacity: 1}
-  70% {width: 20px; height: 20px; margin-bottom: 0;}
-  100% {width: 300px; height: 300px; margin-bottom: 150vh; opacity: 1}
+.index {
+  border: 2px solid $light_blue;
+  padding: 15px;
+  width: calc(50% - 22px);
+  margin: 11px;
+  // height: 200px;
+  
+  .index_palette {
+    margin: 10px 0 0 0;
+    width: 100%;
+    display: flex;
+
+    div {
+      // height: 30px;
+      padding: calc(1 / 16 * 100%);
+      width: calc(100% / 8);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    // background-color: white;
+  }
+  
 }
 
+.user_list {
+  flex-direction: column;
+
+  .user_index_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 5px;
+  }
+
+  .index {
+    margin: 5px;
+    width: calc(50% - 10px);
+    // padding: 0px;
+    padding: calc((1 / 16) * 25%);
+    border: 0;
+    img {
+      height: auto;
+      width: 100%;
+    }
+    img:hover {
+      position: relative;
+      animation: bop infinite 0.5s;
+      cursor: pointer;
+    }
+  }
+}
+
+}
+
+@media screen and (min-width:450px) {
+
+  .user_list {
+    flex-direction: row;
+
+    .user_index_container {
+      margin: 0;
+      flex-wrap: nowrap;
+
+      .index {
+        margin: 5px;
+        width: 70px;
+        height: 70px;
+        padding: 0;
+        border: 0;
+    }
+  }
+
+}
+
+}  
+
+
+
+@media screen and (min-width:600px) {
+
+  nav {
+    height: $nav_height;
+    padding: 30px;
+  }
+
+
+  .user_list {
+
+    .user_index_container {
+      .index {
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+    }
+  }
+
+}
+
+.feed_wrapper {
+  .index.small {
+    width: calc(100% / 4 - 44px);
+    margin: 22px;
+    padding: 8px;
+  }
+}
+
+.index {
+  padding: 15px;
+  width: calc((100% / 3) - 44px);
+  margin: 22px;
+}
+}  
+
+
+@media screen and (min-width:700px) {
+  .feed_wrapper {
+    .index.small {
+      width: calc(100% / 6 - 44px);
+      margin: 22px;
+      padding
+      : 8px;
+    }
+  }
+
+  .index {
+    padding: 15px;
+    width: calc(25% - 44px);
+    margin: 22px;
+  }
+
+}  
 
 

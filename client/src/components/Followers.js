@@ -78,10 +78,13 @@ function Followers(){
               {follower.username}
             </div>  
           </div>  
-          {
-            pics &&
-              mapPics(follower.id)
-          }
+          <div className="user_index_container">
+            {
+              pics &&
+            
+                mapPics(follower.id)
+            }
+          </div>  
         </div>  
       )
     })

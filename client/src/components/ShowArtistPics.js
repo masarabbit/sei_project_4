@@ -12,7 +12,7 @@ function ShowArtistPics (){
   const [artistData,setArtistData] = React.useState(null)
   const [error,setError] = React.useState(false)
   const [followedNow, setFollowedNow]  = React.useState(null)
-  const [picCounter, setPicCounter] = React.useState(0)
+  const [picCounter, setPicCounter] = React.useState(null)
   let idN = 0
 
   const userId = getUserId()
@@ -43,21 +43,31 @@ function ShowArtistPics (){
       )
     })
   }
-
+  
+  React.useEffect(() => {
+    if (!picCounter) return
+    const timer = setTimeout(()=>{
+      setPicCounter(picCounter + 1)
+    },80)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [picCounter])
 
   const mapPics = (pics, subclass) => {
     if (picCounter <= pics.length){
-      setTimeout(()=>{
-        setPicCounter(picCounter + 1)
-      },80)
+      setPicCounter(picCounter + 1)
     }
     return pics.filter(pic=>{
       if (pics.indexOf(pic) <= picCounter) return pic
     }).slice(0,24).map(pic=>{
       return (
         <div 
-          key={pic.id}
           className={`index index_float_up ${subclass}`}
+          key={pic.id}
+          // style={{
+          //   animationDelay: `${i * 0.05}s`
+          // }}
         >  
           <Link to={`/pics/${pic.id}/`}>
             <img src={pic.image} alt={pic.title} className="bop" />
@@ -109,11 +119,11 @@ function ShowArtistPics (){
             <div className="feed_wrapper">
               {mapPics(artistData.createdPic,'')}
             </div>  
-
+            
             <Feed 
               username={artistData.username}
               userId={artistData.id}
-              mapPics={mapPics}
+              mapColorPalette={mapColorPalette}
             />
           </div>     
           :

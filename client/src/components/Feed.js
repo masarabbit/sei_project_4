@@ -1,12 +1,11 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { getAllPics } from '../lib/api'
-// import { getUserId } from '../lib/auth'
 
-function Feed({ username, userId, mapPics }){
+function Feed({ username, userId, mapColorPalette }){
   const [error, setError] = React.useState(false)
-  // const [picCounter, setPicCounter] = React.useState(0)
+  const [picCounter, setPicCounter] = React.useState(null)
   // const [pics, setPics] = React.useState(null)
   const [filteredPicsFollowed, setFilteredPicsFollowed] = React.useState([])
   const [filteredPicsFavorited, setFilteredPicsFavorited] = React.useState([])
@@ -53,7 +52,44 @@ function Feed({ username, userId, mapPics }){
     }
     getData()
   },[user])
+  
 
+
+  React.useEffect(() => {
+    if (!picCounter) return
+    const timer = setTimeout(()=>{
+      setPicCounter(picCounter + 1)
+    },80)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [picCounter])
+
+  const mapPics = (pics, subclass) => {
+    if (picCounter <= pics.length){
+      setPicCounter(picCounter + 1)
+    }
+    return pics.filter(pic=>{
+      if (pics.indexOf(pic) <= picCounter) return pic
+    }).slice(0,24).map(pic=>{
+      return (
+        <div 
+          className={`index index_float_up ${subclass}`}
+          key={pic.id}
+          // style={{
+          //   animationDelay: `${i * 0.05}s`
+          // }}
+        >  
+          <Link to={`/pics/${pic.id}/`}>
+            <img src={pic.image} alt={pic.title} className="bop" />
+          </Link>
+          <div className="index_palette fade_in">
+            {mapColorPalette(pic)}
+          </div>  
+        </div>  
+      )
+    })
+  }
 
 
   return (
@@ -99,8 +135,7 @@ function Feed({ username, userId, mapPics }){
           error ?
             <p>hmm... error...</p>
             :
-            null
-      
+            null 
       }
 
     

@@ -71,7 +71,7 @@
         margin-top: 200vh; 
         background-color: $light_blue; 
         border-color: $light_blue;
-     }
+    }
   70% { 
         margin-top: -5vh; 
         background-color: $light_blue;
@@ -416,4 +416,19 @@
   }
 
 
+}
+
+
+@keyframes slide{
+  0% {width: 100px; margin-left:-100vh; opacity: 0}
+  40% {margin-left:-20px; width: 100%; opacity: 1}
+  70% {width: 100%; margin-left:0}
+  100% {width: 2000px; margin-left: 100vh;}
+}
+
+@keyframes blowup{
+  0% {width: 20px; height: 20px; margin-bottom:-100vh; opacity: 0}
+  40% {width: 20px; height: 20px; margin-bottom: 0; opacity: 1}
+  70% {width: 20px; height: 20px; margin-bottom: 0;}
+  100% {width: 300px; height: 300px; margin-bottom: 150vh; opacity: 1}
 }
