@@ -992,7 +992,7 @@ In terms of dealing with the database, I felt I was doing a lot of heavy lifting
 <br />
 
 ### Key Learnings
-I feel I was able to take my animation skills even further with this project, by acquainting myself with the `useRef` hook. I struggled when I moved from vanilla JavaScript to React since some of my techniques using the DOM could not be used as is. When I realised that you could call direct reference to elements using  `userRef` and refer to each of its child elements with `.children[i]`, it opened up a lot of possibilities, which I explored when I made the animation for the Home page, shown below:
+I feel I was able to take my animation skills even further with this project, by acquainting myself with the `useRef` hook. I struggled when I moved from vanilla JavaScript to React since some of my techniques using the DOM could not be used as is. When I realised that you could call direct reference to elements using  `useRef` and refer to each of its child elements with `.children[i]`, it opened up a lot of possibilities, which I explored when I made the animation for the Home page, shown below:
 
   <p align="center">
 	  <img src="README_images/home.gif" alt="home page animation" />
