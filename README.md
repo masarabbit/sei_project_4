@@ -31,7 +31,7 @@
 <br />
 <br />
 
-Click [here](https://sixteensquared.herokuapp.com/) to see project.
+Click [here](https://sixteensquared.onrender.com/) to see project.
 
 
 (* I have used American spelling for 'favourite' and 'color' through out the code for the website. This is because the coding language itself uses American spelling, for example 'color' in CSS. In this README I will be using the British spelling for these words, except when I am making direct references to codes and/or variables.)
@@ -1002,4 +1002,4 @@ In retrospect, I feel there is quite a lot of refactoring that could be done as 
 
 Overall, I believe the project help me level up rapidly, since it gave me an opportunity to think about and work on every aspect of the website.
 
-Click [here](https://sixteensquared.herokuapp.com/) to see project.
+Click [here](https://sixteensquared.onrender.com/) to see project.
