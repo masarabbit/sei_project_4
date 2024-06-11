@@ -167,6 +167,7 @@ function CreatePic(){
   
   const handleSubmit = async () => {  
     const palette = filterPalette(dots)
+    console.log('test', drawingUrl)
     try {
       await createPic({ 
         title: formdata.title, 
