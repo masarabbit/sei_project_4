@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-# import django_on_heroku
+import django_on_heroku
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -181,4 +181,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'client', "build", "static"),
 )
 
-# django_on_heroku.settings(locals())
+django_on_heroku.settings(locals())
